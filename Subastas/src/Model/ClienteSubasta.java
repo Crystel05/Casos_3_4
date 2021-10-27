@@ -32,6 +32,34 @@ public class ClienteSubasta {
     public void unirseASubasta(int idSubasta){
 
     }
+
+    public void verSubastas(){
+
+    }
+
+    public void sendRequest(){
+
+    }
+
+    public void crearSubasta(){
+
+    }
+
+    public void cerrarSubasta(){
+
+    }
+
+    public void cancelarSubasta(){
+
+    }
+
+    public void felicitacionGanador(){
+
+    }
+    
+    public void aceptarOferta(){
+
+    }
 }
 
 //Se levanta el servidor
