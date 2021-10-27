@@ -14,7 +14,7 @@ public class ClienteSubasta {
     ArrayList<Subasta> subastasSuscritas;
 
     public ClienteSubasta(String nickName){
-        nickName = nickName;
+        this.nickName = nickName;
         subastasHechas = new ArrayList<>();
         subastasSuscritas = new ArrayList<>();
     }
@@ -30,6 +30,16 @@ public class ClienteSubasta {
     }
     
     public void unirseASubasta(int idSubasta){
-        
+
     }
 }
+
+//Se levanta el servidor
+//Se inicia la aplicacion
+//Los clientes crean subastas(Tienen una referencia de las subastas que crearon)
+//Los cliente se suscriben a subastas(Tienen una referencia a las subastas suscritas)
+//Las subastas guardan la referencia de su cliente
+//Los clientes hacen una puja a una subasta
+//La subasta notifica a todos sus clientes suscritos
+//El cliente termina una subasta
+//La subasta avisa a todos sus clientes

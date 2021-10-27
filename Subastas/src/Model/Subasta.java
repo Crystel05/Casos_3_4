@@ -9,7 +9,7 @@ import java.util.Date;
 public class Subasta {
 
     int subastaId;
-    ArrayList<IObserver> oferentes;
+    ArrayList<ClienteSubasta> oferentes;
     Producto producto;
     Date inicio;
     Date fin;
@@ -19,7 +19,7 @@ public class Subasta {
         return subastaId;
     }
 
-    public ArrayList<IObserver> getOferentes() {
+    public ArrayList<ClienteSubasta> getOferentes() {
         return oferentes;
     }
 
