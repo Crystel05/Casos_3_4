@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="contenedor" prefHeight="529.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.Subastar">
+   <children>
+      <Text layoutX="326.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subastador">
+         <font>
+            <Font name="Bodoni MT Black" size="36.0" />
+         </font>
+      </Text>
+      <Pane layoutY="86.0" prefHeight="443.0" prefWidth="857.0" visible="false">
+         <children>
+            <Button layoutX="85.0" layoutY="143.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="292.0" text="CREAR SUBASTA">
+               <font>
+                  <Font name="Bauhaus 93" size="32.0" />
+               </font>
+            </Button>
+            <Button layoutX="463.0" layoutY="294.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="292.0" text="VER SUBASTAS">
+               <font>
+                  <Font name="Bauhaus 93" size="32.0" />
+               </font>
+            </Button>
+            <Button disable="true" layoutX="85.0" layoutY="294.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="292.0">
+               <font>
+                  <Font name="Bauhaus 93" size="32.0" />
+               </font>
+            </Button>
+            <Button disable="true" layoutX="463.0" layoutY="143.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="292.0">
+               <font>
+                  <Font name="Bauhaus 93" size="32.0" />
+               </font>
+            </Button>
+            <ComboBox layoutX="326.0" layoutY="38.0" prefHeight="31.0" prefWidth="206.0" />
+            <Text layoutX="368.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subastadores">
+               <font>
+                  <Font name="Berlin Sans FB" size="22.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutY="87.0" prefHeight="443.0" prefWidth="857.0" visible="false">
+         <children>
+            <Text layoutX="315.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear subasta">
+               <font>
+                  <Font name="Book Antiqua" size="25.0" />
+               </font>
+            </Text>
+            <Text layoutX="57.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producto" />
+            <Text layoutX="57.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subasta" />
+            <Text layoutX="109.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+            <TextField layoutX="178.0" layoutY="92.0" />
+            <TextField layoutX="479.0" layoutY="92.0" />
+            <Text layoutX="391.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción" />
+            <Text layoutX="304.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imagen" />
+            <Button layoutX="382.0" layoutY="155.0" mnemonicParsing="false" text="Seleccionar" />
+            <Text layoutX="390.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción" />
+            <TextField layoutX="177.0" layoutY="243.0" />
+            <Text layoutX="108.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+            <TextField layoutX="485.0" layoutY="242.0" />
+            <Text layoutX="108.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio" />
+            <TextField layoutX="485.0" layoutY="298.0" />
+            <TextField layoutX="177.0" layoutY="299.0" />
+            <Text layoutX="390.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Final" />
+            <Button layoutX="335.0" layoutY="370.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="140.0" text="Crear" />
+         </children>
+      </Pane>
+      <Pane layoutY="86.0" prefHeight="443.0" prefWidth="857.0">
+         <children>
+            <Text layoutX="358.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ver subastas">
+               <font>
+                  <Font name="Book Antiqua" size="25.0" />
+               </font>
+            </Text>
+            <ComboBox layoutX="353.0" layoutY="44.0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" promptText="subastas" />
+            <Pane layoutY="83.0" prefHeight="359.0" prefWidth="857.0">
+               <children>
+                  <Text layoutX="390.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subasta">
+                     <font>
+                        <Font name="Book Antiqua" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="32.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
+                  <Text layoutX="32.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                  <Text layoutX="32.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción" />
+                  <Text layoutX="125.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subasta1" />
+                  <Text layoutX="125.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activa" />
+                  <Text layoutX="32.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio" />
+                  <Text layoutX="125.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10-10" />
+                  <Text layoutX="32.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fin" />
+                  <Text layoutX="125.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12-10" />
+                  <ImageView fitHeight="113.0" fitWidth="151.0" layoutX="257.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" />
+                  <TextArea layoutX="428.0" layoutY="94.0" prefHeight="146.0" prefWidth="166.0" text="luis--100&#10;pedro -- 90" />
+                  <Text layoutX="451.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ofertas aceptadas" />
+                  <Text layoutX="307.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imagen" />
+                  <Text layoutX="627.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ofertas por aceptar" />
+                  <TextArea layoutX="608.0" layoutY="97.0" prefHeight="113.0" prefWidth="166.0" text="juan 110&#10;" />
+                  <ComboBox layoutX="616.0" layoutY="228.0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" promptText="ofertas" />
+                  <Button layoutX="652.0" layoutY="290.0" mnemonicParsing="false" text="X" />
+                  <Button layoutX="709.0" layoutY="290.0" mnemonicParsing="false" text="X" />
+                  <Button layoutX="275.0" layoutY="290.0" mnemonicParsing="false" text="Cerrar subasta" />
+                  <Button layoutX="445.0" layoutY="290.0" mnemonicParsing="false" text="Cancelar subasta" />
+                  <TextArea editable="false" layoutX="119.0" layoutY="111.0" prefHeight="42.0" prefWidth="115.0" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</Pane>
