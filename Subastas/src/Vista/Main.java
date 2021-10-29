@@ -21,7 +21,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("FXMLS/principal.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("FXMLS/Felicitacion.fxml")));
         primaryStage.setScene(new Scene(root));
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setResizable(false);

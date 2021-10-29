@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="contenedor" prefHeight="570.0" prefWidth="954.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.Comprador">
+   <children>
+      <Text layoutX="374.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comprador">
+         <font>
+            <Font name="Bodoni MT Black" size="36.0" />
+         </font>
+      </Text>
+      <ComboBox layoutX="221.0" layoutY="106.0" prefHeight="31.0" prefWidth="195.0" />
+      <Text layoutX="255.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compradores">
+         <font>
+            <Font name="Book Antiqua" size="21.0" />
+         </font>
+      </Text>
+      <Pane layoutY="145.0" prefHeight="425.0" prefWidth="954.0">
+         <children>
+            <TextArea editable="false" layoutX="163.0" layoutY="107.0" prefHeight="73.0" prefWidth="143.0" />
+            <Text layoutX="418.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imagen" />
+            <ImageView fitHeight="125.0" fitWidth="185.0" layoutX="360.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true" />
+            <Text layoutX="163.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12-10" />
+            <Text layoutX="76.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fin" />
+            <Text layoutX="163.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10-10" />
+            <Text layoutX="76.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio" />
+            <Text layoutX="162.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activa" />
+            <Text layoutX="169.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subasta1" />
+            <Text layoutX="75.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción" />
+            <Text layoutX="76.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+            <Text layoutX="73.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
+            <Text layoutX="441.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subasta">
+               <font>
+                  <Font name="Book Antiqua" size="21.0" />
+               </font>
+            </Text>
+            <Text layoutX="76.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tope" />
+            <Text layoutX="160.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10 000" />
+            <Button layoutX="409.0" layoutY="353.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="136.0" text="Unirse" />
+            <TextField layoutX="648.0" layoutY="195.0" />
+            <Text layoutX="718.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ofertar" />
+            <Button layoutX="689.0" layoutY="236.0" mnemonicParsing="false" text="Enviar oferta" />
+         </children>
+      </Pane>
+      <Text layoutX="598.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subastas">
+         <font>
+            <Font name="Book Antiqua" size="21.0" />
+         </font>
+      </Text>
+      <ComboBox layoutX="538.0" layoutY="108.0" prefHeight="31.0" prefWidth="195.0" />
+   </children>
+</Pane>
