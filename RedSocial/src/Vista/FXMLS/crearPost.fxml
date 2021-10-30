@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="contenedor" prefHeight="305.0" prefWidth="484.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.CrearPost">
+   <children>
+      <TextArea fx:id="post" layoutX="60.0" layoutY="71.0" prefHeight="163.0" prefWidth="364.0" />
+      <Text layoutX="145.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NUEVO POST">
+         <font>
+            <Font name="Bodoni MT Black" size="27.0" />
+         </font>
+      </Text>
+      <Button layoutX="183.0" layoutY="244.0" mnemonicParsing="false" onAction="#publicar" text="PUBLICAR">
+         <font>
+            <Font name="Bauhaus 93" size="21.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="118.0" fitWidth="30.0" layoutX="440.0" layoutY="14.0" onMouseClicked="#cerrar" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imágenes/cerrar.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
