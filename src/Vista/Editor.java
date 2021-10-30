@@ -1,9 +1,14 @@
 package Vista;
 
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.TextFlow;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
+import java.io.File;
 
 public class Editor {
 
@@ -20,7 +25,12 @@ public class Editor {
 
     @FXML
     public void abir(MouseEvent event){
-
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Escoger imagen");
+        Node source = (Node) event.getSource();
+        Stage stageActual = (Stage) source.getScene().getWindow();
+        File file = fileChooser.showOpenDialog(stageActual);
+        String rutaArchivo = file.getAbsolutePath();
     }
 
     @FXML
