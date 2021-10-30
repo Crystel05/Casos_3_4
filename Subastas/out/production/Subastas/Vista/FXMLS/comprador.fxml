@@ -13,44 +13,104 @@
             <Font name="Bodoni MT Black" size="36.0" />
          </font>
       </Text>
-      <ComboBox layoutX="221.0" layoutY="106.0" prefHeight="31.0" prefWidth="195.0" />
-      <Text layoutX="255.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compradores">
+      <ComboBox fx:id="compradoresCB" layoutX="221.0" layoutY="112.0" prefHeight="31.0" prefWidth="195.0" />
+      <Text layoutX="255.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compradores">
          <font>
             <Font name="Book Antiqua" size="21.0" />
          </font>
       </Text>
       <Pane layoutY="145.0" prefHeight="425.0" prefWidth="954.0">
          <children>
-            <TextArea editable="false" layoutX="163.0" layoutY="107.0" prefHeight="73.0" prefWidth="143.0" />
-            <Text layoutX="418.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imagen" />
-            <ImageView fitHeight="125.0" fitWidth="185.0" layoutX="360.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true" />
-            <Text layoutX="163.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12-10" />
-            <Text layoutX="76.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fin" />
-            <Text layoutX="163.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10-10" />
-            <Text layoutX="76.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio" />
-            <Text layoutX="162.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activa" />
-            <Text layoutX="169.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subasta1" />
-            <Text layoutX="75.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción" />
-            <Text layoutX="76.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
-            <Text layoutX="73.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
-            <Text layoutX="441.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subasta">
+            <TextArea fx:id="descSubTA" editable="false" layoutX="169.0" layoutY="107.0" prefHeight="73.0" prefWidth="143.0">
                <font>
-                  <Font name="Book Antiqua" size="21.0" />
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></TextArea>
+            <Text layoutX="417.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imagen">
+               <font>
+                  <Font name="Elephant" size="19.0" />
+               </font></Text>
+            <ImageView fx:id="imagenSubI" fitHeight="125.0" fitWidth="185.0" layoutX="360.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true" />
+            <Text fx:id="finSubT" layoutX="169.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12-10">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <Text layoutX="59.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fin">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <Text fx:id="inicioSubT" layoutX="169.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10-10">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <Text layoutX="59.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <Text fx:id="statusSubT" layoutX="169.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activa">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <Text fx:id="nombreSubT" layoutX="169.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subasta1">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <Text layoutX="59.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <Text layoutX="59.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <Text layoutX="59.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <Text layoutX="440.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subasta">
+               <font>
+                  <Font name="Berlin Sans FB" size="22.0" />
                </font>
             </Text>
-            <Text layoutX="76.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tope" />
-            <Text layoutX="160.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10 000" />
-            <Button layoutX="409.0" layoutY="353.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="136.0" text="Unirse" />
-            <TextField layoutX="648.0" layoutY="195.0" />
-            <Text layoutX="718.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ofertar" />
-            <Button layoutX="689.0" layoutY="236.0" mnemonicParsing="false" text="Enviar oferta" />
+            <Text layoutX="59.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tope">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <Text fx:id="topeSubT" layoutX="169.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10 000">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <Button layoutX="409.0" layoutY="351.0" mnemonicParsing="false" onAction="#unirse" prefHeight="31.0" prefWidth="136.0" text="UNIRSE">
+               <font>
+                  <Font name="Elephant" size="15.0" />
+               </font></Button>
+            <TextField fx:id="ofertaTF" layoutX="648.0" layoutY="195.0">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></TextField>
+            <Text layoutX="716.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ofertar">
+               <font>
+                  <Font name="Elephant" size="19.0" />
+               </font></Text>
+            <Button layoutX="667.0" layoutY="234.0" mnemonicParsing="false" onAction="#enviarOferta" text="ENVIAR OFERTA">
+               <font>
+                  <Font name="Elephant" size="15.0" />
+               </font></Button>
+            <Text fx:id="mensaje" fill="#0c9754" layoutX="650.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font name="Bodoni MT Black" size="25.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
-      <Text layoutX="598.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subastas">
+      <Text layoutX="598.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subastas">
          <font>
             <Font name="Book Antiqua" size="21.0" />
          </font>
       </Text>
-      <ComboBox layoutX="538.0" layoutY="108.0" prefHeight="31.0" prefWidth="195.0" />
+      <ComboBox fx:id="subastasCB" layoutX="538.0" layoutY="114.0" onMouseClicked="#ver" prefHeight="31.0" prefWidth="195.0" />
+      <ImageView fitHeight="42.0" fitWidth="33.0" layoutX="907.0" layoutY="14.0" onMouseClicked="#cerrar" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/cerrar.png" />
+         </image></ImageView>
    </children>
 </Pane>
