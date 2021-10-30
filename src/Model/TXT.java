@@ -1,11 +1,9 @@
 package Model;
 
-import org.json.simple.JSONObject;
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+
 
 public class TXT {
     private String text = "";
@@ -34,7 +32,6 @@ public class TXT {
             while(caracterLeido!= -1) {
                 char caracter = (char) caracterLeido;
                 texto += caracter;
-//                System.out.print(caracter);
                 caracterLeido = fileReader.read();
             }
             this.text = texto;

@@ -80,7 +80,7 @@ public class JsonConfig {
             Object obj = jsonParser.parse(fileReader);
 
             JSONObject jsonObject = (JSONObject) obj;
-//            System.out.println(jsonObject);
+
             return jsonObject.get(typeFile.toString());
 
         }catch (IOException e){
@@ -92,5 +92,3 @@ public class JsonConfig {
         return null;
     }
 }
-
-// HOLA mundo
