@@ -17,7 +17,7 @@ public class PosColor {
     }
 
     public void setColor(Color color) {
-        this.color = color;
+            this.color = color;
     }
 
     public int getPosInicial() {

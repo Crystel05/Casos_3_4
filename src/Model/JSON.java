@@ -17,6 +17,10 @@ public class JSON {
         this.text += letter;
     }
 
+    public void setText(String texto){
+        this.text = texto;
+    }
+
     public void saveFile(){
         try{
             FileWriter file = new FileWriter("Prueba.json");
