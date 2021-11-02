@@ -1,16 +1,24 @@
 package Model;
 
+import org.json.simple.JSONObject;
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class TXT {
     private String text = "";
     public char[] letters = null;
+    private ArrayList<PosColor> posColors = new ArrayList<>();
 
     public void addLetter(Character letter){
         this.text += letter;
+    }
+
+    public void setText(String texto){
+        this.text = texto;
     }
 
     public void saveFile(){
@@ -41,26 +49,10 @@ public class TXT {
         }
     }
 
-//    public ArrayList getLetterConfig(int index, JSONObject jsonConfig){
-//        char letter = this.letters[index];
-//        ArrayList<String> letterColor = new ArrayList<>();
-//        String color = jsonConfig.get(Integer.toString(index)).toString();
-//        System.out.println(color);
-//        if (color != null){
-//            System.out.println("lskfhg");
-//        }
-////        if (jsonConfig.get(Integer.toString(index)).toString() == "rojo"){
-////            System.out.println("ALALALAL");
-////            color = jsonConfig.get(Integer.toString(index)).toString();
-////            System.out.println("Mm");
-////            System.out.println(color);
-////        }
-//
-//        letterColor.add(Character.toString(letter));
-//        letterColor.add(color);
-//        System.out.println(jsonConfig);
-//        return letterColor;
-//
-//    }
+    public ArrayList<PosColor> getPosColors(Object objectConfig){
+        int index = 0;
+        return  this.posColors;
+    }
+
 
 }

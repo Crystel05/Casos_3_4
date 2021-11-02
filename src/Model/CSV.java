@@ -14,6 +14,10 @@ public class CSV {
         this.text += letter;
     }
 
+    public void setText(String texto){
+        this.text = texto;
+    }
+
     public void saveFile(){
         try{
 
