@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.Editor">
+   <children>
+      <Pane prefHeight="65.0" prefWidth="911.0" style="-fx-background-color: GAINSBORO;">
+         <children>
+            <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="14.0" layoutY="5.0" onMouseClicked="#crear" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/nuevo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="96.0" layoutY="5.0" onMouseClicked="#abir" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/abrir.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="48.0" layoutX="190.0" layoutY="10.0" onMouseClicked="#guardar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/guardar.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="287.0" layoutY="8.0" onMouseClicked="#guardarComo" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/guardarComo.png" />
+               </image>
+            </ImageView>
+            <Text fill="#1a95ce" layoutX="393.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Color de texto">
+               <font>
+                  <Font name="Broadway" size="17.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="374.0" layoutY="33.0" onMouseClicked="#resaltar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/rojos.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="408.0" layoutY="33.0" onMouseClicked="#resaltar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/azul.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="444.0" layoutY="33.0" onMouseClicked="#resaltar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/verde.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="480.0" layoutY="33.0" onMouseClicked="#resaltar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/negro.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="519.0" layoutY="33.0" onMouseClicked="#resaltar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/morado.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="53.0" fitWidth="48.0" layoutX="572.0" layoutY="7.0" onMouseClicked="#copiar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/copiar.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="45.0" layoutX="665.0" layoutY="8.0" onMouseClicked="#cortar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/cortar.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="45.0" layoutX="754.0" layoutY="9.0" onMouseClicked="#pegar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/pegar.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="834.0" layoutY="17.0" onMouseClicked="#undo" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/undo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="31.0" layoutX="866.0" layoutY="16.0" onMouseClicked="#redo" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/redo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutY="65.0" prefHeight="478.0" prefWidth="911.0">
+         <children>
+            <TextArea fx:id="areaEscribir" prefHeight="172.0" prefWidth="911.0" />
+            <TextFlow fx:id="areaMostrar" layoutY="175.0" prefHeight="303.0" prefWidth="911.0" />
+            <Line endX="911.0" layoutY="173.0" stroke="#1a95ce" strokeWidth="3.0" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
