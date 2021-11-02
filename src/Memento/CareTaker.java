@@ -4,11 +4,21 @@ import java.util.ArrayList;
 
 public class CareTaker {
 
-    private ArrayList<Memento> estados = new ArrayList<>();
+    private ArrayList<Memento> estados;
     private int estadoActual;
+    private static CareTaker careTaker_singleton = null;
 
-    public CareTaker(int estadoActual) {
-        this.estadoActual = estadoActual;
+    private CareTaker() {
+        this.estados = new ArrayList<>();
+        this.estadoActual = 0;
+    }
+
+    public static CareTaker getInstance()
+    {
+        if (careTaker_singleton == null)
+            careTaker_singleton = new CareTaker();
+
+        return careTaker_singleton;
     }
 
     public void addEstados(Memento estado) {

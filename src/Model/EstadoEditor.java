@@ -1,16 +1,15 @@
 package Model;
-import javafx.geometry.Pos;
 
 import java.util.ArrayList;
 
 public class EstadoEditor {
 
     private String texto;
-    private ArrayList<PosColor> subrayado = new ArrayList<>();
+    private ArrayList<PosColor> colorLetra;
 
-    public EstadoEditor(String texto, ArrayList<PosColor> subrayado) {
+    public EstadoEditor(String texto, ArrayList<PosColor> colorLetra) {
         this.texto = texto;
-        this.subrayado = subrayado;
+        this.colorLetra = colorLetra;
     }
 
     public String getTexto() {
@@ -21,11 +20,11 @@ public class EstadoEditor {
         this.texto = texto;
     }
 
-    public ArrayList<PosColor> getSubrayado() {
-        return subrayado;
+    public ArrayList<PosColor> getColorLetra() {
+        return colorLetra;
     }
 
-    public void setSubrayado(ArrayList<PosColor> subrayado) {
-        this.subrayado = subrayado;
+    public void setColorLetra(ArrayList<PosColor> colorLetra) {
+        this.colorLetra = colorLetra;
     }
 }
