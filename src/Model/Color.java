@@ -3,7 +3,7 @@ package Model;
 public enum Color {
     AZUL,
     ROJO,
-    AMARILLO,
+    MORADO,
     VERDE,
-    NARANJA
+    NEGRO
 }
