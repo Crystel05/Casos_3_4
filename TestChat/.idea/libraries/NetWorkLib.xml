@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="NetWorkLib">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/Librerias/NetWorkLib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/NetWorkLib.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
