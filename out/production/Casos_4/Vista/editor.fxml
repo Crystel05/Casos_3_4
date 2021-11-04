@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -108,7 +109,8 @@
                   <Image url="@Imagenes/turquesa.png" />
                </image>
             </ImageView>
-            <ComboBox fx:id="tipoArchivo" layoutX="325.0" layoutY="21.0" prefHeight="25.0" prefWidth="95.0" />
+            <ComboBox fx:id="tipoArchivo" layoutX="325.0" layoutY="36.0" prefHeight="25.0" prefWidth="95.0" />
+            <TextField fx:id="nombreArchivo" layoutX="322.0" layoutY="5.0" />
          </children>
       </Pane>
       <Pane layoutY="63.0" prefHeight="687.0" prefWidth="1183.0">

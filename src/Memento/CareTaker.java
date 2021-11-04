@@ -10,7 +10,7 @@ public class CareTaker {
 
     private CareTaker() {
         this.estados = new ArrayList<>();
-        this.estadoActual = 0;
+        this.estadoActual = -1;
     }
 
     public static CareTaker getInstance()
@@ -23,6 +23,7 @@ public class CareTaker {
 
     public void addEstados(Memento estado) {
         this.estados.add(estado);
+        estadoActual++;
     }
 
     public Memento getMementoActual() {
@@ -30,24 +31,32 @@ public class CareTaker {
     }
 
     public Memento getSiguienteMemento() {
-        int newIndex = estadoActual +1;
-        if( newIndex >= estados.size()){
+
+//        System.out.println("estado actual"+estadoActual);
+        int newIndex = estadoActual+1;
+//        System.out.println("estado siguiente"+newIndex);
+        if (newIndex > estados.size()) {
+//            System.out.println("No mas indices adelante");
             return null;
         }
-
         estadoActual = newIndex;
-        return getMementoActual();
+        Memento mem = getMementoActual();
+        return mem;
     }
 
     public Memento getMementoAnterior() {
-        int newIndex = estadoActual-1;
 
-        if(newIndex  <= -1 || newIndex >= estados.size()-1){
-            return null;
+        int newIndex = estadoActual;
+        Memento mem = getMementoActual();
+        estadoActual = newIndex - 1;
+        if (estadoActual < 0) {
+//            System.out.println("No mas indices atras");
+            estadoActual = 0;
         }
-        estadoActual = newIndex;
-
-        return getMementoActual();
+        return mem;
     }
 
+    public ArrayList<Memento> getEstados() {
+        return estados;
+    }
 }

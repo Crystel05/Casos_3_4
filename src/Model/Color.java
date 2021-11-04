@@ -5,5 +5,9 @@ public enum Color {
     ROJO,
     MORADO,
     VERDE,
-    NEGRO
+    NEGRO,
+    CAFE,
+    AMARILLO,
+    TURQUEZA,
+    ANARANJADO
 }

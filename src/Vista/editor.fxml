@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -9,7 +15,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1183.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.Editor">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1183.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.Editor">
    <children>
       <Pane prefHeight="65.0" prefWidth="1183.0" style="-fx-background-color: GAINSBORO;">
          <children>
@@ -108,7 +114,8 @@
                   <Image url="@Imagenes/turquesa.png" />
                </image>
             </ImageView>
-            <ComboBox fx:id="tipoArchivo" layoutX="325.0" layoutY="21.0" prefHeight="25.0" prefWidth="95.0" />
+            <ComboBox fx:id="tipoArchivo" layoutX="325.0" layoutY="36.0" prefHeight="25.0" prefWidth="141.0" />
+            <TextField fx:id="nombreArchivo" layoutX="322.0" layoutY="5.0" />
          </children>
       </Pane>
       <Pane layoutY="63.0" prefHeight="687.0" prefWidth="1183.0">

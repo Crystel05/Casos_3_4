@@ -12,6 +12,9 @@ public class PosColor {
         this.posFinal = posFinal;
     }
 
+    public PosColor() {
+    }
+
     public Color getColor() {
         return color;
     }
