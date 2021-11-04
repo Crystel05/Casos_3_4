@@ -22,5 +22,12 @@ public class FileFactory {
 
     private String fileName;
 
+    public File getRequestedFile(FileType tipo){
+        switch (tipo){
+            case TXT:
+                return new File();
+        }
+    }
+
 
 }

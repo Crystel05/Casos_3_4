@@ -75,6 +75,8 @@ public class Editor implements Initializable {
             Stage stageActual = (Stage) source.getScene().getWindow();
             File file = fileChooser.showOpenDialog(stageActual);
             String rutaArchivo = file.getAbsolutePath();
+            //factory rip
+            
         }catch (NullPointerException ignored){}
 
     }
