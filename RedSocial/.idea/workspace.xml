@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4017b2d2-0e78-463f-ad80-db112e4148c1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Vista/CrearPost.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/FXMLS/crearPost.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/FXMLS/famosos.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/FXMLS/seguidores.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/Famosos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/Imágenes/cerrar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/Seguidores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="204BurcbFJVdzXvsKxiVHJwAzeZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Vista/Imágenes" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Crystel_Montero\Documents\Universidad\2021\II semestre\Diseño\Casos\Caso 3 y 4\Casos_3_4\Casos_3_4\RedSocial\src\Vista\Imágenes" />
+      <recent name="D:\Crystel_Montero\Documents\Universidad\2021\II semestre\Diseño\Casos\Caso 3 y 4\Casos_3_4\Casos_3_4\RedSocial\src\Vista" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Crystel_Montero\Documents\Universidad\2021\II semestre\Diseño\Casos\Caso 3 y 4\Casos_3_4\Casos_3_4\RedSocial\src\Vista\FXMLS" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Vista" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Vista.Main" />
+      <module name="RedSocial" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Vista.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4017b2d2-0e78-463f-ad80-db112e4148c1" name="Changes" comment="" />
+      <created>1635294204679</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635294204679</updated>
+      <workItem from="1635294205950" duration="2641000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
