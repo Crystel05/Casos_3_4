@@ -21,12 +21,17 @@ public class Post implements IObservable {
         this.owner = owner;
         this.content = content;
     }
+//
+//    @Override
+//    public void updateAll() {
+//        for (IObserver observer:seguidores) {
+//            observer.update(this);
+//        }
+//    }
 
     @Override
     public void updateAll() {
-        for (IObserver observer:seguidores) {
-            observer.update(this);
-        }
+
     }
 
     @Override

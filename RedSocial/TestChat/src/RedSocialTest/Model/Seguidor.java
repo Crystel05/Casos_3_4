@@ -77,9 +77,9 @@ public class Seguidor extends ConcreteObserver {
         getResponseSender().sendResponse(new LikesAlcanzados(cantidadDeLikes));
     }
 
-    @Override
-    public void update(IObservable postNotifier) throws IOException {
-        Post post = (Post) postNotifier;
-        likesResponse(post.getLikes());
-    }
+//    @Override
+//    public void update(IObservable postNotifier) throws IOException {
+//        Post post = (Post) postNotifier;
+//        likesResponse(post.getLikes());
+//    }
 }

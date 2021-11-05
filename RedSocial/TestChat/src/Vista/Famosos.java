@@ -1,12 +1,16 @@
 package Vista;
 
+import Network.Client.Client;
+import RedSocialTest.Model.Artista;
+import RedSocialTest.ProjectNetwork.SocialClientResponseHandler;
+import RedSocialTest.Requests.GetArtistasRequest;
+import RedSocialTest.Requests.GetDownRequest;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
@@ -19,9 +23,13 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Famosos implements Initializable, DragWindow {
+
+    private Client client = new Client("localhost", 6000, new SocialClientResponseHandler());
+    private ArrayList<Artista> artistas = new ArrayList<>();
 
     @FXML
     private Text likeT2;
@@ -59,6 +67,9 @@ public class Famosos implements Initializable, DragWindow {
     @FXML
     private TextArea mensaje2;
 
+    public Famosos() throws IOException, ClassNotFoundException {
+    }
+
 
     @FXML
     void cargarDatos(MouseEvent event) {
@@ -66,12 +77,12 @@ public class Famosos implements Initializable, DragWindow {
     }
 
     @FXML
-    void like(MouseEvent event) {
+    void like(MouseEvent event) {//quitar
 
     }
 
     @FXML
-    void dislike(MouseEvent event) {
+    void dislike(MouseEvent event) {//quitar
 
     }
 
@@ -87,8 +98,8 @@ public class Famosos implements Initializable, DragWindow {
     }
 
     @FXML
-    void darseBaja(ActionEvent event) {
-
+    void darseBaja(ActionEvent event) throws IOException, ClassNotFoundException {
+        client.request(new GetDownRequest());
     }
 
     @FXML
@@ -111,6 +122,12 @@ public class Famosos implements Initializable, DragWindow {
     public void initialize(URL location, ResourceBundle resources) {
         this.onDraggedScene(contenedor);
         ObservableList<String> nombresFamosos = FXCollections.observableArrayList();
+        //recorrer la lista de artistas y obtener el nombre
+        try {
+            client.request(new GetArtistasRequest());
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         famosos.setItems(nombresFamosos);
     }
 }

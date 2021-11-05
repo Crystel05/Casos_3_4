@@ -62,11 +62,11 @@ public class Artista extends ConcreteObserver {
     }
 
 
-    @Override
-    public void update(IObservable observable) throws IOException {
-        Post post = (Post) observable;
-        likesResponse(post.getLikes());
-    }
+//    @Override
+//    public void update(IObservable observable) throws IOException {
+//        Post post = (Post) observable;
+//        likesResponse(post.getLikes());
+//    }
 
     public boolean notFollowing(IObserver seguidorBuscado) {
         for (IObserver seguidor:seguidores) {

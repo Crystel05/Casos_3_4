@@ -9,7 +9,7 @@ import RedSocialTest.Enums.UserType;
 import Network.Request.IHandleRequest;
 import Network.Request.IRequest;
 import Network.Server.ServerRequestHandler;
-import RedSocialTest.Responses.TestResponse;
+//import RedSocialTest.Responses.TestResponse;
 
 import java.io.IOException;
 
@@ -22,12 +22,12 @@ public class SocialServerRequestHandler implements IHandleRequest {
             case CONNECT:{
                 ConnectionRequest connectcionRequest = (ConnectionRequest) request;
                 if(connectcionRequest.userType.equals(UserType.CELEBRITY)){
-                    requestHandler.addToClients(new Artista());
+//                    requestHandler.addToClients(new Artista());
 
                 }
                 else if(connectcionRequest.userType.equals(UserType.FOLLOWER)){
-                    requestHandler.addToClients2(new Seguidor());
-                    requestHandler.getResponseSender().sendResponse(new TestResponse("Welcome Follower"));
+//                    requestHandler.addToClients2(new Seguidor());
+//                    requestHandler.getResponseSender().sendResponse(new TestResponse("Welcome Follower"));
                 }
                 break;
             }

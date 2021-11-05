@@ -5,15 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4017b2d2-0e78-463f-ad80-db112e4148c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Vista/CrearPost.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/FXMLS/crearPost.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/FXMLS/famosos.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/FXMLS/seguidores.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/Famosos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/Imágenes/cerrar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/Seguidores.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/DislikeRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/FollowRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/GetArtistasRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/GetDownRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/LikeRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/Artista.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/Artista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/Seguidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/Seguidor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/ProjectNetwork/SocialClientResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/ProjectNetwork/SocialClientResponseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/ProjectNetwork/SocialServerRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/ProjectNetwork/SocialServerRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Responses/TestResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/CrearPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/Vista/CrearPost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/FXMLS/seguidores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/Vista/FXMLS/seguidores.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/Famosos.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/Vista/Famosos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/Seguidores.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/Vista/Seguidores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Subastas/src/Vista/FXMLS/subastar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Subastas/src/Vista/FXMLS/subastar.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,11 +58,15 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Vista" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Crystel_Montero\Documents\Universidad\2021\II semestre\Diseño\Casos\Caso 3 y 4\Casos_3_4\Casos_3_4\RedSocial\src\Vista\Imágenes" />
       <recent name="D:\Crystel_Montero\Documents\Universidad\2021\II semestre\Diseño\Casos\Caso 3 y 4\Casos_3_4\Casos_3_4\RedSocial\src\Vista" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Crystel_Montero\Documents\Universidad\2021\II semestre\Diseño\Casos\Caso 3 y 4\Casos_3_4\Casos_3_4\RedSocial\TestChat\src" />
       <recent name="D:\Crystel_Montero\Documents\Universidad\2021\II semestre\Diseño\Casos\Caso 3 y 4\Casos_3_4\Casos_3_4\RedSocial\src\Vista\FXMLS" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -63,11 +75,13 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Vista.Main" />
-      <module name="RedSocial" />
+      <module name="NetWork" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Vista.*" />
+          <option name="PATTERN" value="RedSocialTest.Requests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

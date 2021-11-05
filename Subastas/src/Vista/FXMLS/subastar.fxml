@@ -13,7 +13,7 @@
             <Font name="Bodoni MT Black" size="36.0" />
          </font>
       </Text>
-      <Pane fx:id="panelOpciones" layoutY="86.0" prefHeight="443.0" prefWidth="857.0">
+      <Pane fx:id="panelOpciones" layoutY="86.0" prefHeight="443.0" prefWidth="857.0" visible="false">
          <children>
             <Button layoutX="85.0" layoutY="143.0" mnemonicParsing="false" onAction="#crearSubasta" prefHeight="79.0" prefWidth="292.0" text="CREAR SUBASTA">
                <font>
@@ -125,7 +125,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="panelVer" layoutY="86.0" prefHeight="443.0" prefWidth="857.0" visible="false">
+      <Pane fx:id="panelVer" layoutY="86.0" prefHeight="443.0" prefWidth="857.0">
          <children>
             <Text layoutX="358.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ver subastas">
                <font>

@@ -1,5 +1,6 @@
 package Vista;
 
+import RedSocialTest.Requests.PostRequest;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,7 +23,7 @@ public class CrearPost implements Initializable, DragWindow {
 
     @FXML
     void publicar(ActionEvent event) {
-
+        client.request(new PostRequest(post.getText()));
     }
 
     @FXML
