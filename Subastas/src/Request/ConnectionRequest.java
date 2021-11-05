@@ -16,6 +16,6 @@ public class ConnectionRequest implements IRequest {
 
     @Override
     public Enum getType() {
-        return userType;
+        return type;
     }
 }

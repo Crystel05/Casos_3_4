@@ -10,7 +10,7 @@ public class ConnectionResponse implements IResponse {
 
     public ConnectionResponse(String string){
 
-        this.type = AutionResponseType.TEST;
+        this.type = AutionResponseType.CONEXION_EXITOSA;
         content = string;
     }
 
