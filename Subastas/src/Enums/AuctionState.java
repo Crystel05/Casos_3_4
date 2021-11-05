@@ -1,6 +1,6 @@
-package Model;
+package Enums;
 
-public enum EstadosSubasta {
+public enum AuctionState {
     ACTIVO,
     TERMINADO,
     CANCELADO

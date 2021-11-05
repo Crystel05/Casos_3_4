@@ -1,11 +1,11 @@
 package Model;
 
-public class Puja {
+public class Bid {
 
-    ClienteSubasta oferente;
+    AuctionClient oferente;
     double montoPujado;
 
-    public Puja(ClienteSubasta oferente, double montoPujado){
+    public Bid(AuctionClient oferente, double montoPujado){
         this.oferente = oferente;
         this.montoPujado = montoPujado;
     }

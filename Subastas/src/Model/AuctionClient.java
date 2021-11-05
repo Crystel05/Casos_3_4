@@ -1,19 +1,17 @@
 package Model;
 
-import ObserverPattern.IObservable;
-import ObserverPattern.IObserver;
+import Network.ObserverPattern.ConcreteObserver;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 //TODO: Tiene que extender de Cliente de la libreria de conexion
-public class ClienteSubasta {
+public class AuctionClient extends ConcreteObserver {
 
     String nickName;
-    ArrayList<Subasta> subastasHechas;
-    ArrayList<Subasta> subastasSuscritas;
+    ArrayList<Auction> subastasHechas;
+    ArrayList<Auction> subastasSuscritas;
 
-    public ClienteSubasta(String nickName){
+    public AuctionClient(String nickName){
         this.nickName = nickName;
         subastasHechas = new ArrayList<>();
         subastasSuscritas = new ArrayList<>();
@@ -21,7 +19,7 @@ public class ClienteSubasta {
 
 
     public void ofertar(int idSubasta,double monto){
-        for (Subasta subasta:subastasSuscritas) {
+        for (Auction subasta:subastasSuscritas) {
             if(subasta.getSubastaId() == idSubasta){
                 //Tiene que llamar al server
                 subasta.incrementarPrecio(monto);

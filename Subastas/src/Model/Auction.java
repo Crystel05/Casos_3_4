@@ -1,29 +1,28 @@
 package Model;
 
-import ObserverPattern.IObserver;
+import Enums.AuctionState;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Subasta {
+public class Auction {
 
     int subastaId;
-    ArrayList<ClienteSubasta> oferentes;
-    Producto producto;
+    ArrayList<AuctionClient> oferentes;
+    Product producto;
     Date inicio;
     Date fin;
-    EstadosSubasta estado;
+    AuctionState estado;
 
     public int getSubastaId() {
         return subastaId;
     }
 
-    public ArrayList<ClienteSubasta> getOferentes() {
+    public ArrayList<AuctionClient> getOferentes() {
         return oferentes;
     }
 
-    public Producto getProducto() {
+    public Product getProducto() {
         return producto;
     }
 
@@ -35,38 +34,38 @@ public class Subasta {
         return fin;
     }
 
-    public EstadosSubasta getEstado() {
+    public AuctionState getEstado() {
         return estado;
     }
 
-    public Subasta(int subastaId, Producto producto){
+    public Auction(int subastaId, Product producto){
         this.oferentes = new ArrayList<>();
-        estado = EstadosSubasta.ACTIVO;
+        estado = AuctionState.ACTIVO;
         this.producto = producto;
         this.subastaId = subastaId;
         inicio = new Date();
     }
 
     public void cerrar(){
-        if(estado.equals(EstadosSubasta.ACTIVO)){
-            estado = EstadosSubasta.TERMINADO;
+        if(estado.equals(AuctionState.ACTIVO)){
+            estado = AuctionState.TERMINADO;
             fin = new Date();
         }
     }
     public void cancelar(){
-        if(!estado.equals(EstadosSubasta.CANCELADO)){
-            estado = EstadosSubasta.CANCELADO;
+        if(!estado.equals(AuctionState.CANCELADO)){
+            estado = AuctionState.CANCELADO;
             fin = new Date();
         }
     }
 
     public void incrementarPrecio(double precio){
-        if(estado.equals(EstadosSubasta.ACTIVO) && precio > producto.getPrecioFinal()){
+        if(estado.equals(AuctionState.ACTIVO) && precio > producto.getPrecioFinal()){
             producto.setPrecioFinal(precio);
         }
     }
 
-    public void agregarOferente(ClienteSubasta oferente)
+    public void agregarOferente(AuctionClient oferente)
     {
         oferentes.add(oferente);
     }
