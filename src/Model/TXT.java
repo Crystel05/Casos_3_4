@@ -21,9 +21,13 @@ public class TXT {
         this.text = texto;
     }
 
-    public void saveFile(){
+    public String getText(){
+        return this.text;
+    }
+
+    public void saveFile(String path){
         try{
-            FileWriter file = new FileWriter("Prueba.txt");
+            FileWriter file = new FileWriter(path);
             file.write(this.text);
             file.flush();
 

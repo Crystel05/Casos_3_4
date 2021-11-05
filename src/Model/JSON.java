@@ -21,9 +21,13 @@ public class JSON {
         this.text = texto;
     }
 
-    public void saveFile(){
+    public String getText(){
+        return this.text;
+    }
+
+    public void saveFile(String path){
         try{
-            FileWriter file = new FileWriter("Prueba.json");
+            FileWriter file = new FileWriter(path);
             jsonfile.put("texto",this.text);
             file.write(jsonfile.toJSONString());
             file.flush();

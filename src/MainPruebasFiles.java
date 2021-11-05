@@ -1,4 +1,5 @@
 import Model.*;
+import javafx.geometry.Pos;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -75,8 +76,17 @@ public class MainPruebasFiles {
 ////        System.out.println("\nTexto CSV despues del read: " + csv.text);
 ////
 ////        System.out.println("\nTexto XML despues del read: " + xml.text);
+
+//        System.out.println(s.toCharArray()[s.toCharArray().length-1]);
+
         String s = "tratar de ser menos grosera";
-        System.out.println(s.toCharArray()[s.toCharArray().length-1]);
+        PosColor posColor = new PosColor(Color.AZUL, 0, 6);
+        PosColor posColor2 = new PosColor(Color.ROJO, 15, 22);
+        ArrayList<PosColor> posColors = new ArrayList<>();
+        posColors.add(posColor);
+        posColors.add(posColor2);
+        FileFactory factory = new FileFactory();
+        factory.saveFile(FileType.TXT,s,"prub.txt", posColors);
     }
 
 

@@ -22,24 +22,26 @@ public class JsonConfig {
     private JSONArray xmlFile = new JSONArray();
 
 
-    public void saveLetters(PosColor posColor, FileType typeFile){
-        JSONObject jsonPosColor = new JSONObject();
-        jsonPosColor.put("ini", posColor.getPosInicial());
-        jsonPosColor.put("fin", posColor.getPosFinal());
-        jsonPosColor.put("color", posColor.getColor().toString());
-        switch (typeFile){
-            case TXT:
-                this.txtFile.add(jsonPosColor);
-                break;
-            case CSV:
-                this.csvFile.add(jsonPosColor);
-                break;
-            case XML:
-                this.xmlFile.add(jsonPosColor);
-                break;
-            case JSON:
-                this.jsonFile.add(jsonPosColor);
-                break;
+    public void saveLetters(ArrayList<PosColor> posColors, FileType typeFile){
+        for (PosColor posColor: posColors) {
+            JSONObject jsonPosColor = new JSONObject();
+            jsonPosColor.put("ini", posColor.getPosInicial());
+            jsonPosColor.put("fin", posColor.getPosFinal());
+            jsonPosColor.put("color", posColor.getColor().toString());
+            switch (typeFile) {
+                case TXT:
+                    this.txtFile.add(jsonPosColor);
+                    break;
+                case CSV:
+                    this.csvFile.add(jsonPosColor);
+                    break;
+                case XML:
+                    this.xmlFile.add(jsonPosColor);
+                    break;
+                case JSON:
+                    this.jsonFile.add(jsonPosColor);
+                    break;
+            }
         }
 //        JSONObject txtFile = new JSONObject();
 //        this.txtFile.put(indexLetter, color);
@@ -47,19 +49,19 @@ public class JsonConfig {
 
     }
 
-    public void saveConfig(FileType typeFile){
+    public void saveConfig(FileType typeFile, String path){
         try{
             if(!this.txtFile.isEmpty() && FileType.TXT == typeFile) {
-                this.textConfig.put(typeFile, this.txtFile);
+                this.textConfig.put(path, this.txtFile);
             }
             if(!this.csvFile.isEmpty() && FileType.CSV == typeFile) {
-                this.textConfig.put(typeFile, this.csvFile);
+                this.textConfig.put(path, this.csvFile);
             }
             if(!this.xmlFile.isEmpty() && FileType.XML == typeFile) {
-                this.textConfig.put(typeFile, this.xmlFile);
+                this.textConfig.put(path, this.xmlFile);
             }
             if(!this.jsonFile.isEmpty() && FileType.JSON == typeFile) {
-                this.textConfig.put(typeFile, this.jsonFile);
+                this.textConfig.put(path, this.jsonFile);
             }
 
             FileWriter file = new FileWriter("config.json");
@@ -71,14 +73,14 @@ public class JsonConfig {
         }
     }
 
-    public ArrayList<PosColor> readConfig(FileType typeFile){
+    public ArrayList<PosColor> readConfig(FileType typeFile, String path){
         JSONParser jsonParser = new JSONParser();
         try{
             ArrayList<PosColor> listPosColors = new ArrayList<>();
             FileReader fileReader = new FileReader("config.json");
             Object obj = jsonParser.parse(fileReader);
             JSONObject jsonObject = (JSONObject) obj;
-            JSONArray filePosColor = (JSONArray) jsonObject.get(typeFile.toString());
+            JSONArray filePosColor = (JSONArray) jsonObject.get(path);
 
             for (Object object: filePosColor) {
                 JSONObject posObject = (JSONObject) object;

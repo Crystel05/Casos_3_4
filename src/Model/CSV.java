@@ -18,10 +18,14 @@ public class CSV {
         this.text = texto;
     }
 
-    public void saveFile(){
+    public String getText(){
+        return this.text;
+    }
+
+    public void saveFile(String path){
         try{
 
-            FileWriter file = new FileWriter("Prueba.csv");
+            FileWriter file = new FileWriter(path);
             String lines[] = text.split("\n");
             for (int i = 0; i < lines.length; i++) {
                 file.write(lines[i]+";\n");

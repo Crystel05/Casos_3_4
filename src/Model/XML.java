@@ -32,7 +32,12 @@ public class XML {
         this.text = texto;
     }
 
-    public void saveFile(){
+    public String getText(){
+        return this.text;
+    }
+
+
+    public void saveFile(String path){
         try{
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
@@ -48,7 +53,7 @@ public class XML {
             document.getDocumentElement().appendChild(text);
 
             Source source = new DOMSource(document);
-            Result result = new StreamResult(new File("Prueba.xml"));
+            Result result = new StreamResult(new File(path));
 
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
             transformer.transform(source, result);
