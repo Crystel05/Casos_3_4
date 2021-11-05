@@ -34,6 +34,12 @@ public class FileFactory {
 //
 //        }
 //    }
+
+
+    public String getTexto() {
+        return texto;
+    }
+
     public void setFile(File file, String name) {
         fileName = name;
     }

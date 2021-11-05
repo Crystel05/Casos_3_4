@@ -85,7 +85,7 @@ public class JsonConfig {
             for (Object object: filePosColor) {
                 JSONObject posObject = (JSONObject) object;
                 Color color = Color.valueOf(posObject.get("color").toString());
-                PosColor posColor = new PosColor(color, Integer.parseInt(posObject.get("ini").toString()), Integer.parseInt(posObject.get("ini").toString()));
+                PosColor posColor = new PosColor(color, Integer.parseInt(posObject.get("ini").toString()), Integer.parseInt(posObject.get("fin").toString()));
                 listPosColors.add(posColor);
             }
             return listPosColors;

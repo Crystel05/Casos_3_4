@@ -29,59 +29,39 @@
                   <Image url="@Imagenes/abrir.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="48.0" layoutX="180.0" layoutY="11.0" onMouseClicked="#guardar" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Imagenes/guardar.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="258.0" layoutY="10.0" onMouseClicked="#guardarComo" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="191.0" layoutY="9.0" onMouseClicked="#guardarComo" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Imagenes/guardarComo.png" />
                </image>
             </ImageView>
-            <Text fill="#1a95ce" layoutX="563.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Color de texto">
+            <Text fill="#1a95ce" layoutX="812.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Color de texto">
                <font>
                   <Font name="Broadway" size="19.0" />
                </font>
             </Text>
-            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="589.0" layoutY="33.0" onMouseClicked="#rojo" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="838.0" layoutY="31.0" onMouseClicked="#rojo" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Imagenes/rojos.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="657.0" layoutY="33.0" onMouseClicked="#azul" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="906.0" layoutY="31.0" onMouseClicked="#azul" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Imagenes/azul.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="725.0" layoutY="33.0" onMouseClicked="#verde" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="974.0" layoutY="31.0" onMouseClicked="#verde" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Imagenes/verde.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="487.0" layoutY="33.0" onMouseClicked="#negro" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="736.0" layoutY="31.0" onMouseClicked="#negro" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Imagenes/negro.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="623.0" layoutY="33.0" onMouseClicked="#morado" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="872.0" layoutY="31.0" onMouseClicked="#morado" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Imagenes/morado.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="53.0" fitWidth="48.0" layoutX="837.0" layoutY="8.0" onMouseClicked="#copiar" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Imagenes/copiar.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="45.0" layoutX="932.0" layoutY="8.0" onMouseClicked="#cortar" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Imagenes/cortar.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="45.0" layoutX="1027.0" layoutY="8.0" onMouseClicked="#pegar" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Imagenes/pegar.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="1111.0" layoutY="14.0" onMouseClicked="#undo" pickOnBounds="true" preserveRatio="true">
@@ -94,28 +74,28 @@
                   <Image url="@Imagenes/redo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="759.0" layoutY="33.0" onMouseClicked="#amarillo" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="1008.0" layoutY="31.0" onMouseClicked="#amarillo" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Imagenes/amarillo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="521.0" layoutY="33.0" onMouseClicked="#cafe" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="770.0" layoutY="31.0" onMouseClicked="#cafe" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Imagenes/cafe.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="555.0" layoutY="33.0" onMouseClicked="#naranja" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="804.0" layoutY="31.0" onMouseClicked="#naranja" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Imagenes/naranja.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="691.0" layoutY="33.0" onMouseClicked="#turquesa" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="940.0" layoutY="31.0" onMouseClicked="#turquesa" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Imagenes/turquesa.png" />
                </image>
             </ImageView>
-            <ComboBox fx:id="tipoArchivo" layoutX="325.0" layoutY="36.0" prefHeight="25.0" prefWidth="141.0" />
-            <TextField fx:id="nombreArchivo" layoutX="322.0" layoutY="5.0" />
+            <ComboBox fx:id="tipoArchivo" layoutX="275.0" layoutY="19.0" prefHeight="25.0" prefWidth="146.0" />
+            <TextField fx:id="nombreArchivo" layoutX="457.0" layoutY="19.0" prefHeight="25.0" prefWidth="210.0" />
          </children>
       </Pane>
       <Pane layoutY="63.0" prefHeight="687.0" prefWidth="1183.0">

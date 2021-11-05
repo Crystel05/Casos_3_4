@@ -3,12 +3,12 @@ package Vista;
 import Memento.CareTaker;
 import Memento.Memento;
 import Model.EstadoEditor;
+import Model.FileFactory;
 import Model.FileType;
 import Model.PosColor;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,6 +31,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Editor implements Initializable {
@@ -42,6 +43,7 @@ public class Editor implements Initializable {
     private int contadorInicio = 0;
     private int contadorFinal = 0;
     private Boolean undo_redo = false;
+    private Boolean leyendo = false;
 
     private ArrayList<PosColor> colores = new ArrayList<>();
 
@@ -63,21 +65,98 @@ public class Editor implements Initializable {
 
     @FXML
     public void crear(MouseEvent event){
-
+        areaMostrar.getChildren().clear();
+        areaEscribir.setText("");
+        contadorFinal = 0;
+        contadorInicio = 0;
+        cambiando = true;
+        cambioColor = false;
+        undo_redo = false;
+        leyendo = false;
     }
 
     @FXML
     public void abir(MouseEvent event){
         try {
+            areaMostrar.getChildren().clear();
+            areaEscribir.setText("");
+            contadorFinal = 0;
+            contadorInicio = 0;
+            cambiando = true;
+            cambioColor = false;
+            undo_redo = false;
+            leyendo = true;
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Escoger imagen");
             Node source = (Node) event.getSource();
             Stage stageActual = (Stage) source.getScene().getWindow();
             File file = fileChooser.showOpenDialog(stageActual);
             String rutaArchivo = file.getAbsolutePath();
-            //factory rip
-            
-        }catch (NullPointerException ignored){}
+            String tipo = rutaArchivo.split("\\.")[1];
+            FileType fileType = null;
+            switch (tipo) {
+                case "txt":
+                    fileType = FileType.TXT;
+                    break;
+                case "csv":
+                    fileType = FileType.CSV;
+                    break;
+                case "json":
+                    fileType = FileType.JSON;
+                    break;
+                case "xml":
+                    fileType = FileType.XML;
+                    break;
+            }
+            FileFactory factory = new FileFactory();
+            ArrayList<PosColor> colors = factory.readFile(fileType, rutaArchivo);
+            char[] texto = factory.getTexto().toCharArray();
+            StringBuilder completo = new StringBuilder();
+            for (PosColor color : colors){
+                System.out.println(color.getPosInicial());
+                System.out.println(color.getPosFinal());
+                try {
+                    for (int i = color.getPosInicial(); i <= color.getPosFinal(); i++) {
+                        completo.append(texto[i]);
+                        areaEscribir.setText(String.valueOf(completo));
+                        Text t = new Text();
+                        t.setFont(new Font(20));
+                        t.setText(String.valueOf(texto[i]));
+                        switch (color.getColor()){
+                            case ROJO:
+                                t.setFill(Color.RED);
+                                break;
+                            case AZUL:
+                                t.setFill(Color.BLUE);
+                                break;
+                            case NEGRO:
+                                t.setFill(Color.BLACK);
+                                break;
+                            case CAFE:
+                                t.setFill(Color.BROWN);
+                                break;
+                            case VERDE:
+                                t.setFill(Color.GREEN);
+                                break;
+                            case MORADO:
+                                t.setFill(Color.PURPLE);
+                                break;
+                            case AMARILLO:
+                                t.setFill(Color.YELLOW);
+                                break;
+                            case TURQUEZA:
+                                t.setFill(Color.TURQUOISE);
+                                break;
+                            case ANARANJADO:
+                                t.setFill(Color.ORANGE);
+                                break;
+                        }
+                        areaMostrar.getChildren().add(t);
+                    }
+                }catch (ArrayIndexOutOfBoundsException ignore){}
+            }
+            leyendo = false;
+        } catch (NullPointerException ignored) {}
 
     }
 
@@ -88,13 +167,16 @@ public class Editor implements Initializable {
 
     @FXML
     public void guardarComo(MouseEvent event){
-        if (!tipoArchivo.getSelectionModel().isEmpty()) {
+        if (!tipoArchivo.getSelectionModel().isEmpty() && !nombreArchivo.getText().equals("")) {
             DirectoryChooser directoryChooser = new DirectoryChooser();
             directoryChooser.setTitle("Guardar como");
             Node source = (Node) event.getSource();
             Stage stageActual = (Stage) source.getScene().getWindow();
             File guardarEn = directoryChooser.showDialog(stageActual);
             FileType tipoArch = tipoArchivo.getSelectionModel().getSelectedItem();
+            String path = guardarEn + "\\" + nombreArchivo.getText() + "." + tipoArch.toString().toLowerCase();
+            FileFactory factory = new FileFactory();
+            factory.saveFile(tipoArch, areaEscribir.getText(), path, colores);
         }
 
     }
@@ -309,7 +391,9 @@ public class Editor implements Initializable {
                 if (areaEscribir.getText().equals("")){
                     contadorInicio = 0;
                     contadorFinal = 0;
+                    colores.clear();
                 }
+
                 areaEscribir.setOnKeyPressed(new EventHandler<KeyEvent>() {
                     @Override
                     public void handle(KeyEvent event) {
@@ -344,7 +428,7 @@ public class Editor implements Initializable {
                         }
                     }
                 });
-                if (cambiando && !undo_redo) {
+                if (cambiando && !undo_redo && !leyendo) {
                     contadorFinal++;
                     cambioColor = false;
                     Text agregar = new Text(newValue.replace(oldValue, ""));
