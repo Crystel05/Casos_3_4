@@ -4,24 +4,125 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4017b2d2-0e78-463f-ad80-db112e4148c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/DislikeRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/FollowRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/GetArtistasRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/GetDownRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/LikeRequest.java" afterDir="false" />
+    <list default="true" id="99cb6e78-0426-4f08-8545-4ce516fdc616" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/NetworkLibrary.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RedSocial.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ClientMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controlador/ControladorArtista.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controlador/ControladorSeguidor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/ClientTypes/ArtistaClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/ClientTypes/SeguidorClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Enums/SocialRequestTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Enums/SocialResponseTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Enums/UserType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Model/Artista.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Model/Post.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Model/Seguidor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/ProjectNetwork/ArtistaResponseHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/ProjectNetwork/SeguidorResponseHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/ProjectNetwork/SocialServerRequestHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Requests/ConnectionRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Requests/DislikeRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Requests/FollowRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Requests/GetArtistasRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Requests/GetDownRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Requests/LikeRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Requests/PostRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Responses/AlreadyFollowingArtistResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Responses/AlreadyLikedPostResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Responses/AlreadyUnlikedPostResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Responses/ArtistaInactivoResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Responses/ConnectionResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Responses/GetDownSuccessfulResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Responses/LikesAlcanzados.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Responses/PostCreadoResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Responses/SeguidoresAlcanzados.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Responses/SuccessFollowing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ServerMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/ArtistaMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/CrearPost.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/DragWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/FXMLS/crearPost.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/FXMLS/famosos.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/FXMLS/seguidores.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/Famosos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/Imágenes/cerrar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/Imágenes/like.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/Imágenes/siguiente.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/Seguidores.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/SeguidoresMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Testo/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Testo/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Testo/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Testo/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Testo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Testo/Testo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Testo/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/NetWorkLib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/Artista.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/Artista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/Seguidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/Seguidor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/ProjectNetwork/SocialClientResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/ProjectNetwork/SocialClientResponseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/ProjectNetwork/SocialServerRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/RedSocialTest/ProjectNetwork/SocialServerRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Responses/TestResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/CrearPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/Vista/CrearPost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/FXMLS/seguidores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/Vista/FXMLS/seguidores.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/Famosos.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/Vista/Famosos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/Seguidores.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestChat/src/Vista/Seguidores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Subastas/src/Vista/FXMLS/subastar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Subastas/src/Vista/FXMLS/subastar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetWork.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetWorkLib.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetworkLibrary.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/TestChat.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/ClientMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Enums/SocialRequestTypes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Enums/SocialResponseTypes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Enums/UserType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/Artista.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/Post.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/PostCreadoResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Model/Seguidor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/ProjectNetwork/SocialClientResponseHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/ProjectNetwork/SocialServerRequestHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/ConnectionRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/DislikeRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/FollowRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/GetArtistasRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/GetDownRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/LikeRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Requests/PostRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Responses/AlreadyFollowingArtistResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Responses/AlreadyLikedPostResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Responses/AlreadyUnlikedPostResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Responses/ArtistaInactivoResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Responses/ConnectionResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Responses/GetDownSuccessfulResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Responses/LikesAlcanzados.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Responses/SeguidoresAlcanzados.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/RedSocialTest/Responses/SuccesFollowing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/ServerMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/CrearPost.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/DragWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/FXMLS/crearPost.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/FXMLS/famosos.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/FXMLS/seguidores.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/Famosos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/Imágenes/cerrar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/Imágenes/like.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/Imágenes/siguiente.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestChat/src/Vista/Seguidores.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NetWork/Vista/FXMLS/crearPost.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NetWork/Vista/FXMLS/famosos.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NetWork/Vista/FXMLS/seguidores.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NetWork/Vista/Imágenes/cerrar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NetWork/Vista/Imágenes/like.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NetWork/Vista/Imágenes/siguiente.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RedSocial/Vista/FXMLS/crearPost.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RedSocial/Vista/FXMLS/crearPost.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RedSocial/Vista/FXMLS/famosos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RedSocial/Vista/FXMLS/famosos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RedSocial/Vista/FXMLS/seguidores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RedSocial/Vista/FXMLS/seguidores.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +132,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -41,7 +139,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="204BurcbFJVdzXvsKxiVHJwAzeZ" />
+  <component name="ProjectId" id="20VDygS9rxLpgjtj2W4pYFk2tgk" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -50,38 +148,29 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Vista/Imágenes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../Desktop/NetworkLibrary.jar" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Vista" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Crystel_Montero\Documents\Universidad\2021\II semestre\Diseño\Casos\Caso 3 y 4\Casos_3_4\Casos_3_4\RedSocial\src\Vista\Imágenes" />
-      <recent name="D:\Crystel_Montero\Documents\Universidad\2021\II semestre\Diseño\Casos\Caso 3 y 4\Casos_3_4\Casos_3_4\RedSocial\src\Vista" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Crystel_Montero\Documents\Universidad\2021\II semestre\Diseño\Casos\Caso 3 y 4\Casos_3_4\Casos_3_4\RedSocial\TestChat\src" />
-      <recent name="D:\Crystel_Montero\Documents\Universidad\2021\II semestre\Diseño\Casos\Caso 3 y 4\Casos_3_4\Casos_3_4\RedSocial\src\Vista\FXMLS" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="Vista" />
+      <recent name="D:\UserDATA\Documents\Programacion\Java\Casos_3_4\RedSocial" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Vista.Main" />
-      <module name="NetWork" />
+  <component name="RunManager" selected="Application.ClientMain">
+    <configuration name="ArtistaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ArtistaMain" />
+      <module name="RedSocial" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="RedSocialTest.Requests.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -89,21 +178,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ClientMain" />
+      <module name="RedSocial" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SeguidoresMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SeguidoresMain" />
+      <module name="RedSocial" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ServerMain" />
+      <module name="RedSocial" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ClientMain" />
+        <item itemvalue="Application.ServerMain" />
+        <item itemvalue="Application.ArtistaMain" />
+        <item itemvalue="Application.SeguidoresMain" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4017b2d2-0e78-463f-ad80-db112e4148c1" name="Changes" comment="" />
-      <created>1635294204679</created>
+      <changelist id="99cb6e78-0426-4f08-8545-4ce516fdc616" name="Changes" comment="" />
+      <created>1636121117922</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1635294204679</updated>
-      <workItem from="1635294205950" duration="2641000" />
+      <updated>1636121117922</updated>
+      <workItem from="1636121121524" duration="949000" />
+      <workItem from="1636122100303" duration="775000" />
+      <workItem from="1636123543576" duration="804000" />
+      <workItem from="1636124372019" duration="9441000" />
     </task>
     <servers />
   </component>
