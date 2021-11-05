@@ -1,5 +1,5 @@
 package RedSocialTest.Enums;
 
 public enum SocialResponseTypes {
-    FELICITACIONES,CONEXION_EXITOSA,TEST;
+    CONNECTION,FOLLOWER_MILE,LIKES_MILE
 }

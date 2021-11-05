@@ -1,8 +1,8 @@
 package RedSocialTest.ProjectNetwork;
 
 import RedSocialTest.Requests.ConnectionRequest;
-import RedSocialTest.Model.Celebrity;
-import RedSocialTest.Model.Follower;
+import RedSocialTest.Model.Artista;
+import RedSocialTest.Model.Seguidor;
 import RedSocialTest.Requests.PostRequest;
 import RedSocialTest.Enums.SocialRequestTypes;
 import RedSocialTest.Enums.UserType;
@@ -21,13 +21,13 @@ public class SocialServerRequestHandler implements IHandleRequest {
         switch (type){
             case CONNECT:{
                 ConnectionRequest connectcionRequest = (ConnectionRequest) request;
-                if(connectcionRequest.userType.equals(UserType.CELEB)){
-                    requestHandler.addToClients(new Celebrity());
+                if(connectcionRequest.userType.equals(UserType.CELEBRITY)){
+                    requestHandler.addToClients(new Artista());
 
                 }
                 else if(connectcionRequest.userType.equals(UserType.FOLLOWER)){
-                    requestHandler.addToClients2(new Follower());
-                    requestHandler.getResponseSender().sendResponse(new TestResponse("XD"));
+                    requestHandler.addToClients2(new Seguidor());
+                    requestHandler.getResponseSender().sendResponse(new TestResponse("Welcome Follower"));
                 }
             }
             case LIKE:{
