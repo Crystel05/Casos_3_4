@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RedSocial.iml" filepath="$PROJECT_DIR$/RedSocial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NetWork.iml" filepath="$PROJECT_DIR$/NetWork.iml" />
     </modules>
   </component>
 </project>

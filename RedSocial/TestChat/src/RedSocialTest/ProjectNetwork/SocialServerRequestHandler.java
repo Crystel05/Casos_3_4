@@ -29,8 +29,10 @@ public class SocialServerRequestHandler implements IHandleRequest {
                     requestHandler.addToClients2(new Seguidor());
                     requestHandler.getResponseSender().sendResponse(new TestResponse("Welcome Follower"));
                 }
+                break;
             }
             case LIKE:{
+
                 break;
             }
             case POST:{
