@@ -13,6 +13,14 @@ public class AuctionRequest implements IRequest {
         this.type = AuctionRequestType.SUBASTAR;
     }
 
+    public Auction getAuction(){
+        return auction;
+    }
+
+    public void setAuction(Auction auction) {
+        this.auction = auction;
+    }
+
     @Override
     public Enum getType() {
         return type;

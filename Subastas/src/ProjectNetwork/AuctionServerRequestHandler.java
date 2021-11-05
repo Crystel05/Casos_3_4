@@ -36,6 +36,7 @@ public class AuctionServerRequestHandler implements IHandleRequest {
             case SUBASTAR:{
                 System.out.println("Intenta subastar");
                 // >:C
+                //requestHandler.addToObjects(((AuctionRequest) request).getAuction());
                 //requestHandler.getResponseSender().sendResponse(new AuctionRequest());
                 break;
             }
