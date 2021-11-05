@@ -1,6 +1,7 @@
 package Vista;
 
 
+import Controlador.ControladorArtista;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

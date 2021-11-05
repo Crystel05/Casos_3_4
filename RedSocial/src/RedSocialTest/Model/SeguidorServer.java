@@ -2,19 +2,20 @@ package RedSocialTest.Model;
 
 import Network.BaseServerClasses.BasicServerClient;
 import Network.ObserverPattern.IObservable;
+import RedSocialTest.Model.Data.SeguidorData;
 import RedSocialTest.Responses.*;
 
 import java.io.IOException;
 
-public class Seguidor  extends BasicServerClient {
+public class SeguidorServer extends BasicServerClient {
 
     String username;
 
-    public Seguidor(int idSeguidor, String userName) {
+    public SeguidorServer(int idSeguidor, String userName) {
         super(idSeguidor);
         this.username = userName;
     }
-    public void seguirArtista(Artista artista) throws IOException {
+    public void seguirArtista(ArtistaServer artista) throws IOException {
         if (artista.notFollowing(this)) {
             artista.nuevoSeguidor(this);
             siguiendoCorrectamente();
@@ -22,7 +23,7 @@ public class Seguidor  extends BasicServerClient {
             alreadyFollowingArtistResponse();
     }
 
-    public void likePost(Post post) throws IOException {
+    public void likePost(PostServer post) throws IOException {
         if (post.notLiked(this))
             if (post.notUnliked(this))
                 post.agregarLike(this);
@@ -35,7 +36,7 @@ public class Seguidor  extends BasicServerClient {
 
     }
 
-    public void unlikePost(Post post) throws IOException {
+    public void unlikePost(PostServer post) throws IOException {
         if (post.notUnliked(this))
             if (post.notLiked(this))
                 post.agregarUnlike(this);
@@ -69,7 +70,11 @@ public class Seguidor  extends BasicServerClient {
 
     @Override
     public void update(IObservable postNotifier) throws IOException {
-        Post post = (Post) postNotifier;
+        PostServer post = (PostServer) postNotifier;
         likesResponse(post.getLikes());
+    }
+
+    public SeguidorData getData(){
+        return new SeguidorData(username);
     }
 }

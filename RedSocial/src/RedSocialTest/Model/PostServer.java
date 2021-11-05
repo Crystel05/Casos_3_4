@@ -2,23 +2,27 @@ package RedSocialTest.Model;
 
 import Network.BaseServerClasses.BasicServerObject;
 import Network.ObserverPattern.IObserver;
+import RedSocialTest.Model.Data.PostData;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Post extends BasicServerObject {
+public class PostServer extends BasicServerObject {
     String content;
     ArrayList<IObserver> seguidores;
     ArrayList<IObserver> likes;
     ArrayList<IObserver> unlikes;
-    Artista owner;
+    ArtistaServer owner;
     final int LIKES_MULTIPLIER = 10;
 
 
-    public Post(int id, String content, Artista owner) {
+    public PostServer(int id, String content, ArtistaServer owner) {
         super(id);
         this.owner = owner;
         this.content = content;
+        this.seguidores = new ArrayList<>();
+        this.likes = new ArrayList<>();
+        this.unlikes = new ArrayList<>();
     }
 
     @Override
@@ -49,20 +53,20 @@ public class Post extends BasicServerObject {
         return true;
     }
 
-    public void agregarLike(Seguidor seguidor) throws IOException {
+    public void agregarLike(SeguidorServer seguidor) throws IOException {
         likes.add(seguidor);
         checkLikes();
     }
 
-    public void quitarUnlike(Seguidor seguidor) {
+    public void quitarUnlike(SeguidorServer seguidor) {
         unlikes.remove(seguidor);
     }
 
-    public void agregarUnlike(Seguidor seguidor) {
+    public void agregarUnlike(SeguidorServer seguidor) {
         unlikes.add(seguidor);
     }
 
-    public void quitarLike(Seguidor seguidor) {
+    public void quitarLike(SeguidorServer seguidor) {
         likes.remove(seguidor);
     }
 
@@ -75,5 +79,9 @@ public class Post extends BasicServerObject {
             owner.likesReached(this);//Avisa al dueno
             updateAll();//Avisa a todos los suscritos
         }
+    }
+
+    public PostData getData(){
+        return new PostData(likes.size(),unlikes.size(),content,owner.getNickName());
     }
 }

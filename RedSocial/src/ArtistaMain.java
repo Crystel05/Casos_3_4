@@ -11,7 +11,7 @@ public class ArtistaMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("FXMLS/seguidores.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Vista/FXMLS/famosos.fxml")));
         primaryStage.setScene(new Scene(root));
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setResizable(false);

@@ -6,6 +6,7 @@
  * Crystel Montero  2019158736
  */
 
+import Controlador.ControladorArtista;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,7 +20,7 @@ public class SeguidoresMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("FXMLS/famosos.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Vista/FXMLS/seguidores.fxml")));
         primaryStage.setScene(new Scene(root));
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setResizable(false);

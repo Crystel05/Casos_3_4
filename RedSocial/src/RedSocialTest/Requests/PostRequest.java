@@ -2,12 +2,11 @@ package RedSocialTest.Requests;
 
 import Network.Request.BaseRequest;
 import RedSocialTest.Enums.SocialRequestTypes;
-import RedSocialTest.Model.Artista;
+import RedSocialTest.Model.ArtistaServer;
 
 public class PostRequest extends BaseRequest {
     public String content;
-    public SocialRequestTypes type;
-    public Artista artist;
+    public ArtistaServer artist;
 
     public PostRequest(String content) {
         this.content = content;

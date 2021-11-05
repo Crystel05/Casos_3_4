@@ -34,6 +34,10 @@ public class SeguidorResponseHandler implements IHandleResponse {
                 break;
             case SUCCESS_FOLLOWING:
                 break;
+            case GET_ARTISTAS:
+                break;
+            case GET_SEGUIDORES:
+                break;
             default:
                 break;
         }

@@ -1,7 +1,7 @@
 package Vista;
 
 //import RedSocialTest.Network.Client.Client;
-import RedSocialTest.Model.Artista;
+import Controlador.ControladorArtista;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,13 +20,12 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Famosos implements Initializable, DragWindow {
 
-    //private Client client = new Client("localhost", 6000, new SocialClientResponseHandler());
-    private ArrayList<Artista> artistas = new ArrayList<>();
+    ControladorArtista controladorArtista = new ControladorArtista(this);//TODO:Cuidado con este new
+
 
     @FXML
     private Text likeT2;
@@ -64,7 +63,11 @@ public class Famosos implements Initializable, DragWindow {
     @FXML
     private TextArea mensaje2;
 
-    public Famosos() throws IOException, ClassNotFoundException {
+    public void conectarse() throws IOException, ClassNotFoundException {
+        //Se abre la pantalla se escribe un nombre
+        //Si el nombre no existe entonces crea uno nuevo sino trae el id que le corresponde
+        //El id es seteado en el cliente
+        controladorArtista.nuevaConexion("TestName");
     }
 
 
@@ -96,6 +99,7 @@ public class Famosos implements Initializable, DragWindow {
 
     @FXML
     void darseBaja(ActionEvent event) throws IOException, ClassNotFoundException {
+        conectarse();
         //client.request(new GetDownRequest());
     }
 

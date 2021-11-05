@@ -14,6 +14,16 @@ public class Client {
     protected ClientResponseHandler responseHandler;
     protected ClientRequestSender requestSender;
 
+    public int getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
+    }
+
+    protected int clientId;
+
     //Guarda los sockets con la conexion del servidor
     public Client(String host, int port, IHandleResponse responseHandler) throws IOException, ClassNotFoundException {
         Socket socketClient = new Socket(host, port);
