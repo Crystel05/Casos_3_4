@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="NetWorkLib:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/NetWorkLib_jar</output-path>
-    <root id="archive" name="NetWorkLib.jar">
-      <element id="module-output" name="NetWorkLib" />
-    </root>
-  </artifact>
-</component>

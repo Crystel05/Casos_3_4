@@ -1,12 +1,25 @@
-package Network.ObserverPattern;
+package Network.BaseServerClasses;
 
+import Network.ObserverPattern.IObservable;
+import Network.ObserverPattern.IObserver;
 import Network.Server.ServerRequestHandler;
 import Network.Server.ServerResponseSender;
 
-public class ConcreteObserver implements  IObserver{
+import java.io.IOException;
+
+public class BasicServerClient implements IObserver {
 
     ServerRequestHandler requestHandler;//TODO:cAMBIAR NOMBRE A SOCKETS
     ServerResponseSender responseSender;
+    int objectId;
+
+    public BasicServerClient(int objectId) {
+        this.objectId = objectId;
+    }
+
+    public int getObjectId() {
+        return objectId;
+    }
 
     public ServerRequestHandler getRequestHandler() {
         return requestHandler;
@@ -25,7 +38,7 @@ public class ConcreteObserver implements  IObserver{
     }
 
     @Override
-    public void update() {
+    public void update(IObservable observable) throws IOException {
 
     }
 }

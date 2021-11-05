@@ -1,21 +1,22 @@
 package Network.Server;
 
-import Network.ObserverPattern.ConcreteObservable;
-import Network.ObserverPattern.ConcreteObserver;
+import Network.BaseServerClasses.BasicServerObject;
+import Network.BaseServerClasses.BasicServerClient;
 import Network.Request.IHandleRequest;
 import Network.Request.IRequest;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class ServerRequestHandler extends Thread {
 
-    private Server server;
-    private ObjectInputStream input;
-    private boolean waitingForRequest;
-    private IHandleRequest requestStrategy;
-    private ServerResponseSender responseSender;
+    protected Server server;
+    protected ObjectInputStream input;
+    protected boolean waitingForRequest;
+    protected IHandleRequest requestStrategy;
+    protected ServerResponseSender responseSender;
 
     //Un hilo de lectura de request de parte de los clientes en el servidor.
     //Tiene asociada una estrategia para parsear los request
@@ -41,39 +42,51 @@ public class ServerRequestHandler extends Thread {
         }
     }
 
-    private void addSockets(ConcreteObserver observer){
+    protected void addSockets(BasicServerClient observer){
         observer.setRequestHandler(this);
         observer.setResponseSender(responseSender);
     }
 
-    private void parseRequest(IRequest request) throws IOException, ClassNotFoundException {
+    public void parseRequest(IRequest request) throws IOException, ClassNotFoundException {
         requestStrategy.parseRequest(request,this);
     }
-    public void addToClients(ConcreteObserver observer){
+    public void addToClients(BasicServerClient observer){
         addSockets(observer);
         server.addCliente1(observer);
    }
 
-    public void addToClients2(ConcreteObserver observer){
+    public void addToClients2(BasicServerClient observer){
 
         addSockets(observer);
         server.addCliente2(observer);
     }
 
-    public void addToObjects(ConcreteObservable observable){
+    public void addToObjects(BasicServerObject observable){
         server.addObject(observable);
     }
 
-    public ObjectInputStream getInput() {
+    protected ObjectInputStream getInput() {
         return input;
     }
 
-    public Server getServer(){
+    protected Server getServer(){
         return server;
     }
 
     public ServerResponseSender getResponseSender(){
         return responseSender;
+    }
+
+    public ArrayList<BasicServerClient> getClientes(){
+        return server.getClientes();
+    }
+
+    public ArrayList<BasicServerClient> getClientes2(){
+        return server.getClientes2();
+    }
+
+    public ArrayList<BasicServerObject> getObjects(){
+        return server.getObjects();
     }
 
 }

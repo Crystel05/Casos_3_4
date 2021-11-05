@@ -1,17 +1,19 @@
 package Network.Client;
 
+import Network.Request.IRequest;
 import Network.Response.IHandleResponse;
 import Network.Response.IResponse;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class ClientResponseHandler extends Thread{
 
-    Client client;
+    protected Client client;
     ObjectInputStream input;
-    boolean waitingForResponse;
+    protected boolean waitingForResponse;
     IHandleResponse responseStrategy;
 
     //Es un hilo que esta esperando por respuestas de parte del servidor.
@@ -43,4 +45,8 @@ public class ClientResponseHandler extends Thread{
         responseStrategy.parseResponse(response,this);
     }
 
+
+    public Client getClient() {
+        return client;
+    }
 }

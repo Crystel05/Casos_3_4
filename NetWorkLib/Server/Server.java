@@ -1,7 +1,7 @@
 package Network.Server;
 
-import Network.ObserverPattern.ConcreteObservable;
-import Network.ObserverPattern.ConcreteObserver;
+import Network.BaseServerClasses.BasicServerObject;
+import Network.BaseServerClasses.BasicServerClient;
 import Network.Request.IHandleRequest;
 
 import java.io.IOException;
@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class Server extends  Thread implements Serializable {
 
     private ServerSocket serverSocket;
-    private ArrayList<ConcreteObserver> clients;
-    private ArrayList<ConcreteObserver> clients2;
-    private ArrayList<ConcreteObservable> objects;
+    private ArrayList<BasicServerClient> clients;
+    private ArrayList<BasicServerClient> clients2;
+    private ArrayList<BasicServerObject> objects;
     private boolean online;
     private IHandleRequest requestHandler;
 
@@ -53,18 +53,37 @@ public class Server extends  Thread implements Serializable {
         new ServerRequestHandler(this, client,serverResponseSender, requestHandler);
     }
 
-    public void addCliente1(ConcreteObserver observer) {
+    public void addCliente1(BasicServerClient observer) {
         clients.add(observer);
     }
 
-    public void addCliente2(ConcreteObserver observer) {
+    public void addCliente2(BasicServerClient observer) {
         clients2.add(observer);
     }
 
 
-    public void addObject(ConcreteObservable observable) {
+    public void addObject(BasicServerObject observable) {
         objects.add(observable);
     }
 
 
+    public ArrayList<BasicServerClient> getClientes() {
+        return this.clients;
+    }
+
+    public ArrayList<BasicServerClient> getClientes2() {
+        return this.clients2;
+    }
+
+    public ArrayList<BasicServerObject> getObjects() {
+        return this.objects;
+    }
+
+    public void setOffline(){
+        this.online = false;
+    }
+
+    public void setOnline(){
+        this.online = true;
+    }
 }
