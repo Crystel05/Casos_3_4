@@ -9,11 +9,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -31,10 +31,6 @@ public class Famosos implements Initializable, DragWindow {
     PostData postData1;
     PostData postData2;
 
-
-    @FXML
-    private Text likeT2;
-
     @FXML
     private Pane contenedor;
 
@@ -45,19 +41,25 @@ public class Famosos implements Initializable, DragWindow {
     private Text dislikeT2;
 
     @FXML
-    private Pane post2;
-
-    @FXML
-    private Text nombre;
-
-    @FXML
-    private TextArea mensaje1;
+    private ComboBox<String> famosos;
 
     @FXML
     private Text likeT;
 
     @FXML
-    private ComboBox<String> famosos;
+    private Text likeT2;
+
+    @FXML
+    private TextArea mensaje1;
+
+    @FXML
+    private TextArea mensaje2;
+
+    @FXML
+    private Text nombre;
+
+    @FXML
+    private TextField nombreFamoso;
 
     @FXML
     private Pane perfil;
@@ -66,7 +68,8 @@ public class Famosos implements Initializable, DragWindow {
     private Pane post1;
 
     @FXML
-    private TextArea mensaje2;
+    private Pane post2;
+
 
     public void conectarse() throws IOException, ClassNotFoundException {
         //Se abre la pantalla se escribe un nombre
@@ -81,16 +84,11 @@ public class Famosos implements Initializable, DragWindow {
 
     }
 
-    @FXML
-    void like(MouseEvent event) {//quitar
-
-    }
 
     @FXML
-    void dislike(MouseEvent event) {//quitar
+    void buscar(MouseEvent event) { //iniciar
 
     }
-
 
     @FXML
     void siguiente(MouseEvent event) {

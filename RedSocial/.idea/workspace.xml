@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99cb6e78-0426-4f08-8545-4ce516fdc616" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controlador/ControladorSeguidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlador/ControladorSeguidor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/ClientTypes/ArtistaClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/ClientTypes/ArtistaClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/ClientTypes/SeguidorClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/ClientTypes/SeguidorClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/Model/Data/PostData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/Model/Data/PostData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/Model/PostServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/Model/PostServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/ProjectNetwork/SocialServerRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/ProjectNetwork/SocialServerRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/Requests/DislikeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/Requests/DislikeRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/Requests/FollowRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/Requests/FollowRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/Requests/LikeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/Requests/LikeRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/FXMLS/famosos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/FXMLS/famosos.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vista/Famosos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Famosos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/Seguidores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Seguidores.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

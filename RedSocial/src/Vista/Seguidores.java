@@ -80,7 +80,7 @@ public class Seguidores implements Initializable, DragWindow {
 
     @FXML
     void atras(MouseEvent event) {
-
+        
     }
 
     @FXML
