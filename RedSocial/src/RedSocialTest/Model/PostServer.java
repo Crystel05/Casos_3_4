@@ -12,7 +12,7 @@ public class PostServer extends BasicServerObject {
     ArrayList<IObserver> likes;
     ArrayList<IObserver> unlikes;
     ArtistaServer owner;
-    final int LIKES_MULTIPLIER = 1;
+    final int LIKES_MULTIPLIER = 2;
 
 
     public PostServer(int id, String content, ArtistaServer owner) {

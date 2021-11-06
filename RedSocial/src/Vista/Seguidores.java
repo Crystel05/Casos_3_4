@@ -74,23 +74,27 @@ public class Seguidores implements Initializable, DragWindow {
     }
 
     @FXML
-    void cargarDatos(MouseEvent event) {//seguidores
+    void cargarDatos(MouseEvent event) throws IOException, ClassNotFoundException {//seguidores
         updateCurrentSeguidor();
+        controladorSeguidor.update();
     }
 
     @FXML
-    void cargarDatosFamosos(MouseEvent event) {
+    void cargarDatosFamosos(MouseEvent event) throws IOException, ClassNotFoundException {
         updateCurrentArtista();
+        controladorSeguidor.update();
     }
 
     @FXML
-    void atras(MouseEvent event) {
-        
+    void atras(MouseEvent event) throws IOException, ClassNotFoundException {
+        prevPost();
+        controladorSeguidor.update();
     }
 
     @FXML
-    void siguiente(MouseEvent event) {
-
+    void siguiente(MouseEvent event) throws IOException, ClassNotFoundException {
+        nextPost();
+        controladorSeguidor.update();
     }
 
     @FXML
@@ -99,6 +103,7 @@ public class Seguidores implements Initializable, DragWindow {
             controladorSeguidor.like(postData1.id);
         else
             System.out.println("No hay post");
+        controladorSeguidor.update();
     }
 
     @FXML
@@ -107,6 +112,7 @@ public class Seguidores implements Initializable, DragWindow {
             controladorSeguidor.like(postData2.id);
         else
             System.out.println("No hay post");
+        controladorSeguidor.update();
     }
 
     @FXML
@@ -115,6 +121,7 @@ public class Seguidores implements Initializable, DragWindow {
             controladorSeguidor.dislike(postData1.id);
         else
             System.out.println("No hay post");
+        controladorSeguidor.update();
     }
 
     @FXML
@@ -123,6 +130,7 @@ public class Seguidores implements Initializable, DragWindow {
             controladorSeguidor.dislike(postData2.id);
         else
             System.out.println("No hay post");
+        controladorSeguidor.update();
     }
 
     @FXML
@@ -130,6 +138,7 @@ public class Seguidores implements Initializable, DragWindow {
         String string = "";
         controladorSeguidor.nuevaConexion(string);//Temporal para conexion
         //controladorSeguidor.follow();
+        //controladorSeguidor.update();
     }
 
     @FXML
@@ -149,7 +158,13 @@ public class Seguidores implements Initializable, DragWindow {
         for (SeguidorData seguidor:seguidoresList) {
             nombresSeguidores.add(seguidor.nickName);
         }
-        seguidores.setItems(nombresSeguidores);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                seguidores.setItems(nombresSeguidores);
+            }
+        });
+
     }
 
     public void setArtistas(ArrayList<ArtistData> artistas) {
@@ -157,7 +172,13 @@ public class Seguidores implements Initializable, DragWindow {
         for (ArtistData artist:artistas) {
             nombresFamosos.add(artist.nickname);
         }
-        famosos.setItems(nombresFamosos);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                famosos.setItems(nombresFamosos);
+            }
+        });
+
     }
 
     public void loadPosts(){
@@ -200,7 +221,6 @@ public class Seguidores implements Initializable, DragWindow {
         if(postActualPantalla >controladorSeguidor.getCurrentPosts().size())
             postActualPantalla = 0;
         loadPosts();
-
     }
 
     public void prevPost(){
@@ -228,7 +248,7 @@ public class Seguidores implements Initializable, DragWindow {
         Platform.runLater(new Runnable() {
             @Override public void run() {
                 seguidores.getSelectionModel().select(controladorSeguidor.getSeguidorActualId());
-                famosos.getSelectionModel().select(0);
+                famosos.getSelectionModel().select(controladorSeguidor.getArtistaActualId());
                 updateCurrentSeguidor();
                 updateCurrentArtista();
             }
@@ -247,5 +267,5 @@ public class Seguidores implements Initializable, DragWindow {
 }
 
 //Dar follow
-//Mostrar notificaciones
+//Cuando me traigo los artistas es que esta la la actualizacion de los post.!
 

@@ -10,10 +10,7 @@ import RedSocialTest.Model.Data.SeguidorData;
 import RedSocialTest.Model.SeguidorServer;
 import RedSocialTest.ProjectNetwork.ArtistaResponseHandler;
 import RedSocialTest.ProjectNetwork.SeguidorResponseHandler;
-import RedSocialTest.Requests.DislikeRequest;
-import RedSocialTest.Requests.FollowRequest;
-import RedSocialTest.Requests.GetArtistasRequest;
-import RedSocialTest.Requests.LikeRequest;
+import RedSocialTest.Requests.*;
 import Vista.Seguidores;
 
 import java.io.IOException;
@@ -84,7 +81,10 @@ public class ControladorSeguidor {
     }
 
     public ArrayList<PostData> getCurrentPosts() {
-        return artistas.get(artistaActualId).posts;
+        if(!artistas.isEmpty())
+            return artistas.get(artistaActualId).posts;
+        else
+            return null;
     }
 
     public void getSeguidores() throws IOException, ClassNotFoundException { //Actualiza
@@ -117,5 +117,10 @@ public class ControladorSeguidor {
     public void addToNotificaciones(String text){
         seguidoresCliente.get(seguidorActualId).addToNotificaciones(text);
         seguidoresPantalla.setNotificaciones();
+    }
+
+    public void update() throws IOException, ClassNotFoundException {
+        seguidoresCliente.get(seguidorActualId).request(new GetArtistasRequest());
+        seguidoresCliente.get(seguidorActualId).request(new GetSeguidoresRequest());
     }
 }

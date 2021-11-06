@@ -81,4 +81,9 @@ public class ControladorArtista {
     public void defaultUpdate(){
         pantallaFamosos.defaultConectionUpdate();
     }
+
+    public void update() throws IOException, ClassNotFoundException {
+        //Llamado por pantalla diferente al default llamado por el cliente
+        getArtistas();
+    }
 }

@@ -90,19 +90,22 @@ public class Famosos implements Initializable, DragWindow {
     }
 
     @FXML
-    void siguiente(MouseEvent event) {
+    void siguiente(MouseEvent event) throws IOException, ClassNotFoundException {
         nextPost();
+        controladorArtista.update();
     }
 
     @FXML
-    void atras(MouseEvent event) {
+    void atras(MouseEvent event) throws IOException, ClassNotFoundException {
         prevPost();
+        controladorArtista.update();
     }
 
     @FXML
     void darseBaja(ActionEvent event) throws IOException, ClassNotFoundException {
         conectarse();
         //client.request(new GetDownRequest());
+        //controladorArtista.update();
     }
 
     @FXML
