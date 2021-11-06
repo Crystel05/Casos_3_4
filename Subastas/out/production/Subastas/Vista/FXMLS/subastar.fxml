@@ -13,7 +13,7 @@
             <Font name="Bodoni MT Black" size="36.0" />
          </font>
       </Text>
-      <Pane fx:id="panelOpciones" layoutY="86.0" prefHeight="443.0" prefWidth="857.0" visible="false">
+      <Pane fx:id="panelOpciones" layoutY="86.0" prefHeight="443.0" prefWidth="857.0">
          <children>
             <Button layoutX="85.0" layoutY="143.0" mnemonicParsing="false" onAction="#crearSubasta" prefHeight="79.0" prefWidth="292.0" text="CREAR SUBASTA">
                <font>
@@ -82,35 +82,19 @@
                <font>
                   <Font name="Elephant" size="15.0" />
                </font></Button>
-            <Text layoutX="462.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción">
+            <Text layoutX="146.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio">
                <font>
                   <Font name="Century Schoolbook" size="16.0" />
                </font></Text>
-            <TextField layoutX="215.0" layoutY="242.0">
+            <TextField layoutX="557.0" layoutY="253.0">
                <font>
                   <Font name="Century Schoolbook" size="16.0" />
                </font></TextField>
-            <Text layoutX="146.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
-               <font>
-                  <Font name="Century Schoolbook" size="16.0" />
-               </font></Text>
-            <TextField layoutX="557.0" layoutY="242.0">
+            <TextField layoutX="215.0" layoutY="253.0">
                <font>
                   <Font name="Century Schoolbook" size="16.0" />
                </font></TextField>
-            <Text layoutX="146.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio">
-               <font>
-                  <Font name="Century Schoolbook" size="16.0" />
-               </font></Text>
-            <TextField layoutX="557.0" layoutY="298.0">
-               <font>
-                  <Font name="Century Schoolbook" size="16.0" />
-               </font></TextField>
-            <TextField layoutX="215.0" layoutY="298.0">
-               <font>
-                  <Font name="Century Schoolbook" size="16.0" />
-               </font></TextField>
-            <Text layoutX="462.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Final">
+            <Text layoutX="462.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Final">
                <font>
                   <Font name="Century Schoolbook" size="16.0" />
                </font></Text>
@@ -125,7 +109,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="panelVer" layoutY="86.0" prefHeight="443.0" prefWidth="857.0">
+      <Pane fx:id="panelVer" layoutY="86.0" prefHeight="443.0" prefWidth="857.0" visible="false">
          <children>
             <Text layoutX="358.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ver subastas">
                <font>
