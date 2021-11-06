@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class ArtistaServer extends BasicServerClient {
 
-    private final int FOLLOWERS_MULTIPLIER = 10;
+    private final int FOLLOWERS_MULTIPLIER = 1;
     private final String nickName;
     ArrayList<PostServer> posts;
     ArrayList<IObserver> seguidores;
@@ -60,8 +60,9 @@ public class ArtistaServer extends BasicServerClient {
         getResponseSender().sendResponse(new GetDownSuccessfulResponse());
     }
 
-    public void darseDeBaja() {
+    public void darseDeBaja() throws IOException {
         this.activo = false;
+        bajaCorrectaResponse();
     }
 
 

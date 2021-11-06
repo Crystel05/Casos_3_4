@@ -9,33 +9,20 @@ import java.util.ArrayList;
 
 public class PostServer extends BasicServerObject {
     String content;
-    ArrayList<IObserver> seguidores;
     ArrayList<IObserver> likes;
     ArrayList<IObserver> unlikes;
     ArtistaServer owner;
-    final int LIKES_MULTIPLIER = 10;
+    final int LIKES_MULTIPLIER = 1;
 
 
     public PostServer(int id, String content, ArtistaServer owner) {
         super(id);
         this.owner = owner;
         this.content = content;
-        this.seguidores = new ArrayList<>();
         this.likes = new ArrayList<>();
         this.unlikes = new ArrayList<>();
     }
 
-    @Override
-    public void updateAll() throws IOException {
-        for (IObserver observer:seguidores) {
-            observer.update(this);
-        }
-    }
-
-    @Override
-    public void addObserver(IObserver observer) {
-        this.seguidores.add(observer);
-    }
 
     public boolean notLiked(IObserver seguidorBuscado) {
         for (IObserver seguidor : likes) {
@@ -55,6 +42,7 @@ public class PostServer extends BasicServerObject {
 
     public void agregarLike(SeguidorServer seguidor) throws IOException {
         likes.add(seguidor);
+        addObserver(seguidor);
         checkLikes();
     }
 

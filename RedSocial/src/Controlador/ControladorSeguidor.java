@@ -109,4 +109,13 @@ public class ControladorSeguidor {
     public void defaultUpdate() {
         seguidoresPantalla.defaultConectionUpdate();
     }
+
+    public String getNotificaciones() {
+        return  seguidoresCliente.get(seguidorActualId).getNotificaciones();
+    }
+
+    public void addToNotificaciones(String text){
+        seguidoresCliente.get(seguidorActualId).addToNotificaciones(text);
+        seguidoresPantalla.setNotificaciones();
+    }
 }

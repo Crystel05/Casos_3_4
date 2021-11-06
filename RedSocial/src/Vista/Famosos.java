@@ -80,7 +80,7 @@ public class Famosos implements Initializable, DragWindow {
 
     @FXML
     void cargarDatos(MouseEvent event) {
-
+        updateCurrentArtista();
     }
 
 
@@ -190,8 +190,10 @@ public class Famosos implements Initializable, DragWindow {
             postActualPantalla = controladorArtista.getCurrentPosts().size()-1;
         loadPosts();
     }
-    public void updateCurrentArtista(int id){   ///Llamados cuando se hace un cambio en el combo box
-        controladorArtista.setArtistaActualId(id);
+    public void updateCurrentArtista(){   ///Llamados cuando se hace un cambio en el combo box
+        controladorArtista.setArtistaActualId(famosos.getSelectionModel().getSelectedIndex());
+        postActualPantalla = 0;
+        loadPosts();
     }
 
 

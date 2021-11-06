@@ -21,38 +21,38 @@ public class SeguidorResponseHandler implements IHandleResponse {
         switch (type){
             case LIKES_MILE:{
                 LikesAlcanzados likesAlcanzados = (LikesAlcanzados) response;
-                System.out.println(likesAlcanzados);
+                controlador.addToNotificaciones(likesAlcanzados.content);
                 break;
             }
             case CONNECTION:
                 ConnectionResponse connectionResponse = (ConnectionResponse) response;
                 handler.getClient().setClientId(connectionResponse.clientId);
                 controlador.setSeguidorActualId(connectionResponse.clientId);
-                System.out.println(connectionResponse.content);
+                controlador.addToNotificaciones(connectionResponse.content);
                 break;
             case ALREADY_LIKED:
                 AlreadyLikedPostResponse alreadyLikedPostResponse = (AlreadyLikedPostResponse) response;
-                System.out.println(alreadyLikedPostResponse.content);
+                controlador.addToNotificaciones(alreadyLikedPostResponse.content);
                 break;
             case FOLLOWER_MILE:
                 SeguidoresAlcanzados seguidoresAlcanzados = (SeguidoresAlcanzados) response;
-                System.out.println(seguidoresAlcanzados.content);
+                controlador.addToNotificaciones(seguidoresAlcanzados.content);
                 break;
             case ALREADY_UNLIKED:
                 AlreadyUnlikedPostResponse alreadyUnlikedPostResponse = (AlreadyUnlikedPostResponse) response;
-                System.out.println(alreadyUnlikedPostResponse.content);
+                controlador.addToNotificaciones(alreadyUnlikedPostResponse.content);
                 break;
             case UNACTIVE_ARTIST:
                 ArtistaInactivoResponse artistaInactivoResponse = (ArtistaInactivoResponse) response;
-                System.out.println(artistaInactivoResponse.content);
+                controlador.addToNotificaciones(artistaInactivoResponse.content);
                 break;
             case ALREADY_FOLLOWING:
                 AlreadyFollowingArtistResponse alreadyFollowingArtistResponse = (AlreadyFollowingArtistResponse) response;
-                System.out.println(alreadyFollowingArtistResponse.content);
+                controlador.addToNotificaciones(alreadyFollowingArtistResponse.content);
                 break;
             case SUCCESS_FOLLOWING:
                 SuccessFollowing successFollowing = (SuccessFollowing) response;
-                System.out.println(successFollowing.content);
+                controlador.addToNotificaciones(successFollowing.content);
                 break;
             case GET_ARTISTAS:
                 GetArtistasResponse artistasResponse = (GetArtistasResponse) response;
@@ -64,6 +64,14 @@ public class SeguidorResponseHandler implements IHandleResponse {
                 controlador.setSeguidores(seguidoresResponse.seguidores);
                 controlador.defaultUpdate();
                 System.out.println("Vienen datos de seguidores del servidor");
+                break;
+            case SUCCESS_LIKE:
+                LikeSuccessfully likeSuccessfully = (LikeSuccessfully) response;
+                controlador.addToNotificaciones(likeSuccessfully.content);
+                break;
+            case SUCCESS_DISLIKE:
+                DislikeSuccessfully dislikeSuccessfully = (DislikeSuccessfully) response;
+                controlador.addToNotificaciones(dislikeSuccessfully.content);
                 break;
             default:
                 break;

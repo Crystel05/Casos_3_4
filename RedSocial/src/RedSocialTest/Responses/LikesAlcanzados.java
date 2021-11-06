@@ -8,7 +8,7 @@ import RedSocialTest.Model.Data.PostData;
 
 public class LikesAlcanzados extends BaseResponse {
 
-    String content;
+    public String content;
     public LikesAlcanzados(PostData postData) {
         this.type = SocialResponseTypes.LIKES_MILE;
         content = "Post: " + postData.id + " from "+postData.owner+" reached "+postData.likes+" likes";

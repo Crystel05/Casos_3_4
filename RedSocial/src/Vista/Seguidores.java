@@ -75,12 +75,12 @@ public class Seguidores implements Initializable, DragWindow {
 
     @FXML
     void cargarDatos(MouseEvent event) {//seguidores
-
+        updateCurrentSeguidor();
     }
 
     @FXML
     void cargarDatosFamosos(MouseEvent event) {
-
+        updateCurrentArtista();
     }
 
     @FXML
@@ -143,9 +143,6 @@ public class Seguidores implements Initializable, DragWindow {
         controladorSeguidor.setSeguidoresPantalla(this);
     }
 
-    public void updateText(String text){
-        notificaciones.getChildren().add(new Text(text));
-    }
 
     public void setSeguidores(ArrayList<SeguidorData> seguidoresList){
         ObservableList<String> nombresSeguidores = FXCollections.observableArrayList();
@@ -214,25 +211,39 @@ public class Seguidores implements Initializable, DragWindow {
     }
 
 
-    public void updateCurrentArtista(int id){   ///Llamados cuando se hace un cambio en el combo box
-        controladorSeguidor.setArtistaActualId(id);
+    public void updateCurrentArtista(){   ///Llamados cuando se hace un cambio en el combo box
+        controladorSeguidor.setArtistaActualId(famosos.getSelectionModel().getSelectedIndex());
+        postActualPantalla = 0;
+        loadPosts();
     }
 
-    public void updateCurrentSeguidor(int id){
-        controladorSeguidor.setSeguidorActualId(id);
+    public void updateCurrentSeguidor(){
+        controladorSeguidor.setSeguidorActualId(seguidores.getSelectionModel().getSelectedIndex());
+        System.out.println(controladorSeguidor.getSeguidorActualId());
+        System.out.println(controladorSeguidor.getArtistaActualId());
+        setNotificaciones();
     }
 
     public void defaultConectionUpdate(){
-        System.out.println(controladorSeguidor.getSeguidorActualId());
         Platform.runLater(new Runnable() {
             @Override public void run() {
                 seguidores.getSelectionModel().select(controladorSeguidor.getSeguidorActualId());
                 famosos.getSelectionModel().select(0);
+                updateCurrentSeguidor();
+                updateCurrentArtista();
             }
         });
-        postActualPantalla = 0;
-        loadPosts();
     }
+
+    public void setNotificaciones(){
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                notificaciones.getChildren().setAll(new Text(controladorSeguidor.getNotificaciones()));
+            }
+        });
+    }
+
 }
 
 //Dar follow

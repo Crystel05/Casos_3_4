@@ -14,16 +14,12 @@ import RedSocialTest.Model.Data.SeguidorData;
 import RedSocialTest.Model.PostServer;
 import RedSocialTest.Model.SeguidorServer;
 import RedSocialTest.Requests.*;
-import RedSocialTest.Responses.ConnectionResponse;
-import RedSocialTest.Responses.GetArtistasResponse;
-import RedSocialTest.Responses.GetSeguidoresResponse;
-import RedSocialTest.Responses.PostCreadoResponse;
+import RedSocialTest.Responses.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class SocialServerRequestHandler implements IHandleRequest {
-
 
     //GetClients1 es para los artistas
     //GetClients2 es para los seguidores

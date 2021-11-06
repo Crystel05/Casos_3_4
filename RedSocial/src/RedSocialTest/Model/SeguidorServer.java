@@ -25,28 +25,40 @@ public class SeguidorServer extends BasicServerClient {
     }
 
     public void likePost(PostServer post) throws IOException {
-        if (post.notLiked(this))
+        if (post.notLiked(this)){
             if (post.notUnliked(this))
                 post.agregarLike(this);
             else {
                 post.quitarUnlike(this);
                 post.agregarLike(this);
             }
+            successfullyLikedPostResponse();
+        }
         else
             alreadyLikedPostResponse();
 
     }
 
+    private void successfullyLikedPostResponse() throws IOException {
+        getResponseSender().sendResponse(new LikeSuccessfully());
+    }
+
     public void unlikePost(PostServer post) throws IOException {
-        if (post.notUnliked(this))
+        if (post.notUnliked(this)) {
             if (post.notLiked(this))
                 post.agregarUnlike(this);
             else {
                 post.quitarLike(this);
                 post.agregarUnlike(this);
             }
+            successfullyUnlikedPostResponse();
+        }
         else
             alreadyUnlikedPostResponse();
+    }
+
+    private void successfullyUnlikedPostResponse() throws IOException {
+        getResponseSender().sendResponse(new DislikeSuccessfully());
     }
 
     private void alreadyUnlikedPostResponse() throws IOException {

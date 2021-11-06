@@ -13,10 +13,12 @@ import java.io.IOException;
 public class SeguidorClient extends Client {
 
     ControladorSeguidor controladorSeguidor;
+    String notificaciones;
 
     public SeguidorClient(String host, int port, IHandleResponse responseHandler, ControladorSeguidor controladorSeguidor) throws IOException, ClassNotFoundException {
         super(host, port, responseHandler);
         this.controladorSeguidor = controladorSeguidor;
+        this.notificaciones = "";
     }
 
     @Override
@@ -28,5 +30,13 @@ public class SeguidorClient extends Client {
 
     public ControladorSeguidor getControladorSeguidor() {
         return controladorSeguidor;
+    }
+
+    public void addToNotificaciones(String text){
+        notificaciones += text;
+    }
+
+    public String getNotificaciones(){
+        return notificaciones;
     }
 }
