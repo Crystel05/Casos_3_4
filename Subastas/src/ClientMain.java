@@ -1,13 +1,7 @@
-
-
 import Enums.UserType;
-import Model.Auction;
-import Model.Product;
 import Network.Client.Client;
 import ProjectNetwork.AuctionClientResponseHandler;
-import Request.AuctionRequest;
 import Request.ConnectionRequest;
-
 
 import java.io.IOException;
 

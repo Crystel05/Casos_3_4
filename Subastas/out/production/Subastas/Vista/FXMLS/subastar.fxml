@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="contenedor" prefHeight="529.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.Subastar">
+   <children>
+      <Text layoutX="326.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subastador">
+         <font>
+            <Font name="Bodoni MT Black" size="36.0" />
+         </font>
+      </Text>
+      <Pane fx:id="panelOpciones" layoutY="86.0" prefHeight="443.0" prefWidth="857.0" visible="false">
+         <children>
+            <Button layoutX="85.0" layoutY="143.0" mnemonicParsing="false" onAction="#crearSubasta" prefHeight="79.0" prefWidth="292.0" text="CREAR SUBASTA">
+               <font>
+                  <Font name="Bauhaus 93" size="32.0" />
+               </font>
+            </Button>
+            <Button layoutX="463.0" layoutY="294.0" mnemonicParsing="false" onAction="#verSubastas" prefHeight="79.0" prefWidth="292.0" text="VER SUBASTAS">
+               <font>
+                  <Font name="Bauhaus 93" size="32.0" />
+               </font>
+            </Button>
+            <Button disable="true" layoutX="85.0" layoutY="294.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="292.0">
+               <font>
+                  <Font name="Bauhaus 93" size="32.0" />
+               </font>
+            </Button>
+            <Button disable="true" layoutX="463.0" layoutY="143.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="292.0">
+               <font>
+                  <Font name="Bauhaus 93" size="32.0" />
+               </font>
+            </Button>
+            <ComboBox fx:id="subastadores" layoutX="326.0" layoutY="38.0" prefHeight="31.0" prefWidth="206.0" />
+            <Text layoutX="368.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subastadores">
+               <font>
+                  <Font name="Berlin Sans FB" size="22.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane fx:id="panelCrear" layoutY="87.0" prefHeight="443.0" prefWidth="857.0" visible="false">
+         <children>
+            <Text layoutX="353.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear subasta">
+               <font>
+                  <Font name="Book Antiqua" size="25.0" />
+               </font>
+            </Text>
+            <Text layoutX="28.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producto">
+               <font>
+                  <Font name="Elephant" size="19.0" />
+               </font></Text>
+            <Text layoutX="28.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subasta">
+               <font>
+                  <Font name="Elephant" size="19.0" />
+               </font></Text>
+            <Text layoutX="147.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <TextField layoutX="216.0" layoutY="94.0">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></TextField>
+            <TextField layoutX="554.0" layoutY="92.0">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></TextField>
+            <Text layoutX="456.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <Text layoutX="335.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imagen">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <Button layoutX="427.0" layoutY="151.0" mnemonicParsing="false" onAction="#selecImagenProd" text="Seleccionar">
+               <font>
+                  <Font name="Elephant" size="15.0" />
+               </font></Button>
+            <Text layoutX="462.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <TextField layoutX="215.0" layoutY="242.0">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></TextField>
+            <Text layoutX="146.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <TextField layoutX="557.0" layoutY="242.0">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></TextField>
+            <Text layoutX="146.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <TextField layoutX="557.0" layoutY="298.0">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></TextField>
+            <TextField layoutX="215.0" layoutY="298.0">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></TextField>
+            <Text layoutX="462.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Final">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font></Text>
+            <Button layoutX="357.0" layoutY="370.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="140.0" text="CREAR">
+               <font>
+                  <Font name="Elephant" size="15.0" />
+               </font></Button>
+            <ImageView fitHeight="29.0" fitWidth="39.0" layoutX="14.0" layoutY="401.0" onMouseDragged="#atras" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/atrás.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="panelVer" layoutY="86.0" prefHeight="443.0" prefWidth="857.0">
+         <children>
+            <Text layoutX="358.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ver subastas">
+               <font>
+                  <Font name="Book Antiqua" size="25.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="subastas" layoutX="336.0" layoutY="42.0" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#cargarDetalles" prefHeight="31.0" prefWidth="186.0" promptText="subastas" />
+            <Pane fx:id="detallesSub" layoutY="83.0" prefHeight="359.0" prefWidth="857.0">
+               <children>
+                  <Text layoutX="395.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subasta">
+                     <font>
+                        <Font name="Book Antiqua" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="25.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
+                     <font>
+                        <Font name="Century Schoolbook" size="16.0" />
+                     </font></Text>
+                  <Text layoutX="25.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
+                     <font>
+                        <Font name="Century Schoolbook" size="16.0" />
+                     </font></Text>
+                  <Text layoutX="25.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción">
+                     <font>
+                        <Font name="Century Schoolbook" size="16.0" />
+                     </font></Text>
+                  <Text fx:id="nombreSubasta" layoutX="125.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subasta1">
+                     <font>
+                        <Font name="Century Schoolbook" size="16.0" />
+                     </font></Text>
+                  <Text fx:id="statusSubasta" layoutX="125.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activa">
+                     <font>
+                        <Font name="Century Schoolbook" size="16.0" />
+                     </font></Text>
+                  <Text layoutX="25.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio">
+                     <font>
+                        <Font name="Century Schoolbook" size="16.0" />
+                     </font></Text>
+                  <Text fx:id="fechaInicio" layoutX="125.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10-10">
+                     <font>
+                        <Font name="Century Schoolbook" size="16.0" />
+                     </font></Text>
+                  <Text layoutX="25.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fin">
+                     <font>
+                        <Font name="Century Schoolbook" size="16.0" />
+                     </font></Text>
+                  <Text fx:id="fechaFin" layoutX="125.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12-10">
+                     <font>
+                        <Font name="Century Schoolbook" size="16.0" />
+                     </font></Text>
+                  <ImageView fx:id="imagenSub" fitHeight="146.0" fitWidth="166.0" layoutX="252.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" />
+                  <TextArea fx:id="ofertasAcepSub" layoutX="452.0" layoutY="81.0" prefHeight="146.0" prefWidth="166.0" text="luis--100&#10;pedro -- 90">
+                     <font>
+                        <Font name="Century Schoolbook" size="16.0" />
+                     </font></TextArea>
+                  <Text layoutX="468.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ofertas aceptadas">
+                     <font>
+                        <Font name="Century Schoolbook" size="16.0" />
+                     </font></Text>
+                  <Text layoutX="307.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imagen">
+                     <font>
+                        <Font name="Century Schoolbook" size="16.0" />
+                     </font></Text>
+                  <Text layoutX="676.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ofertas por aceptar">
+                     <font>
+                        <Font name="Century Schoolbook" size="16.0" />
+                     </font></Text>
+                  <TextArea fx:id="ofertasPorAceptarSub" layoutX="665.0" layoutY="81.0" prefHeight="113.0" prefWidth="166.0" text="juan 110&#10;">
+                     <font>
+                        <Font name="Century Schoolbook" size="16.0" />
+                     </font></TextArea>
+                  <ComboBox fx:id="ofertasSubs" layoutX="673.0" layoutY="201.0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" promptText="ofertas" />
+                  <Button layoutX="681.0" layoutY="244.0" mnemonicParsing="false" onAction="#aceptarOferta" prefHeight="32.0" prefWidth="56.0" text="SÍ">
+                     <font>
+                        <Font name="Elephant" size="14.0" />
+                     </font></Button>
+                  <Button layoutX="759.0" layoutY="244.0" mnemonicParsing="false" onAction="#rechazarOferta" prefHeight="32.0" prefWidth="56.0" text="NO">
+                     <font>
+                        <Font name="Elephant" size="14.0" />
+                     </font></Button>
+                  <Button layoutX="264.0" layoutY="295.0" mnemonicParsing="false" onAction="#cerrarSubasta" text="Cerrar subasta">
+                     <font>
+                        <Font name="Elephant" size="16.0" />
+                     </font></Button>
+                  <Button layoutX="434.0" layoutY="295.0" mnemonicParsing="false" onAction="#cancelarSubasta" text="Cancelar subasta">
+                     <font>
+                        <Font name="Elephant" size="16.0" />
+                     </font></Button>
+                  <TextArea fx:id="descripcionSubasta" editable="false" layoutX="125.0" layoutY="81.0" prefHeight="42.0" prefWidth="115.0" text="cosas&#10;">
+                     <font>
+                        <Font name="Century Schoolbook" size="16.0" />
+                     </font></TextArea>
+                  <ImageView fitHeight="29.0" fitWidth="39.0" layoutX="13.0" layoutY="323.0" onMouseDragged="#atras" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagenes/atrás.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="mensaje" fill="RED" layoutX="422.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+                     <font>
+                        <Font name="Bookman Old Style" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="811.0" layoutY="10.0" onMouseClicked="#cerrar" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/cerrar.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
