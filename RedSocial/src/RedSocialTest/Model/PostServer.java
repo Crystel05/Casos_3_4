@@ -82,6 +82,6 @@ public class PostServer extends BasicServerObject {
     }
 
     public PostData getData(){
-        return new PostData(likes.size(),unlikes.size(),content,owner.getNickName());
+        return new PostData(getIdClient(),likes.size(),unlikes.size(),content,owner.getNickName());
     }
 }

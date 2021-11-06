@@ -1,6 +1,5 @@
 package Vista;
 
-//import RedSocialTest.Network.Client.Client;
 import Controlador.ControladorArtista;
 import RedSocialTest.Model.Data.ArtistData;
 import RedSocialTest.Model.Data.PostData;
@@ -10,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
@@ -28,6 +28,8 @@ import java.util.ResourceBundle;
 public class Famosos implements Initializable, DragWindow {
 
     ControladorArtista controladorArtista = ControladorArtista.getInstance();//TODO:Cuidado con este new
+    PostData postData1;
+    PostData postData2;
 
 
     @FXML
@@ -136,7 +138,7 @@ public class Famosos implements Initializable, DragWindow {
         famosos.setItems(nombresFamosos);
     }
 
-    public void loadPosts(){
+    public void loadPosts(){//Todo:Cambiar por los post aca
         ArrayList<PostData> currentPosts = controladorArtista.getCurrentPosts();
         if(!currentPosts.isEmpty()){
             PostData post1 = currentPosts.get(0);

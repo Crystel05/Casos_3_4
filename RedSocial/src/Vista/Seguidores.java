@@ -2,6 +2,8 @@ package Vista;
 
 
 import Controlador.ControladorArtista;
+import Controlador.ControladorSeguidor;
+import RedSocialTest.Model.Data.PostData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,7 +22,9 @@ import java.util.ResourceBundle;
 
 public class Seguidores implements Initializable, DragWindow {
 
-
+    ControladorSeguidor controladorSeguidor = ControladorSeguidor.getInstance();
+    PostData postData1;
+    PostData postData2;
 
     @FXML
     private Text likeT2;
@@ -86,17 +90,27 @@ public class Seguidores implements Initializable, DragWindow {
 
     @FXML
     void like(MouseEvent event) throws IOException, ClassNotFoundException {
-        //client.request(new LikeRequest());
+        controladorSeguidor.like(postData1.id);
+    }
+
+    @FXML
+    void like2(MouseEvent event) throws IOException, ClassNotFoundException {
+        controladorSeguidor.like(postData2.id);
     }
 
     @FXML
     void dislike(MouseEvent event) throws IOException, ClassNotFoundException {
-        //client.request(new DislikeRequest());
+        controladorSeguidor.dislike(postData2.id);
+    }
+
+    @FXML
+    void dislike2(MouseEvent event) throws IOException, ClassNotFoundException {
+        controladorSeguidor.dislike(postData2.id);
     }
 
     @FXML
     void seguir(ActionEvent event) throws IOException, ClassNotFoundException {
-       // client.request(new FollowRequest());
+        controladorSeguidor.follow();
     }
 
     @FXML

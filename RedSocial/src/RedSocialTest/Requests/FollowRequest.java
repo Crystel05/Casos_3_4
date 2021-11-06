@@ -7,7 +7,13 @@ import RedSocialTest.Enums.SocialRequestTypes;
 
 public class FollowRequest extends BaseRequest {
 
-    public FollowRequest(){
+    int artistaId;
+    int seguidorId;
+
+
+    public FollowRequest(int seguidorId,int artistaId) {
         this.type = SocialRequestTypes.FOLLOW;
+        this.seguidorId = seguidorId;
+        this.artistaId = artistaId;
     }
 }

@@ -14,8 +14,6 @@ import java.util.ArrayList;
 
 public class ArtistaClient extends Client {
 
-    ArrayList<PostServer> posts;
-    ArrayList<ArtistaServer>artistas;
     ControladorArtista controladorArtista;
 
     public ArtistaClient(String host, int port, IHandleResponse responseHandler,ControladorArtista controladorArtista) throws IOException, ClassNotFoundException {

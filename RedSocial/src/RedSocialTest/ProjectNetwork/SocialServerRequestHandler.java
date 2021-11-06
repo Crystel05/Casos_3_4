@@ -12,6 +12,7 @@ import RedSocialTest.Model.Data.ArtistData;
 import RedSocialTest.Model.PostServer;
 import RedSocialTest.Model.SeguidorServer;
 import RedSocialTest.Requests.ConnectionRequest;
+import RedSocialTest.Requests.LikeRequest;
 import RedSocialTest.Requests.PostRequest;
 import RedSocialTest.Responses.ConnectionResponse;
 import RedSocialTest.Responses.GetArtistasResponse;
@@ -43,6 +44,7 @@ public class SocialServerRequestHandler implements IHandleRequest {
                 break;
             }
             case LIKE: {
+                LikeRequest likeRequest = (LikeRequest) request;
 
                 break;
             }
