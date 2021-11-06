@@ -1,9 +1,12 @@
 package Controlador;
 
 import RedSocialTest.ClientTypes.ArtistaClient;
-import RedSocialTest.Model.ArtistaServer;
 import RedSocialTest.Model.Data.ArtistData;
+import RedSocialTest.Model.Data.PostData;
 import RedSocialTest.ProjectNetwork.ArtistaResponseHandler;
+import RedSocialTest.Requests.GetArtistasRequest;
+import RedSocialTest.Requests.PostRequest;
+import Vista.CrearPost;
 import Vista.Famosos;
 
 import java.io.IOException;
@@ -14,11 +17,27 @@ public class ControladorArtista {
     ArrayList<ArtistaClient> artistasClientes;
     ArrayList<ArtistData> artistas;
     int artistaActualId;
-    Famosos pantalla;
+    Famosos pantallaFamosos;
+    CrearPost pantallaCrearPost;
+    private static ControladorArtista controlador;
 
-    public ControladorArtista(Famosos famosos) {
-        this.pantalla = famosos;
+    private ControladorArtista() {
         this.artistasClientes = new ArrayList<>();
+    }
+
+    public static ControladorArtista getInstance(){
+        if(controlador == null){
+            controlador = new ControladorArtista();
+        }
+        return controlador;
+    }
+
+    public void setPantallaFamosos(Famosos famosos) {
+        this.pantallaFamosos = famosos;
+    }
+
+    public void setPantallaPost(CrearPost crearPost) {
+        this.pantallaCrearPost = crearPost;
     }
 
 
@@ -30,15 +49,24 @@ public class ControladorArtista {
 
     public void setArtistas(ArrayList<ArtistData> artistas) {
         this.artistas = artistas;
-        for (ArtistData artista: artistas) {
-            System.out.println(artistas);
-        }
-
+        pantallaFamosos.setArtistas(artistas);
+        pantallaFamosos.loadPosts();
     }
 
-    /*public void updateData(){
-        artistaActual.request(new GetArtistasRequest());
-        pantalla.updatePost(artistaActual);
-        pantalla.fillFamosos();
-    }*/
+    public void setCurrentClientId(int clientId) {
+        this.artistaActualId = clientId;
+    }
+
+    public ArrayList<PostData> getCurrentPosts() {
+        return artistas.get(artistaActualId-1).posts;
+    }
+
+    public void post(String content) throws IOException, ClassNotFoundException {
+        artistasClientes.get(artistaActualId-1).request(new PostRequest(content));
+    }
+
+    public void getArtistas() throws IOException, ClassNotFoundException {
+        artistasClientes.get(artistaActualId-1).request(new GetArtistasRequest());
+    }
+
 }

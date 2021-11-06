@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class PostData implements Serializable {
     int likes;
     int unlikes;
-    String content;
+    public String content;
     String owner;
 
     public PostData(int likes, int unlikes, String content, String owner) {

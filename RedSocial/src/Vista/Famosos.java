@@ -2,6 +2,8 @@ package Vista;
 
 //import RedSocialTest.Network.Client.Client;
 import Controlador.ControladorArtista;
+import RedSocialTest.Model.Data.ArtistData;
+import RedSocialTest.Model.Data.PostData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,11 +22,12 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Famosos implements Initializable, DragWindow {
 
-    ControladorArtista controladorArtista = new ControladorArtista(this);//TODO:Cuidado con este new
+    ControladorArtista controladorArtista = ControladorArtista.getInstance();//TODO:Cuidado con este new
 
 
     @FXML
@@ -122,13 +125,25 @@ public class Famosos implements Initializable, DragWindow {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.onDraggedScene(contenedor);
+        this.controladorArtista.setPantallaFamosos(this);
+    }
+
+    public void setArtistas(ArrayList<ArtistData> artistas) {
         ObservableList<String> nombresFamosos = FXCollections.observableArrayList();
-        //recorrer la lista de artistas y obtener el nombre
-        /*try {
-            //client.request(new GetArtistasRequest());
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }*/
+        for (ArtistData artist:artistas) {
+            nombresFamosos.add(artist.nickname);
+        }
         famosos.setItems(nombresFamosos);
     }
+
+    public void loadPosts(){
+        ArrayList<PostData> currentPosts = controladorArtista.getCurrentPosts();
+        if(!currentPosts.isEmpty()){
+            PostData post1 = currentPosts.get(0);
+            if(post1 != null)
+                mensaje1.appendText(post1.content);
+        }
+    }
+
+
 }

@@ -93,10 +93,6 @@ public class ArtistaServer extends BasicServerClient {
         likesResponse(post.getLikes());
     }
 
-    public  String toString(){
-        return "Nickname: " + nickName; //Agregar los post
-    }
-
     public ArtistData getData() {
         ArrayList<PostData> postsData = new ArrayList<>();
         for (PostServer post:posts) {

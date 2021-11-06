@@ -7,14 +7,14 @@ import java.util.ArrayList;
 
 public class ArtistData implements Serializable {
 
-    String nickname;
-    ArrayList<PostData> post;
+    public String nickname;
+    public ArrayList<PostData> posts;
     int seguidores;
     boolean activo;
 
     public ArtistData(String nickname, ArrayList<PostData> post, int seguidores, boolean activo) {
         this.nickname = nickname;
-        this.post = post;
+        this.posts = post;
         this.seguidores = seguidores;
         this.activo = activo;
     }

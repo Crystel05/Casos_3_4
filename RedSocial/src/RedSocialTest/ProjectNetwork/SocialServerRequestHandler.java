@@ -15,6 +15,7 @@ import RedSocialTest.Requests.ConnectionRequest;
 import RedSocialTest.Requests.PostRequest;
 import RedSocialTest.Responses.ConnectionResponse;
 import RedSocialTest.Responses.GetArtistasResponse;
+import RedSocialTest.Responses.PostCreadoResponse;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -49,6 +50,7 @@ public class SocialServerRequestHandler implements IHandleRequest {
                 PostRequest postRequest = (PostRequest) request;
                 requestHandler.addToObjects(new PostServer(requestHandler.getObjects().size()+1,postRequest.content,postRequest.artist));
                 System.out.println(postRequest.content);
+                requestHandler.getResponseSender().sendResponse(new PostCreadoResponse());
                 break;
             }
             case UNLIKE: {

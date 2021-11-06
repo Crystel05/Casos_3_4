@@ -5,29 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99cb6e78-0426-4f08-8545-4ce516fdc616" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Model/Data/ArtistData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Model/Data/PostData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Model/Data/SeguidorData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RedSocialTest/Responses/GetArtistasResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ArtistaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArtistaMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClientMain.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controlador/ControladorArtista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlador/ControladorArtista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controlador/ControladorSeguidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlador/ControladorSeguidor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Network/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Network/Client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Network/Client/ClientResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Network/Client/ClientResponseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/ClientTypes/ArtistaClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/ClientTypes/ArtistaClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/ClientTypes/SeguidorClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/ClientTypes/SeguidorClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/Model/Artista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/Model/ArtistaServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/Model/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/Model/PostServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/Model/Seguidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/Model/SeguidorServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/Model/ArtistaServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/Model/ArtistaServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/Model/Data/ArtistData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/Model/Data/ArtistData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/Model/Data/PostData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/Model/Data/PostData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RedSocialTest/ProjectNetwork/ArtistaResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/ProjectNetwork/ArtistaResponseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/ProjectNetwork/SeguidorResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/ProjectNetwork/SeguidorResponseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RedSocialTest/ProjectNetwork/SocialServerRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/ProjectNetwork/SocialServerRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/Requests/PostRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/Requests/PostRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SeguidoresMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SeguidoresMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RedSocialTest/Responses/PostCreadoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RedSocialTest/Responses/PostCreadoResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/CrearPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/CrearPost.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vista/Famosos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Famosos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/Seguidores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Seguidores.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +118,8 @@
       <workItem from="1636122100303" duration="775000" />
       <workItem from="1636123543576" duration="804000" />
       <workItem from="1636124372019" duration="16530000" />
+      <workItem from="1636151721547" duration="1699000" />
+      <workItem from="1636154120661" duration="3038000" />
     </task>
     <servers />
   </component>
@@ -154,7 +143,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/RedSocialTest/ProjectNetwork/SocialServerRequestHandler.java</url>
-          <line>25</line>
+          <line>26</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
