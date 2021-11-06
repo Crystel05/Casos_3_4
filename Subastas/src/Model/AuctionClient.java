@@ -1,17 +1,18 @@
 package Model;
 
-import Network.ObserverPattern.ConcreteObserver;
+import Network.BaseServerClasses.BasicServerClient;
 
 import java.util.ArrayList;
 
 //TODO: Tiene que extender de Cliente de la libreria de conexion
-public class AuctionClient extends ConcreteObserver {
+public class AuctionClient extends BasicServerClient {
 
     String nickName;
     ArrayList<Auction> subastasHechas;
     ArrayList<Auction> subastasSuscritas;
 
-    public AuctionClient(String nickName){
+    public AuctionClient(int objectId,String nickName){
+        super(objectId);
         this.nickName = nickName;
         subastasHechas = new ArrayList<>();
         subastasSuscritas = new ArrayList<>();
