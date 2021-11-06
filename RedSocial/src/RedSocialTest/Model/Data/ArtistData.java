@@ -9,8 +9,8 @@ public class ArtistData implements Serializable {
 
     public String nickname;
     public ArrayList<PostData> posts;
-    int seguidores;
-    boolean activo;
+    public int seguidores;
+    public boolean activo;
 
     public ArtistData(String nickname, ArrayList<PostData> post, int seguidores, boolean activo) {
         this.nickname = nickname;

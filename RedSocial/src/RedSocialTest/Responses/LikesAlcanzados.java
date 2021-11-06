@@ -4,12 +4,14 @@ package RedSocialTest.Responses;
 
 import Network.Response.BaseResponse;
 import RedSocialTest.Enums.SocialResponseTypes;
+import RedSocialTest.Model.Data.PostData;
 
 public class LikesAlcanzados extends BaseResponse {
 
-
-    public LikesAlcanzados(int cantidadDeLikes) {
+    String content;
+    public LikesAlcanzados(PostData postData) {
         this.type = SocialResponseTypes.LIKES_MILE;
+        content = "Post: " + postData.id + " from "+postData.owner+" reached "+postData.likes+" likes";
     }
 
 

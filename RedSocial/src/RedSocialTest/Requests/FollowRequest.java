@@ -7,8 +7,8 @@ import RedSocialTest.Enums.SocialRequestTypes;
 
 public class FollowRequest extends BaseRequest {
 
-    int artistaId;
-    int seguidorId;
+    public int artistaId;
+    public int seguidorId;
 
 
     public FollowRequest(int seguidorId,int artistaId) {

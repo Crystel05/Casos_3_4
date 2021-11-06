@@ -7,12 +7,12 @@ import RedSocialTest.Enums.SocialRequestTypes;
 
 public class LikeRequest extends BaseRequest {
 
-    int seguidorId;
-    int postId;
-    int artistaId;
+    public int seguidorId;
+    public int postId;
 
-    public LikeRequest(int seguidorId,int postId, int artistaId){
+    public LikeRequest(int seguidorId,int postId){
         this.seguidorId = seguidorId;
+        this.postId = postId;
         this.type = SocialRequestTypes.LIKE;
     }
 }

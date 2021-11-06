@@ -5,6 +5,8 @@ import Network.Client.Client;
 import Network.Response.IHandleResponse;
 import RedSocialTest.Enums.UserType;
 import RedSocialTest.Requests.ConnectionRequest;
+import RedSocialTest.Requests.GetArtistasRequest;
+import RedSocialTest.Requests.GetSeguidoresRequest;
 
 import java.io.IOException;
 
@@ -19,6 +21,12 @@ public class SeguidorClient extends Client {
 
     @Override
     public void connect() throws IOException, ClassNotFoundException {
-        request(new ConnectionRequest(UserType.FOLLOWER,"Test"));
+        request(new ConnectionRequest(UserType.FOLLOWER,"Seguidor"+getClientId()));
+        request(new GetArtistasRequest());
+        request(new GetSeguidoresRequest());
+    }
+
+    public ControladorSeguidor getControladorSeguidor() {
+        return controladorSeguidor;
     }
 }

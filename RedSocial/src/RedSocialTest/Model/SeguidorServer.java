@@ -2,6 +2,7 @@ package RedSocialTest.Model;
 
 import Network.BaseServerClasses.BasicServerClient;
 import Network.ObserverPattern.IObservable;
+import RedSocialTest.Model.Data.PostData;
 import RedSocialTest.Model.Data.SeguidorData;
 import RedSocialTest.Responses.*;
 
@@ -64,14 +65,14 @@ public class SeguidorServer extends BasicServerClient {
         getResponseSender().sendResponse(new SuccessFollowing());
     }
 
-    public void likesResponse(int cantidadDeLikes) throws IOException {
-        getResponseSender().sendResponse(new LikesAlcanzados(cantidadDeLikes));
+    public void likesResponse(PostData post) throws IOException {
+        getResponseSender().sendResponse(new LikesAlcanzados(post));
     }
 
     @Override
     public void update(IObservable postNotifier) throws IOException {
         PostServer post = (PostServer) postNotifier;
-        likesResponse(post.getLikes());
+        likesResponse(post.getData());
     }
 
     public SeguidorData getData(){

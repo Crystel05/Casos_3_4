@@ -7,14 +7,12 @@ import RedSocialTest.Enums.SocialRequestTypes;
 
 public class DislikeRequest extends BaseRequest {
 
-    int seguidorId;
-    int postId;
-    int artistaActualId;
+    public int seguidorId;
+    public int postId;
 
-    public DislikeRequest(int seguidorActualId, int postId, int artistaActualId) {
+    public DislikeRequest(int seguidorActualId, int postId) {
         this.type = SocialRequestTypes.UNLIKE;
         this.seguidorId = seguidorActualId;
         this.postId = postId;
-        this.artistaActualId = artistaActualId;
     }
 }

@@ -48,12 +48,12 @@ public class ArtistaServer extends BasicServerClient {
         getResponseSender().sendResponse(new PostCreadoResponse());
     }
 
-    public void seguidoresResponse(int cantidadDeSeguidores) throws IOException {
-        getResponseSender().sendResponse(new SeguidoresAlcanzados(cantidadDeSeguidores));
+    public void seguidoresResponse(ArtistData artist) throws IOException {
+        getResponseSender().sendResponse(new SeguidoresAlcanzados(artist));
     }
 
-    public void likesResponse(int cantidadDeLikes) throws IOException {
-        getResponseSender().sendResponse(new LikesAlcanzados(cantidadDeLikes));
+    public void likesResponse(PostData post) throws IOException {
+        getResponseSender().sendResponse(new LikesAlcanzados(post));
     }
 
     public void bajaCorrectaResponse() throws IOException {
@@ -68,7 +68,7 @@ public class ArtistaServer extends BasicServerClient {
     @Override
     public void update(IObservable observable) throws IOException {
         PostServer post = (PostServer) observable;
-        likesResponse(post.getLikes());
+        likesResponse(post.getData());
     }
 
     public boolean notFollowing(IObserver seguidorBuscado) {
@@ -94,7 +94,7 @@ public class ArtistaServer extends BasicServerClient {
     }
 
     public void likesReached(PostServer post) throws IOException {
-        likesResponse(post.getLikes());
+        likesResponse(post.getData());
     }
 
     public ArtistData getData() {

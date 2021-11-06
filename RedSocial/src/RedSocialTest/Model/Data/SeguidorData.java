@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class SeguidorData implements Serializable {
 
-    String nickName;
+    public String nickName;
 
     public  SeguidorData(String nickname){
         this.nickName = nickname;

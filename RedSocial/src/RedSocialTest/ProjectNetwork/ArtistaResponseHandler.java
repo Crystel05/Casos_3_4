@@ -9,6 +9,7 @@ import RedSocialTest.Enums.SocialResponseTypes;
 import RedSocialTest.Requests.GetArtistasRequest;
 import RedSocialTest.Responses.ConnectionResponse;
 import RedSocialTest.Responses.GetArtistasResponse;
+import RedSocialTest.Responses.GetDownSuccessfulResponse;
 import RedSocialTest.Responses.PostCreadoResponse;
 
 import java.io.IOException;
@@ -28,19 +29,17 @@ public class ArtistaResponseHandler implements IHandleResponse {
                 System.out.println(connectionResponse.content);
                 break;
             case GET_DOWN_SUCCSESSFULY:
+                GetDownSuccessfulResponse getDownSuccessfulResponse = (GetDownSuccessfulResponse) response;
+                System.out.println(getDownSuccessfulResponse.content);
                 break;
             case CREATED_POST:
                 PostCreadoResponse postCreadoResponse = (PostCreadoResponse) response;
                 System.out.println(postCreadoResponse.content);
                 break;
-            case GET_POSTS:
-                break;
             case GET_ARTISTAS:
                 GetArtistasResponse artistasResponse = (GetArtistasResponse) response;
                 controlador.setArtistas(artistasResponse.artistas);
                 System.out.println("Vienen datos del servidor");
-                break;
-            case GET_SEGUIDORES:
                 break;
             default:
                 break;

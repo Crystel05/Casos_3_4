@@ -4,9 +4,14 @@ package RedSocialTest.Responses;
 
 import Network.Response.BaseResponse;
 import RedSocialTest.Enums.SocialResponseTypes;
+import RedSocialTest.Model.Data.ArtistData;
 
 public class SeguidoresAlcanzados extends BaseResponse {
-    public SeguidoresAlcanzados(int cantidadDeSeguidores) {
+
+    public String content;
+
+    public SeguidoresAlcanzados(ArtistData artist) {
         this.type = SocialResponseTypes.FOLLOWER_MILE;
+        content = "Artist "+artist.nickname +" reached"+ artist.seguidores+ " followers";
     }
 }

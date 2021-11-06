@@ -5,6 +5,7 @@ import RedSocialTest.ClientTypes.ArtistaClient;
 import RedSocialTest.ClientTypes.SeguidorClient;
 import RedSocialTest.Model.ArtistaServer;
 import RedSocialTest.Model.Data.ArtistData;
+import RedSocialTest.Model.Data.PostData;
 import RedSocialTest.Model.Data.SeguidorData;
 import RedSocialTest.Model.SeguidorServer;
 import RedSocialTest.ProjectNetwork.ArtistaResponseHandler;
@@ -32,6 +33,7 @@ public class ControladorSeguidor {
     private ControladorSeguidor() {
         this.artistas = new ArrayList<>();
         this.seguidores = new ArrayList<>();
+        this.seguidoresCliente = new ArrayList<>();
     }
 
 
@@ -69,14 +71,41 @@ public class ControladorSeguidor {
     }
 
     public void like(int postId) throws IOException, ClassNotFoundException {
-        seguidoresCliente.get(seguidorActualId-1).request(new LikeRequest(this.seguidorActualId,postId,this.artistaActualId));
+        seguidoresCliente.get(seguidorActualId).request(new LikeRequest(this.seguidorActualId,postId));
     }
 
     public void dislike(int postId) throws IOException, ClassNotFoundException {
-        seguidoresCliente.get(seguidorActualId-1).request(new DislikeRequest(this.seguidorActualId,postId,this.artistaActualId));
+        seguidoresCliente.get(seguidorActualId).request(new DislikeRequest(this.seguidorActualId,postId));
     }
 
     public void follow() throws IOException, ClassNotFoundException {
-        seguidoresCliente.get(seguidorActualId-1).request(new FollowRequest(seguidorActualId-1,artistaActualId-1));
+        seguidoresCliente.get(seguidorActualId).request(new FollowRequest(seguidorActualId,artistaActualId));
+    }
+
+    public ArrayList<PostData> getCurrentPosts() {
+        return artistas.get(artistaActualId).posts;
+    }
+
+    public void getSeguidores() throws IOException, ClassNotFoundException { //Actualiza
+        seguidoresCliente.get(seguidorActualId).request(new GetArtistasRequest());
+    }
+
+    public void getArtistas() throws IOException, ClassNotFoundException {
+        seguidoresCliente.get(artistaActualId).request(new GetArtistasRequest());
+    }
+
+    public void setSeguidores(ArrayList<SeguidorData> seguidores) {
+        this.seguidores = seguidores;
+        seguidoresPantalla.setSeguidores(seguidores);
+    }
+
+    public void setArtistas(ArrayList<ArtistData> artistas) {
+        this.artistas = artistas;
+            artistaActualId = 0;
+            seguidoresPantalla.setArtistas(artistas);
+    }
+
+    public void defaultUpdate() {
+        seguidoresPantalla.defaultConectionUpdate();
     }
 }

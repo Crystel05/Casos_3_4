@@ -3,6 +3,7 @@ package Controlador;
 import RedSocialTest.ClientTypes.ArtistaClient;
 import RedSocialTest.Model.Data.ArtistData;
 import RedSocialTest.Model.Data.PostData;
+import RedSocialTest.Model.Data.SeguidorData;
 import RedSocialTest.ProjectNetwork.ArtistaResponseHandler;
 import RedSocialTest.Requests.GetArtistasRequest;
 import RedSocialTest.Requests.PostRequest;
@@ -58,16 +59,17 @@ public class ControladorArtista {
     }
 
     public ArrayList<PostData> getCurrentPosts() {
-        return artistas.get(artistaActualId-1).posts;
+        return artistas.get(artistaActualId).posts;
     }
 
     public void post(String content) throws IOException, ClassNotFoundException {
-        artistasClientes.get(artistaActualId-1).request(new PostRequest(content,artistaActualId-1));
+        artistasClientes.get(artistaActualId).request(new PostRequest(content,artistaActualId));
     }
 
     public void getArtistas() throws IOException, ClassNotFoundException {
-        artistasClientes.get(artistaActualId-1).request(new GetArtistasRequest());
+        artistasClientes.get(artistaActualId).request(new GetArtistasRequest());
     }
+
 
 
 }
