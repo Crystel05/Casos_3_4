@@ -26,12 +26,16 @@ public class ArtistaServer extends BasicServerClient {
         this.seguidores  = new ArrayList<>();
     }
 
-    public void createPost(int id, String contenido) throws IOException {
+    public PostServer createPost(int id, String contenido) throws IOException {
+        PostServer post;
         if (activo) {
-            posts.add(new PostServer(id, contenido, this));
+            post = new PostServer(id, contenido, this);
+            posts.add(post);
             postCreadoResponse();
+            return post;
         } else {
             artistaInactivoResponse();
+            return null;
         }
 
     }

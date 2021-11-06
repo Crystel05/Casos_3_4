@@ -69,7 +69,7 @@ public class ServerRequestHandler extends Thread {
         return input;
     }
 
-    protected Server getServer(){
+    public Server getServer(){
         return server;
     }
 
@@ -88,5 +88,6 @@ public class ServerRequestHandler extends Thread {
     public ArrayList<BasicServerObject> getObjects(){
         return server.getObjects();
     }
+
 
 }

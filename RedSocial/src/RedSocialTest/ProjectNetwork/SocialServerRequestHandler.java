@@ -48,7 +48,10 @@ public class SocialServerRequestHandler implements IHandleRequest {
             }
             case POST: {
                 PostRequest postRequest = (PostRequest) request;
-                requestHandler.addToObjects(new PostServer(requestHandler.getObjects().size()+1,postRequest.content,postRequest.artist));
+                ArtistaServer artistaServer = (ArtistaServer) requestHandler.getServer().getClient(postRequest.artistId, requestHandler.getClientes());
+                PostServer post = artistaServer.createPost(requestHandler.getObjects().size()+1,postRequest.content);
+                if(post != null)
+                    requestHandler.addToObjects(post);
                 System.out.println(postRequest.content);
                 requestHandler.getResponseSender().sendResponse(new PostCreadoResponse());
                 break;

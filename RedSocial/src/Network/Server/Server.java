@@ -86,4 +86,12 @@ public class Server extends  Thread implements Serializable {
     public void setOnline(){
         this.online = true;
     }
+
+    public BasicServerClient getClient(int id,ArrayList<BasicServerClient> clientsList){
+        return clientsList.get(id);
+    }
+
+    public BasicServerObject getObject(int id){
+        return objects.get(id);
+    }
 }

@@ -62,11 +62,12 @@ public class ControladorArtista {
     }
 
     public void post(String content) throws IOException, ClassNotFoundException {
-        artistasClientes.get(artistaActualId-1).request(new PostRequest(content));
+        artistasClientes.get(artistaActualId-1).request(new PostRequest(content,artistaActualId-1));
     }
 
     public void getArtistas() throws IOException, ClassNotFoundException {
         artistasClientes.get(artistaActualId-1).request(new GetArtistasRequest());
     }
+
 
 }

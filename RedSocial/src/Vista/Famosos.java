@@ -140,10 +140,17 @@ public class Famosos implements Initializable, DragWindow {
         ArrayList<PostData> currentPosts = controladorArtista.getCurrentPosts();
         if(!currentPosts.isEmpty()){
             PostData post1 = currentPosts.get(0);
-            if(post1 != null)
+            if(post1 != null) {
                 mensaje1.appendText(post1.content);
+                //Puede agregarse un espacio para el autor
+                likeT.setText(String.valueOf(post1.likes));
+                dislikeT.setText(String.valueOf(post1.unlikes));
+            }
         }
     }
 
+    //Cuando se cambie el combo box hay que cambiar el currentId y luego traer los post con getArtist
+    //Crear boton de connecion
+    //Crear espacio para el autor del post
 
 }
