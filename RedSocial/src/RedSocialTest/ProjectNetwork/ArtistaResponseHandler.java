@@ -35,10 +35,12 @@ public class ArtistaResponseHandler implements IHandleResponse {
             case CREATED_POST:
                 PostCreadoResponse postCreadoResponse = (PostCreadoResponse) response;
                 System.out.println(postCreadoResponse.content);
+                controlador.defaultUpdate();
                 break;
             case GET_ARTISTAS:
                 GetArtistasResponse artistasResponse = (GetArtistasResponse) response;
                 controlador.setArtistas(artistasResponse.artistas);
+                controlador.defaultUpdate();
                 System.out.println("Vienen datos del servidor");
                 break;
             default:

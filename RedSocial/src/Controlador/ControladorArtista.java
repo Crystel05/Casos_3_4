@@ -70,6 +70,15 @@ public class ControladorArtista {
         artistasClientes.get(artistaActualId).request(new GetArtistasRequest());
     }
 
+    public int getArtistaActualId() {
+        return artistaActualId;
+    }
 
+    public void setArtistaActualId(int artistaActualId) {
+        this.artistaActualId = artistaActualId;
+    }
 
+    public void defaultUpdate(){
+        pantallaFamosos.defaultConectionUpdate();
+    }
 }

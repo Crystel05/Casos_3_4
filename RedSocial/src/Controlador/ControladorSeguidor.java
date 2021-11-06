@@ -71,6 +71,7 @@ public class ControladorSeguidor {
     }
 
     public void like(int postId) throws IOException, ClassNotFoundException {
+        System.out.println("Quien soy?"+seguidorActualId);
         seguidoresCliente.get(seguidorActualId).request(new LikeRequest(this.seguidorActualId,postId));
     }
 

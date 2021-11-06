@@ -3,6 +3,7 @@ package Vista;
 import Controlador.ControladorArtista;
 import RedSocialTest.Model.Data.ArtistData;
 import RedSocialTest.Model.Data.PostData;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -30,6 +31,7 @@ public class Famosos implements Initializable, DragWindow {
     ControladorArtista controladorArtista = ControladorArtista.getInstance();//TODO:Cuidado con este new
     PostData postData1;
     PostData postData2;
+    int postActualPantalla;
 
     @FXML
     private Pane contenedor;
@@ -72,9 +74,6 @@ public class Famosos implements Initializable, DragWindow {
 
 
     public void conectarse() throws IOException, ClassNotFoundException {
-        //Se abre la pantalla se escribe un nombre
-        //Si el nombre no existe entonces crea uno nuevo sino trae el id que le corresponde
-        //El id es seteado en el cliente
         controladorArtista.nuevaConexion("TestName");
     }
 
@@ -92,12 +91,12 @@ public class Famosos implements Initializable, DragWindow {
 
     @FXML
     void siguiente(MouseEvent event) {
-
+        nextPost();
     }
 
     @FXML
     void atras(MouseEvent event) {
-
+        prevPost();
     }
 
     @FXML
@@ -133,20 +132,77 @@ public class Famosos implements Initializable, DragWindow {
         for (ArtistData artist:artistas) {
             nombresFamosos.add(artist.nickname);
         }
-        famosos.setItems(nombresFamosos);
+
+        Platform.runLater(new Runnable() {
+            @Override public void run() {
+                famosos.setItems(nombresFamosos);
+            }
+        });
     }
 
-    public void loadPosts(){//Todo:Cambiar por los post aca
-        ArrayList<PostData> currentPosts = controladorArtista.getCurrentPosts();
-        if(!currentPosts.isEmpty()){
-            PostData post1 = currentPosts.get(0);
-            if(post1 != null) {
-                mensaje1.appendText(post1.content);
-                //Puede agregarse un espacio para el autor
-                likeT.setText(String.valueOf(post1.likes));
-                dislikeT.setText(String.valueOf(post1.unlikes));
-            }
+    public void loadPosts(){
+        ArrayList<PostData> posts = controladorArtista.getCurrentPosts();
+        cleanPost1();
+        cleanPost2();
+        try{
+            postData1 = posts.get(postActualPantalla);
+            mensaje1.setText(postData1.content);
+            likeT.setText(String.valueOf(postData1.likes));
+            dislikeT.setText(String.valueOf(postData1.unlikes));
+
+        }catch (Exception e){
+            System.out.println("No hay post1");
         }
+        try{
+            postData2 = posts.get(postActualPantalla+1);
+            mensaje2.setText(postData2.content);
+            likeT2.setText(String.valueOf(postData2.likes));
+            dislikeT2.setText(String.valueOf(postData2.unlikes));
+        }catch (Exception e){
+            System.out.println("No hay post2");
+        }
+
+    }
+
+    private void cleanPost1() {
+        mensaje1.setText("");
+        likeT.setText(String.valueOf(0));
+        dislikeT.setText(String.valueOf(0));
+    }
+    private void cleanPost2() {
+        mensaje2.setText("");
+        likeT2.setText(String.valueOf(0));
+        dislikeT2.setText(String.valueOf(0));
+    }
+
+    public void nextPost(){
+        postActualPantalla += 2;
+        System.out.println("Siguiente"+postActualPantalla);
+        if(postActualPantalla >controladorArtista.getCurrentPosts().size())
+            postActualPantalla = 0;
+        loadPosts();
+
+    }
+
+    public void prevPost(){
+        postActualPantalla -= 2;
+        if(postActualPantalla <0)
+            postActualPantalla = controladorArtista.getCurrentPosts().size()-1;
+        loadPosts();
+    }
+    public void updateCurrentArtista(int id){   ///Llamados cuando se hace un cambio en el combo box
+        controladorArtista.setArtistaActualId(id);
+    }
+
+
+    public void defaultConectionUpdate(){
+        Platform.runLater(new Runnable() {
+            @Override public void run() {
+                famosos.getSelectionModel().select(controladorArtista.getArtistaActualId());
+            }
+        });
+        postActualPantalla = 0;
+        loadPosts();
     }
 
     //Cuando se cambie el combo box hay que cambiar el currentId y luego traer los post con getArtist

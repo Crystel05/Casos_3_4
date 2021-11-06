@@ -163,7 +163,7 @@ public class Seguidores implements Initializable, DragWindow {
         famosos.setItems(nombresFamosos);
     }
 
-    public void loadPosts(){//Todo:Cambiar por los post aca
+    public void loadPosts(){
         ArrayList<PostData> posts = controladorSeguidor.getCurrentPosts();
         cleanPost1();
         cleanPost2();

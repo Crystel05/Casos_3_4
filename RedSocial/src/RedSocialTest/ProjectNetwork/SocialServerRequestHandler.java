@@ -41,7 +41,7 @@ public class SocialServerRequestHandler implements IHandleRequest {
                     requestHandler.getResponseSender().sendResponse(new ConnectionResponse(clientId));
 
                 } else if (connectcionRequest.userType.equals(UserType.FOLLOWER)) {
-                    int clientId = requestHandler.getClientes().size();
+                    int clientId = requestHandler.getClientes2().size();
                     requestHandler.addToClients2(new SeguidorServer(clientId,connectcionRequest.userName));
                     requestHandler.getResponseSender().sendResponse(new ConnectionResponse(clientId));
                 }
@@ -57,7 +57,7 @@ public class SocialServerRequestHandler implements IHandleRequest {
             case POST: {
                 PostRequest postRequest = (PostRequest) request;
                 ArtistaServer artistaServer = (ArtistaServer) requestHandler.getServer().getClient(postRequest.artistId, requestHandler.getClientes());
-                PostServer post = artistaServer.createPost(requestHandler.getObjects().size()+1,postRequest.content);
+                PostServer post = artistaServer.createPost(requestHandler.getObjects().size(),postRequest.content);
                 if(post != null)
                     requestHandler.addToObjects(post);
                 System.out.println(postRequest.content);

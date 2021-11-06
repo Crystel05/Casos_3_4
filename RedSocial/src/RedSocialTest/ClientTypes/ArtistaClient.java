@@ -27,7 +27,7 @@ public class ArtistaClient extends Client {
 
     @Override
     public void connect() throws IOException, ClassNotFoundException {
-        request(new ConnectionRequest(UserType.CELEBRITY,"Test"));
+        request(new ConnectionRequest(UserType.CELEBRITY,"Artista"+getClientId()));
         request(new GetArtistasRequest());
     }
 
