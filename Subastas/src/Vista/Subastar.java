@@ -2,6 +2,7 @@ package Vista;
 
 import Model.DragWindow;
 import Model.Product;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -183,9 +184,10 @@ public class Subastar implements Initializable, DragWindow {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.onDraggedScene(contenedor);
-        ObservableList<String> subast = FXCollections.observableArrayList();
-        subast.add("Luis"); subast.add("Juan");
-        subastadores.setItems(subast);
+        //ObservableList<String> subast = FXCollections.observableArrayList();
+        //subast.add("Luis"); subast.add("Juan");
+        //subastadores.setItems(subast);
+        this.controlador.setSubastador(this);  //Le paso al controlador la referencia de esta ventana para que la modifique en dado caso
     }
 
 
@@ -196,6 +198,15 @@ public class Subastar implements Initializable, DragWindow {
         //buscar la oferta y rechazarla
     }
 
+    public void defaultConectionUpdate(){
+        Platform.runLater(new Runnable() {
+            @Override public void run() {
+
+                subastadores.getSelectionModel().select(controlador.getSubastadorActualId());
+            }
+        });
+        //loadPosts(); load lo que ocupe
+    }
     /*
     private void llenarDatos(Auction subasta) throws FileNotFoundException {
         try {

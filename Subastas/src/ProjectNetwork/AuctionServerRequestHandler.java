@@ -39,7 +39,7 @@ public class AuctionServerRequestHandler implements IHandleRequest {
                 }
                 System.out.println("case GET_CLIENTS en AuctionServerRequestHandler");
                 System.out.println(clients);
-                //requestHandler.getResponseSender().sendResponse(new GetClientsResponse(clients));
+                requestHandler.getResponseSender().sendResponse(new GetClientsResponse(clients));
                 break;
 
 

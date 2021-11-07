@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="contenedor" prefHeight="570.0" prefWidth="954.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.ViewControllers.Comprador">
+<Pane fx:id="contenedor" prefHeight="570.0" prefWidth="954.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.Comprador">
    <children>
       <Text layoutX="374.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comprador">
          <font>

@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.ClientData;
 import Model.ClientNetwork;
 import ProjectNetwork.AuctionClientResponseHandler;
 import Vista.Comprador;
@@ -14,8 +15,9 @@ public class AuctionClientController {
     private static AuctionClientController controller;
     private Comprador comprador;
     private Subastar subastador;
-    private int subastadorActual;
-    private ArrayList<ClientNetwork> clients;  //AUN NO SE PARA QUE
+    private int subastadorActualId;
+    private ArrayList<ClientNetwork> clients;
+    private ArrayList<ClientData> clientsData;
 
     public AuctionClientController( ) {
 
@@ -35,4 +37,41 @@ public class AuctionClientController {
         System.out.println(name);
 
     }
+
+    public Comprador getComprador() {
+        return comprador;
+    }
+
+    public void setComprador(Comprador comprador) {
+        this.comprador = comprador;
+    }
+
+    public Subastar getSubastador() {
+        return subastador;
+    }
+
+    public void setSubastador(Subastar subastador) {
+        this.subastador = subastador;
+    }
+
+    public void setClients(ArrayList<ClientData> clients) {
+        this.clientsData = clients;
+        //subastador.setClients(clients);
+        //clients.loadPosts();
+    }
+
+    public int getSubastadorActualId() {
+        return subastadorActualId;
+    }
+
+    public void setSubastadorActualId(int subastadorActualId) {
+        this.subastadorActualId = subastadorActualId;
+    }
+
+    public void defaultUpdate(){
+        subastador.defaultConectionUpdate();
+    }
+
+
+
 }
