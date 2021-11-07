@@ -1,21 +1,18 @@
 package Responses;
 
 import Enums.AutionResponseType;
+import Network.Response.BaseResponse;
 import Network.Response.IResponse;
 
-public class ConnectionResponse implements IResponse {
 
-    AutionResponseType type;
-    public String content;
+public class ConnectionResponse extends BaseResponse {
 
-    public ConnectionResponse(String string){
+    public String content = "Conexion exitosa con el servidor";
+    public int clientId;
 
+    public ConnectionResponse(int clientId){
         this.type = AutionResponseType.CONEXION_EXITOSA;
-        content = string;
+        this.clientId = clientId;
     }
 
-    @Override
-    public Enum getType() {
-        return type;
-    }
 }

@@ -16,6 +16,10 @@ public class ConnectionRequest extends BaseRequest {
 
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
     @Override
     public Enum getType() {
         return type;

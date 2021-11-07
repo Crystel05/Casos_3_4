@@ -1,24 +1,24 @@
 package Request;
 
 import Enums.AuctionRequestType;
-import Model.Auction;
+import Model.SubastaServer;
 import Network.Request.IRequest;
 
 public class AuctionRequest implements IRequest {
-    public Auction auction;
+    public SubastaServer auctionServer;
     public AuctionRequestType type;
 
-    public AuctionRequest(Auction auction){
-        this.auction = auction;
+    public AuctionRequest(SubastaServer auctionServer){
+        this.auctionServer = auctionServer;
         this.type = AuctionRequestType.SUBASTAR;
     }
 
-    public Auction getAuction(){
-        return auction;
+    public SubastaServer getAuction(){
+        return auctionServer;
     }
 
-    public void setAuction(Auction auction) {
-        this.auction = auction;
+    public void setAuction(SubastaServer auctionServer) {
+        this.auctionServer = auctionServer;
     }
 
     @Override

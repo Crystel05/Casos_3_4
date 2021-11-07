@@ -6,7 +6,9 @@ import Network.Response.IHandleResponse;
 import Network.Response.IResponse;
 import Responses.ConnectionResponse;
 
+
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class AuctionClientResponseHandler implements IHandleResponse {
@@ -18,11 +20,11 @@ public class AuctionClientResponseHandler implements IHandleResponse {
                 ConnectionResponse connection = (ConnectionResponse) response;
                 System.out.println(connection.content);
                 break;
-            case TEST:
-                //TestResponse testResponse = (TestResponse) response;
-                //System.out.println(testResponse.content);
-                System.out.println("Jumm");
+
+            /*case GET_CLIENTS: {
+                System.out.println("AHGS");
                 break;
+            }*/
             default:
                 break;
         }

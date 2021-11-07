@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="contenedor" prefHeight="250.0" prefWidth="418.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.Felicitacion">
+<Pane fx:id="contenedor" prefHeight="250.0" prefWidth="418.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.ViewControllers.Felicitacion">
    <children>
       <Button fx:id="enviarB" disable="true" layoutX="171.0" layoutY="198.0" mnemonicParsing="false" onAction="#enviar" text="Enviar">
          <font>

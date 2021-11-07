@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane fx:id="contenedor" prefHeight="529.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.Subastar">
+<Pane fx:id="contenedor" prefHeight="529.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.ViewControllers.Subastar">
    <children>
       <Text layoutX="326.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subastador">
          <font>
@@ -41,6 +40,8 @@
                   <Font name="Berlin Sans FB" size="22.0" />
                </font>
             </Text>
+            <Button layoutX="85.0" layoutY="57.0" mnemonicParsing="false" onAction="#connectToServer" text="Connect" />
+            <TextField fx:id="txtName" layoutX="85.0" layoutY="14.0" promptText="Name" />
          </children>
       </Pane>
       <Pane fx:id="panelCrear" layoutY="87.0" prefHeight="443.0" prefWidth="857.0" visible="false">

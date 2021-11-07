@@ -2,15 +2,20 @@ package ProjectNetwork;
 
 import Enums.AuctionRequestType;
 import Enums.UserType;
+import Model.AuctionClientServer;
+import Model.ClientData;
+import Network.BaseServerClasses.BasicServerClient;
 import Network.Request.IHandleRequest;
 import Network.Request.IRequest;
 import Network.Server.ServerRequestHandler;
 import Request.AuctionRequest;
 import Request.ConnectionRequest;
 import Responses.ConnectionResponse;
+import Responses.GetClientsResponse;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class AuctionServerRequestHandler implements IHandleRequest {
 
@@ -20,22 +25,32 @@ public class AuctionServerRequestHandler implements IHandleRequest {
         switch (type){
             case CONNECT:{
                 ConnectionRequest connection = (ConnectionRequest) request;
-                if(connection.userType.equals(UserType.SUBASTADOR)){
-                    //Aqui no sabria como manjera lo del nombre
-                    //requestHandler.addToClients(new AuctionClient("NI IDEA"));
-                    requestHandler.getResponseSender().sendResponse(new ConnectionResponse("Conexión exitosa!"));
-
-                }
-                //Aqui pues no sé por qué se haría tal distinción
-                else if(connection.userType.equals(UserType.OFERENTE)){
-                    //requestHandler.addToClients2(new AuctionClient("NI IDEA"));
-
-                }
+                //Aqui no sabria como manjer lo del nombre
+                int clientId = requestHandler.getClientes().size();
+                requestHandler.getResponseSender().sendResponse(new ConnectionResponse(clientId));
+                requestHandler.addToClients(new AuctionClientServer(clientId,connection.getUserName()));  // Se agrega siempre a clientes
                 break;
             }
+            case GET_CLIENTS: {
+
+                ArrayList<ClientData> clients = new ArrayList<>();
+                for (BasicServerClient client : requestHandler.getClientes()) {
+                    clients.add(((AuctionClientServer) client).getData());
+                }
+                System.out.println("case GET_CLIENTS en AuctionServerRequestHandler");
+                System.out.println(clients);
+                //requestHandler.getResponseSender().sendResponse(new GetClientsResponse(clients));
+                break;
+
+
+            }
+            case GET_AUCTIONS: {
+                System.out.println("Las subastas");
+                break;
+            }
+
             case SUBASTAR:{
                 System.out.println("Intenta subastar");
-                // >:C
                 System.out.println(((AuctionRequest) request).getAuction());
                 //requestHandler.addToObjects(((AuctionRequest) request).getAuction());
                 //requestHandler.getResponseSender().sendResponse(new AuctionRequest());

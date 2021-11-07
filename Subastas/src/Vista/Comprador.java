@@ -1,7 +1,7 @@
 package Vista;
 
+import Model.AuctionClientServer;
 import Model.DragWindow;
-import Model.Auction;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -87,7 +87,9 @@ public class Comprador implements Initializable, DragWindow {
         this.onDraggedScene(contenedor);
     }
 
-    private void llenarDetalles(Auction subasta){
+
+    /*
+    private void llenarDetalles(AuctionClientServer subasta){
         try {
             nombreSubT.setText(subasta.getProducto().getNombre());
             descSubTA.setText(subasta.getProducto().getDescripcion());
@@ -99,4 +101,5 @@ public class Comprador implements Initializable, DragWindow {
             imagenSubI.setImage(image);
         }catch (NullPointerException | FileNotFoundException ignored){}
     }
+     */
 }

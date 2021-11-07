@@ -1,26 +1,22 @@
 package Model;
 
 import Enums.AuctionState;
+import Network.BaseServerClasses.BasicServerObject;
+import Network.Server.ObserverPattern.IObserver;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Auction {
+public class SubastaServer extends BasicServerObject {
 
-    int subastaId;
-    ArrayList<AuctionClient> oferentes;
-    Product producto;
-    Date inicio;
-    Date fin;
-    AuctionState estado;
+    //int subastaId;
+    private ArrayList<IObserver> oferentes;
+    private Product producto;
+    private Date inicio;
+    private Date fin;
+    private AuctionState estado;
+    private AuctionClientServer owner;
 
-    public int getSubastaId() {
-        return subastaId;
-    }
-
-    public ArrayList<AuctionClient> getOferentes() {
-        return oferentes;
-    }
 
     public Product getProducto() {
         return producto;
@@ -38,12 +34,17 @@ public class Auction {
         return estado;
     }
 
-    public Auction(int subastaId, Product producto){
+    public SubastaServer(int subastaId){
+        super(subastaId);
+
+    }
+
+    public SubastaServer(int subastaId, Product producto) {
+        super(subastaId);
         this.oferentes = new ArrayList<>();
-        estado = AuctionState.ACTIVO;
+        this.estado = AuctionState.ACTIVO;
         this.producto = producto;
-        this.subastaId = subastaId;
-        inicio = new Date();
+        this.inicio = new Date();
     }
 
     public void cerrar(){
@@ -65,9 +66,14 @@ public class Auction {
         }
     }
 
-    public void agregarOferente(AuctionClient oferente)
+    public void agregarOferente(AuctionClientServer oferente)
     {
         oferentes.add(oferente);
+    }
+
+    public AuctionData getData(){
+        //No se si esta bien poner aca lo objs
+        return new AuctionData(getIdClient(), oferentes.size(), producto, inicio, fin , estado, owner.getNickName());
     }
 
 }

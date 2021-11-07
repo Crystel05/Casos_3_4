@@ -1,12 +1,10 @@
 package Controller;
 
-import Enums.UserType;
 import Model.ClientNetwork;
-import Network.Client.Client;
 import ProjectNetwork.AuctionClientResponseHandler;
-import Request.ConnectionRequest;
 import Vista.Comprador;
 import Vista.Subastar;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,6 +17,10 @@ public class AuctionClientController {
     private int subastadorActual;
     private ArrayList<ClientNetwork> clients;  //AUN NO SE PARA QUE
 
+    public AuctionClientController( ) {
+
+        this.clients = new ArrayList<ClientNetwork>();
+    }
 
     public synchronized static AuctionClientController getInstance(){
         if(controller == null){
@@ -26,10 +28,11 @@ public class AuctionClientController {
         }
         return controller;
     }
-    public void nuevaConexion(String testName) throws IOException, ClassNotFoundException {
+    public void nuevaConexion(String name) throws IOException, ClassNotFoundException {
         ClientNetwork clientNetwork = new ClientNetwork("localhost",9999,new AuctionClientResponseHandler(),this);
         clientNetwork.connect();
         clients.add(clientNetwork);
+        System.out.println(name);
 
     }
 }

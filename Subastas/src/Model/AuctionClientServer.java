@@ -5,29 +5,45 @@ import Network.BaseServerClasses.BasicServerClient;
 import java.util.ArrayList;
 
 //TODO: Tiene que extender de Cliente de la libreria de conexion
-public class AuctionClient extends BasicServerClient {
+public class AuctionClientServer extends BasicServerClient {
 
     String nickName;
-    ArrayList<Auction> subastasHechas;
-    ArrayList<Auction> subastasSuscritas;
+    ArrayList<SubastaServer> subastasHechas;
+    ArrayList<SubastaServer> subastasSuscritas;
 
-    public AuctionClient(int objectId,String nickName){
+    public AuctionClientServer(int objectId, String nickName){
         super(objectId);
         this.nickName = nickName;
         subastasHechas = new ArrayList<>();
         subastasSuscritas = new ArrayList<>();
     }
 
-
-    public void ofertar(int idSubasta,double monto){
-        for (Auction subasta:subastasSuscritas) {
-            if(subasta.getSubastaId() == idSubasta){
+    public String getNickName() {
+        return nickName;
+    }
+/*public void ofertar(int idSubasta,double monto){
+        for (SubastaServer subasta:subastasSuscritas) {
+            if(subasta.getObjectId() == idSubasta){
                 //Tiene que llamar al server
                 subasta.incrementarPrecio(monto);
             }
         }
+    }*/
+
+    public ClientData getData() {
+        ArrayList<AuctionData> subastas_hechas = new ArrayList<>();
+        ArrayList<AuctionData> subastas_Suscritas = new ArrayList<>();
+        for (SubastaServer ad:subastasHechas) {
+            subastas_hechas.add(ad.getData());
+        }
+        for (SubastaServer ad:subastasSuscritas) {
+            subastas_Suscritas.add(ad.getData());
+        }
+        System.out.println("Hola en getData en AuctionClientServer");
+        return new ClientData(nickName,subastas_hechas,subastas_Suscritas);
+
     }
-    
+
     public void unirseASubasta(int idSubasta){
 
     }

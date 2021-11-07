@@ -2,7 +2,6 @@ package Vista;
 
 import Model.DragWindow;
 import Model.Product;
-import Model.Auction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -23,6 +23,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import Controller.AuctionClientController;
 
 import java.io.*;
 import java.net.URL;
@@ -30,6 +31,7 @@ import java.util.ResourceBundle;
 
 public class Subastar implements Initializable, DragWindow {
 
+    AuctionClientController controlador = AuctionClientController.getInstance();//TODO:Cuidado con este new
     private String subastadorNombre;
     private String subastaNombre;
 
@@ -85,6 +87,9 @@ public class Subastar implements Initializable, DragWindow {
     private Text mensaje;
 
     @FXML
+    private TextField txtName;
+
+    @FXML
     public void cerrar(MouseEvent event) {
         System.exit(1);
     }
@@ -127,8 +132,8 @@ public class Subastar implements Initializable, DragWindow {
         subastadorNombre = subastas.getSelectionModel().getSelectedItem();
         if (nombreSubasta != null) {
             //cargar detalles
-            Auction subasta = new Auction(10, new Product());
-            llenarDatos(subasta);
+            //Auction subasta = new Auction(10, new Product());
+            //llenarDatos(subasta);
             System.out.println("aqui");
         }
     }
@@ -183,6 +188,15 @@ public class Subastar implements Initializable, DragWindow {
         subastadores.setItems(subast);
     }
 
+
+
+    @FXML
+    public void connectToServer(ActionEvent event) throws IOException, ClassNotFoundException {
+        controlador.nuevaConexion(txtName.getText());
+        //buscar la oferta y rechazarla
+    }
+
+    /*
     private void llenarDatos(Auction subasta) throws FileNotFoundException {
         try {
             nombreSubasta.setText(subasta.getProducto().getNombre());
@@ -194,7 +208,8 @@ public class Subastar implements Initializable, DragWindow {
             Image image = new Image(stream);
             imagenSub.setImage(image);
         }catch (NullPointerException ignored){}
-
+        }
+        */
         //lenar lo de ofertas hechas y por aceptar
     }
-}
+
