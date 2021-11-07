@@ -25,7 +25,7 @@ public class SeguidorClient extends Client {
     public void connect() throws IOException, ClassNotFoundException {
         request(new ConnectionRequest(UserType.FOLLOWER,"Seguidor"+getClientId()));
         request(new GetArtistasRequest());
-        request(new GetSeguidoresRequest());
+        request(new GetSeguidoresRequest());//Me generan respuestas y en esta actualizo los datos de la pantalla.
     }
 
     public ControladorSeguidor getControladorSeguidor() {

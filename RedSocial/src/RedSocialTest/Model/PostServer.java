@@ -41,9 +41,9 @@ public class PostServer extends BasicServerObject {
     }
 
     public void agregarLike(SeguidorServer seguidor) throws IOException {
-        likes.add(seguidor);
-        addObserver(seguidor);
-        checkLikes();
+        likes.add(seguidor);//Esto es para el control de likes y dislikes
+        addObserver(seguidor);//Esto es para el patron de observador que avisa cuando se llega a x likes
+        checkLikes();//Revisa si ya cumplio los x likes
     }
 
     public void quitarUnlike(SeguidorServer seguidor) {

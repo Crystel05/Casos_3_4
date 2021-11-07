@@ -28,7 +28,10 @@ import java.util.ResourceBundle;
 
 public class Famosos implements Initializable, DragWindow {
 
-    ControladorArtista controladorArtista = ControladorArtista.getInstance();//TODO:Cuidado con este new
+    //Se le pasa un controlador a la pantalla es un singleton
+    ControladorArtista controladorArtista = ControladorArtista.getInstance();
+
+    //Atributas para manejar los post de la pantalla
     PostData postData1;
     PostData postData2;
     int postActualPantalla;
@@ -73,6 +76,7 @@ public class Famosos implements Initializable, DragWindow {
     private Pane post2;
 
 
+    //Metodos por aparte para pedirle cosas al controlador
     public void conectarse() throws IOException, ClassNotFoundException {
         controladorArtista.nuevaConexion("TestName");
     }
@@ -101,6 +105,7 @@ public class Famosos implements Initializable, DragWindow {
         controladorArtista.update();
     }
 
+    //Este boton es como el de conectar
     @FXML
     void darseBaja(ActionEvent event) throws IOException, ClassNotFoundException {
         conectarse();

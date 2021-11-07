@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class ArtistaResponseHandler implements IHandleResponse {
 
-
+    //Recibe las respuestas del cliente Artista
     @Override
     public void parseResponse(IResponse response, ClientResponseHandler handler) throws IOException, ClassNotFoundException {
         ControladorArtista controlador = ((ArtistaClient) handler.getClient()).getControladorArtista();

@@ -182,11 +182,11 @@ public class Seguidores implements Initializable, DragWindow {
     }
 
     public void loadPosts(){
-        ArrayList<PostData> posts = controladorSeguidor.getCurrentPosts();
+        ArrayList<PostData> posts = controladorSeguidor.getCurrentPosts();//De los post del artistaActual
         cleanPost1();
         cleanPost2();
         try{
-            postData1 = posts.get(postActualPantalla);
+            postData1 = posts.get(postActualPantalla);//Intente cargar el primer post
             mensaje1.setText(postData1.content);
             likeT.setText(String.valueOf(postData1.likes));
             dislikeT.setText(String.valueOf(postData1.unlikes));
@@ -232,23 +232,23 @@ public class Seguidores implements Initializable, DragWindow {
 
 
     public void updateCurrentArtista(){   ///Llamados cuando se hace un cambio en el combo box
-        controladorSeguidor.setArtistaActualId(famosos.getSelectionModel().getSelectedIndex());
+        controladorSeguidor.setArtistaActualId(famosos.getSelectionModel().getSelectedIndex());//De el combobox setee el seguidor actual con el index del combovbox
         postActualPantalla = 0;
         loadPosts();
     }
 
     public void updateCurrentSeguidor(){
-        controladorSeguidor.setSeguidorActualId(seguidores.getSelectionModel().getSelectedIndex());
+        controladorSeguidor.setSeguidorActualId(seguidores.getSelectionModel().getSelectedIndex());//Pone el select del combobox en la pos del que se acaba de conectar
         System.out.println(controladorSeguidor.getSeguidorActualId());
         System.out.println(controladorSeguidor.getArtistaActualId());
-        setNotificaciones();
+        setNotificaciones();//Pone los datos del seguidor
     }
 
     public void defaultConectionUpdate(){
         Platform.runLater(new Runnable() {
             @Override public void run() {
-                seguidores.getSelectionModel().select(controladorSeguidor.getSeguidorActualId());
-                famosos.getSelectionModel().select(controladorSeguidor.getArtistaActualId());
+                seguidores.getSelectionModel().select(controladorSeguidor.getSeguidorActualId());//Llene los combobox de seguidores
+                famosos.getSelectionModel().select(controladorSeguidor.getArtistaActualId());//Llene los combobox de artistas
                 updateCurrentSeguidor();
                 updateCurrentArtista();
             }
@@ -256,10 +256,10 @@ public class Seguidores implements Initializable, DragWindow {
     }
 
     public void setNotificaciones(){
-        Platform.runLater(new Runnable() {
+        Platform.runLater(new Runnable() {//Para errores de tipo Thread en JavaFX
             @Override
             public void run() {
-                notificaciones.getChildren().setAll(new Text(controladorSeguidor.getNotificaciones()));
+                notificaciones.getChildren().setAll(new Text(controladorSeguidor.getNotificaciones()));//Ponga en el textField los datos de las notificaciones
             }
         });
     }

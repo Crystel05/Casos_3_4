@@ -15,8 +15,11 @@ import java.util.ArrayList;
 
 public class ControladorArtista {
 
+    //Los clientes de la pantalla se usan en el comboBox y al seleccionar el comboBox estan todos los sockets
     ArrayList<ArtistaClient> artistasClientes;
+    //Son los datos que se traen del servidor de la redSocial y otras coas del artista
     ArrayList<ArtistData> artistas;
+    //Es la pos de la lista de los ArtistasClientes
     int artistaActualId;
     Famosos pantallaFamosos;
     CrearPost pantallaCrearPost;
@@ -42,6 +45,7 @@ public class ControladorArtista {
     }
 
 
+    //Se crea el artista y eese mismo artista se llama su metodo conectar
     public void nuevaConexion(String testName) throws IOException, ClassNotFoundException {
         ArtistaClient nuevoCliente = new ArtistaClient("localhost",6000,new ArtistaResponseHandler(),this);
         nuevoCliente.connect();

@@ -14,6 +14,8 @@ import java.io.IOException;
 
 public class SeguidorResponseHandler implements IHandleResponse {
 
+    //Recibe las respuestas del cliente Seguidor
+
     @Override
     public void parseResponse(IResponse response, ClientResponseHandler handler) throws IOException, ClassNotFoundException {
         ControladorSeguidor controlador = ((SeguidorClient) handler.getClient()).getControladorSeguidor();
@@ -26,9 +28,9 @@ public class SeguidorResponseHandler implements IHandleResponse {
             }
             case CONNECTION:
                 ConnectionResponse connectionResponse = (ConnectionResponse) response;
-                handler.getClient().setClientId(connectionResponse.clientId);
-                controlador.setSeguidorActualId(connectionResponse.clientId);
-                controlador.addToNotificaciones(connectionResponse.content);
+                handler.getClient().setClientId(connectionResponse.clientId);//Me trae el id en el response
+                controlador.setSeguidorActualId(connectionResponse.clientId);//Para setear de una vez quien se acaba de conectar
+                controlador.addToNotificaciones(connectionResponse.content);//Mensaje x
                 break;
             case ALREADY_LIKED:
                 AlreadyLikedPostResponse alreadyLikedPostResponse = (AlreadyLikedPostResponse) response;
@@ -60,9 +62,9 @@ public class SeguidorResponseHandler implements IHandleResponse {
                 System.out.println("Vienen datos de artistas del servidor");
                 break;
             case GET_SEGUIDORES:
-                GetSeguidoresResponse seguidoresResponse = (GetSeguidoresResponse) response;
-                controlador.setSeguidores(seguidoresResponse.seguidores);
-                controlador.defaultUpdate();
+                GetSeguidoresResponse seguidoresResponse = (GetSeguidoresResponse) response;//Recibe los seguidores
+                controlador.setSeguidores(seguidoresResponse.seguidores);//Con el controlador guarda la lista para utilizar en pantalla
+                controlador.defaultUpdate();//Aqui hago el update de la pantalla
                 System.out.println("Vienen datos de seguidores del servidor");
                 break;
             case SUCCESS_LIKE:

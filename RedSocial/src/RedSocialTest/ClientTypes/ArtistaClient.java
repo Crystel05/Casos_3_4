@@ -25,6 +25,7 @@ public class ArtistaClient extends Client {
 
     }
 
+    //Hereda de cliente y hace un connect mas "complejo"
     @Override
     public void connect() throws IOException, ClassNotFoundException {
         request(new ConnectionRequest(UserType.CELEBRITY,"Artista"+getClientId()));
