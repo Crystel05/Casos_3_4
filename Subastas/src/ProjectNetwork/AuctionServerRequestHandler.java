@@ -3,7 +3,9 @@ package ProjectNetwork;
 import Enums.AuctionRequestType;
 import Enums.UserType;
 import Model.AuctionClientServer;
+import Model.AuctionData;
 import Model.ClientData;
+import Model.SubastaServer;
 import Network.BaseServerClasses.BasicServerClient;
 import Network.Request.IHandleRequest;
 import Network.Request.IRequest;
@@ -51,10 +53,22 @@ public class AuctionServerRequestHandler implements IHandleRequest {
 
             case SUBASTAR:{
                 System.out.println("Intenta subastar");
-                System.out.println(((AuctionRequest) request).getAuction());
-                //requestHandler.addToObjects(((AuctionRequest) request).getAuction());
-                //requestHandler.getResponseSender().sendResponse(new AuctionRequest());
+                AuctionRequest auctionRequest = (AuctionRequest) request;
+                AuctionData auctionData = ((AuctionRequest) request).getAuctionData();
+                auctionData.setSubastaId(requestHandler.getObjects().size());  //Le pone un Id a la subasta
+                //SubastaServer subasta = (SubastaServer) requestHandler.getServer().getClientes(auctionData.getSubastaId(),requestHandler.getClientes());
+                //requestHandler.addToObjects();
+
+                /*
+                //Se busca el artista en el server por el id que llega en el request
+                ArtistaServer artistaServer = (ArtistaServer) requestHandler.getServer().getClient(postRequest.artistId, requestHandler.getClientes());
+                PostServer post = artistaServer.createPost(requestHandler.getObjects().size(),postRequest.content);
+                if(post != null)
+                    requestHandler.addToObjects(post);//Con este se guardan las subastas/post
+                System.out.println(postRequest.content);
+                requestHandler.getResponseSender().sendResponse(new PostCreadoResponse());
                 break;
+                */
             }
             case PUJAR:{
                 System.out.println("Intenta ofertar");

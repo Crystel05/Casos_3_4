@@ -12,16 +12,18 @@ import java.io.IOException;
 public class ClientNetwork extends Client {
 
     private AuctionClientController auctionController;
+    private String nickname;
 
-    public ClientNetwork(String host, int port, IHandleResponse responseHandler,AuctionClientController auctionController) throws IOException, ClassNotFoundException {
+    public ClientNetwork(String host, int port, IHandleResponse responseHandler,AuctionClientController auctionController,String nickname) throws IOException, ClassNotFoundException {
         super(host, port, responseHandler);
         this.auctionController = auctionController;
+        this.nickname = nickname;
     }
 
 
     @Override
     public void connect() throws IOException, ClassNotFoundException {
-        request(new ConnectionRequest(UserType.SUBASTADOR,"Cliente"+getClientId()));
+        request(new ConnectionRequest(UserType.SUBASTADOR,nickname));
         request(new GetClientsRequest());  //Pide que le devuelvan los clientes conectados
     }
 

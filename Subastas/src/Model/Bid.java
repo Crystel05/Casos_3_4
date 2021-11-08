@@ -9,4 +9,5 @@ public class Bid {
         this.oferente = oferente;
         this.montoPujado = montoPujado;
     }
+
 }

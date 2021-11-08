@@ -1,8 +1,10 @@
 package Controller;
 
+import Model.AuctionData;
 import Model.ClientData;
 import Model.ClientNetwork;
 import ProjectNetwork.AuctionClientResponseHandler;
+import Request.AuctionRequest;
 import Vista.Comprador;
 import Vista.Subastar;
 
@@ -31,11 +33,15 @@ public class AuctionClientController {
         return controller;
     }
     public void nuevaConexion(String name) throws IOException, ClassNotFoundException {
-        ClientNetwork clientNetwork = new ClientNetwork("localhost",9999,new AuctionClientResponseHandler(),this);
+        ClientNetwork clientNetwork = new ClientNetwork("localhost",9999,new AuctionClientResponseHandler(),this,name);
         clientNetwork.connect();
         clients.add(clientNetwork);
         System.out.println(name);
 
+    }
+    public void crearSubasta(AuctionData auctionData) throws IOException, ClassNotFoundException {
+        //Crea un request para crear subasta, para un subastador determinado
+        clients.get(subastadorActualId).request(new AuctionRequest(auctionData));
     }
 
     public Comprador getComprador() {
@@ -56,7 +62,7 @@ public class AuctionClientController {
 
     public void setClients(ArrayList<ClientData> clients) {
         this.clientsData = clients;
-        //subastador.setClients(clients);
+        subastador.setClients(clients);
         //clients.loadPosts();
     }
 

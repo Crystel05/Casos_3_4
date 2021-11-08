@@ -23,6 +23,7 @@ public class AuctionClientResponseHandler implements IHandleResponse {
         switch (type){
             case CONEXION_EXITOSA:
                 ConnectionResponse connection = (ConnectionResponse) response;
+                controlador.setSubastadorActualId(((ConnectionResponse) response).clientId);  //Setea el id actual
                 System.out.println(connection.content);
                 break;
 

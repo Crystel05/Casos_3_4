@@ -13,4 +13,9 @@ public class ClientData implements Serializable {
         this.subastasHechas = subastasHechas;
         this.subastasSuscritas = subastasSuscritas;
     }
+
+    public String getNickName() {
+        return nickName;
+    }
+
 }

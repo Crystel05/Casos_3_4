@@ -16,7 +16,15 @@ public class Product {
         this.precioInicial = precioInicial;
         this.precioFinal = precioFinal;
     }
-
+    public Product(String nombre, String descripcion, String image) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.imagen = image;
+    }
+    public Product(String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
     public Product(String nombre, String descripcion, String imagen, double precioInicial, double precioFinal) {
         this.nombre = nombre;
         this.descripcion = descripcion;

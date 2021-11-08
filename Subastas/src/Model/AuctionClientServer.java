@@ -21,7 +21,9 @@ public class AuctionClientServer extends BasicServerClient {
     public String getNickName() {
         return nickName;
     }
-/*public void ofertar(int idSubasta,double monto){
+
+
+    /*public void ofertar(int idSubasta,double monto){
         for (SubastaServer subasta:subastasSuscritas) {
             if(subasta.getObjectId() == idSubasta){
                 //Tiene que llamar al server

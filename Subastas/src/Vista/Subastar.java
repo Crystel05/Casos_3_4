@@ -1,5 +1,7 @@
 package Vista;
 
+import Model.AuctionData;
+import Model.ClientData;
 import Model.DragWindow;
 import Model.Product;
 import javafx.application.Platform;
@@ -28,6 +30,10 @@ import Controller.AuctionClientController;
 
 import java.io.*;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class Subastar implements Initializable, DragWindow {
@@ -35,6 +41,7 @@ public class Subastar implements Initializable, DragWindow {
     AuctionClientController controlador = AuctionClientController.getInstance();//TODO:Cuidado con este new
     private String subastadorNombre;
     private String subastaNombre;
+    private String ruta = "";
 
     @FXML
     private TextArea ofertasAcepSub;
@@ -90,6 +97,20 @@ public class Subastar implements Initializable, DragWindow {
     @FXML
     private TextField txtName;
 
+
+    @FXML
+    private TextField txtAuctionName;
+
+    @FXML
+    private TextField txtDescripcion;
+
+    @FXML
+    private TextField txtFechaInicio;
+
+    @FXML
+    private TextField txtFechaFinal;
+
+
     @FXML
     public void cerrar(MouseEvent event) {
         System.exit(1);
@@ -110,6 +131,51 @@ public class Subastar implements Initializable, DragWindow {
             panelVer.setVisible(false);
             panelCrear.setVisible(true);
         }
+    }
+
+
+    /*
+    @FXML
+    void publicar(ActionEvent event) throws IOException, ClassNotFoundException {
+        controladorArtista.post(post.getText());
+        controladorArtista.getArtistas();
+    }
+
+     */
+    @FXML
+    public void agregarSubasta(ActionEvent event) throws IOException, ClassNotFoundException {
+        Product product;
+        Date inicio = ParseFecha(txtFechaInicio.getText());
+        Date fin = ParseFecha(txtFechaFinal.getText());
+        if (!(inicio==null && fin==null)){
+            if(this.ruta.equals("")){
+                product = new Product(txtAuctionName.getText(),txtDescripcion.getText());
+            }else
+            {
+                product = new Product(txtAuctionName.getText(),txtDescripcion.getText(),this.ruta);
+            }
+            controlador.crearSubasta(new AuctionData(product,inicio,fin));
+            System.out.println("Todo bien al tomar los datos fecha y demas");
+        }
+        else{
+            System.out.println("Formato de fechas incorrecto");
+        }
+
+
+    }
+
+    public static Date ParseFecha(String fecha)
+    {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date fechaDate = null;
+        try {
+            fechaDate = formato.parse(fecha);
+        }
+        catch (ParseException ex)
+        {
+            System.out.println(ex);
+        }
+        return fechaDate;
     }
 
     @FXML
@@ -173,14 +239,15 @@ public class Subastar implements Initializable, DragWindow {
 
     @FXML
     public void selecImagenProd(ActionEvent event) {
+        this.ruta = "";
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Escoger imagen");
         Node source = (Node) event.getSource();
         Stage stageActual = (Stage) source.getScene().getWindow();
         File file = fileChooser.showOpenDialog(stageActual);
-        String pathFoto = file.getPath();
-        //hacer cosas con el path
+        this.ruta = file.getPath();
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.onDraggedScene(contenedor);
@@ -195,8 +262,8 @@ public class Subastar implements Initializable, DragWindow {
     @FXML
     public void connectToServer(ActionEvent event) throws IOException, ClassNotFoundException {
         controlador.nuevaConexion(txtName.getText());
-        //buscar la oferta y rechazarla
     }
+
 
     public void defaultConectionUpdate(){
         Platform.runLater(new Runnable() {
@@ -207,6 +274,22 @@ public class Subastar implements Initializable, DragWindow {
         });
         //loadPosts(); load lo que ocupe
     }
+
+
+    public void setClients(ArrayList<ClientData> auctionClients) {
+        ObservableList<String> names = FXCollections.observableArrayList();
+        for (ClientData auctionClient:auctionClients) {
+            names.add(auctionClient.getNickName());
+        }
+
+        Platform.runLater(new Runnable() {
+            @Override public void run() {
+                subastadores.setItems(names);
+            }
+        });
+    }
+
+
     /*
     private void llenarDatos(Auction subasta) throws FileNotFoundException {
         try {

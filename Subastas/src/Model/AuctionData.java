@@ -25,4 +25,21 @@ public class AuctionData  implements Serializable {
         this.estado = estado;
         this.nickname = nickname;
     }
+    public AuctionData(Product producto, Date inicio, Date fin) {
+        this.producto = producto;
+        this.inicio = inicio;
+        this.fin = fin;
+    }
+
+    public void setSubastaId(int subastaId) {
+        this.subastaId = subastaId;
+    }
+
+    public int getSubastaId() {
+        return subastaId;
+    }
+    public String getNickname() {
+        return nickname;
+    }
+
 }
