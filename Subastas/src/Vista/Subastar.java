@@ -279,6 +279,12 @@ public class Subastar implements Initializable, DragWindow {
     }
 
 
+    @FXML
+    public void ofertar(ActionEvent event) {
+        System.out.println("ofertar");
+    }
+
+
     /*
     private void llenarDatos(Auction subasta) throws FileNotFoundException {
         try {

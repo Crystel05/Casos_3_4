@@ -19,17 +19,12 @@
                   <Font name="Bauhaus 93" size="32.0" />
                </font>
             </Button>
-            <Button layoutX="463.0" layoutY="294.0" mnemonicParsing="false" onAction="#verSubastas" prefHeight="79.0" prefWidth="292.0" text="VER SUBASTAS">
+            <Button layoutX="292.0" layoutY="288.0" mnemonicParsing="false" onAction="#verSubastas" prefHeight="79.0" prefWidth="292.0" text="VER SUBASTAS">
                <font>
                   <Font name="Bauhaus 93" size="32.0" />
                </font>
             </Button>
-            <Button disable="true" layoutX="85.0" layoutY="294.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="292.0">
-               <font>
-                  <Font name="Bauhaus 93" size="32.0" />
-               </font>
-            </Button>
-            <Button disable="true" layoutX="463.0" layoutY="143.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="292.0">
+            <Button fx:id="btnOfertar" layoutX="463.0" layoutY="143.0" mnemonicParsing="false" onAction="#ofertar" prefHeight="79.0" prefWidth="292.0" text="OFERTAR">
                <font>
                   <Font name="Bauhaus 93" size="32.0" />
                </font>
