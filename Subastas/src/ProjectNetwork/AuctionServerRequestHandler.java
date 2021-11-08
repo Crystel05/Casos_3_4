@@ -8,11 +8,10 @@ import Network.BaseServerClasses.BasicServerClient;
 import Network.Request.IHandleRequest;
 import Network.Request.IRequest;
 import Network.Server.ServerRequestHandler;
-import Request.AuctionRequest;
-import Request.BidRequest;
-import Request.ConnectionRequest;
+import Request.*;
 import Responses.ConnectionResponse;
 import Responses.GetClientsResponse;
+import Responses.SubastaExitosaResponse;
 
 
 import java.io.IOException;
@@ -53,23 +52,63 @@ public class AuctionServerRequestHandler implements IHandleRequest {
                 System.out.println("Intenta subastar");
                 AuctionRequest auctionRequest = (AuctionRequest) request;
                 SubastaServer subasta = new SubastaServer(requestHandler.getObjects().size(),auctionRequest.getAuctionData().producto);
-                AuctionClientServer client = (AuctionClientServer) requestHandler.getServer().getClient(auctionRequest.subastadorId, requestHandler.getClientes());
-                client.agregarSubasta(subasta);
+                AuctionClientServer subastador = getClient(auctionRequest.subastadorId,requestHandler);
+                subastador.agregarSubasta(subasta);
                 break;
             }
             case PUJAR:{
                 System.out.println("Intenta ofertar");
                 BidRequest bidRequest = (BidRequest) request;
-                AuctionClientServer oferenteServer = (AuctionClientServer) requestHandler.getServer().getClient(bidRequest.bid.getOferenteId(), requestHandler.getClientes());
-                SubastaServer subastaServer = (SubastaServer) requestHandler.getServer().getObject(bidRequest.bid.getSubastaId());
-                AuctionClientServer subastadorServer = subastaServer.getOwner();
-                oferenteServer.ofertar(bidRequest.bid,subastadorServer);
+                AuctionClientServer oferenteServer = getClient(bidRequest.bid.getOferenteId(),requestHandler);
+                SubastaServer subastaServer = getSubasta(bidRequest.bid.getSubastaId(),requestHandler);
+                AuctionClientServer subastadorServer = subastaServer.getOwner();//Esto para que se le pueda notificar de la oferta
+                oferenteServer.ofertar(bidRequest.bid,subastadorServer);//Metodo del objeto cliente del servidor para enviar respuesta de peticion de oferta
                 break;
             }
-
+            case APROVED_BID_REQUEST:{
+                System.out.println("Respuesta de subastador");
+                AprovedBid aprovedBid = (AprovedBid) request;
+                SubastaServer subastaServer = getSubasta(aprovedBid.bid.getSubastaId(),requestHandler);
+                AuctionClientServer subastador = getClient(aprovedBid.subastadorId,requestHandler);
+                AuctionClientServer oferenteServer = getClient(aprovedBid.bid.getOferenteId(),requestHandler);
+                if(aprovedBid.aproved)
+                    subastador.aceptarOferta(subastaServer,oferenteServer,aprovedBid.bid.getMonto());
+                else
+                    subastador.rechazarOferta(subastaServer,oferenteServer,aprovedBid.bid.getMonto());
+                break;
+            }
+            case CERRAR_SUBASTA:{
+                System.out.println("Cerrando la subasta");
+                CloseAuctionRequest closeAuctionRequest = (CloseAuctionRequest) request;
+                SubastaServer subasta = getSubasta(closeAuctionRequest.subastaId,requestHandler);
+                subasta.cerrar();
+                break;
+            }
+            case CANCELAR_SUBASTA:{
+                System.out.println("Cancelando la subasta");
+                CancelAuctionRequest cancelAuctionRequest = (CancelAuctionRequest) request;
+                SubastaServer subasta = getSubasta(cancelAuctionRequest.subastaId,requestHandler);
+                subasta.cancelar();
+                break;
+            }
+            case SUBSCRIBE_TO_AUCTION:{
+                System.out.println("Uniendose a subasta");
+                FollowAuctionRequest followAuctionRequest = (FollowAuctionRequest) request;
+                SubastaServer subastaServer = getSubasta(followAuctionRequest.auctionId,requestHandler);
+                AuctionClientServer auctionClientServer = getClient(followAuctionRequest.oferenteId,requestHandler);
+                auctionClientServer.unirseASubasta(subastaServer);
+            }
             default:{
                 break;
             }
         }
+    }
+
+    public AuctionClientServer getClient(int id,ServerRequestHandler handler){
+        return (AuctionClientServer) handler.getServer().getClient(id,handler.getClientes());
+    }
+
+    public SubastaServer getSubasta(int id,ServerRequestHandler handler){
+        return (SubastaServer) handler.getServer().getObject(id);
     }
 }

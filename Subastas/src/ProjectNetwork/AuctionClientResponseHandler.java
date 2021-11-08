@@ -6,10 +6,7 @@ import ClientTypes.ClientNetwork;
 import Network.Client.ClientResponseHandler;
 import Network.Response.IHandleResponse;
 import Network.Response.IResponse;
-import Responses.AprobacionOfertaResponse;
-import Responses.ConnectionResponse;
-import Responses.GetClientsResponse;
-import Responses.SubastaExitosaResponse;
+import Responses.*;
 
 
 public class AuctionClientResponseHandler implements IHandleResponse {
@@ -35,12 +32,35 @@ public class AuctionClientResponseHandler implements IHandleResponse {
             case SUBASTA_EXITOSA:{
                 SubastaExitosaResponse subastaExitosaResponse = (SubastaExitosaResponse) response;
                 controlador.getCurrentClient().addToNotifications(subastaExitosaResponse.content);
+                System.out.println(subastaExitosaResponse.content);
+                break;
             }
             case APROBACION_OFERTA:{
-                AprobacionOfertaResponse aprobacionOfertaResponse = (AprobacionOfertaResponse) response;
+                BidToAprove aprobacionOfertaResponse = (BidToAprove) response;
                 //Tiene que llevar la subasta para luego enviar un request con aceptado o denegado
                 controlador.setBidToAccept(aprobacionOfertaResponse.bid);
                 controlador.addToNotifiacions(aprobacionOfertaResponse.content);
+                break;
+            }
+            case AVISO_OFERTANTES:{
+                UpdateBidders updateBidders = (UpdateBidders) response;
+                System.out.println(updateBidders.content);
+                break;
+            }
+            case SUBASTA_FINALIZADA:{
+                CloseAuctionResponse closeAuctionResponse = (CloseAuctionResponse) response;
+                System.out.println(closeAuctionResponse.content);
+                break;
+            }
+            case BID_RESPONSE:{
+                BidResponse bidResponse = (BidResponse) response;
+                System.out.println(bidResponse.content);
+                break;
+            }
+            case SUBASTA_CANCELADA:{
+                CancelledAuctionResponse cancelledAuctionResponse = (CancelledAuctionResponse) response;
+                System.out.println(cancelledAuctionResponse.content);
+                break;
             }
             default:
                 break;

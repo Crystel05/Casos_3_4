@@ -10,8 +10,9 @@ public class BidRequest extends BaseRequest{
     public int subastadorId;
 
 
-    public BidRequest(Bid bid) {
+    public BidRequest(Bid bid,int subastadorId) {
         this.bid = bid;
         this.type = AuctionRequestType.PUJAR;
+        this.subastadorId = subastadorId;
     }
 }

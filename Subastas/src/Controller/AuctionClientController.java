@@ -5,6 +5,7 @@ import Model.Data.AuctionData;
 import Model.Data.ClientData;
 import ClientTypes.ClientNetwork;
 import ProjectNetwork.AuctionClientResponseHandler;
+import Request.AprovedBid;
 import Request.AuctionRequest;
 import Vista.Comprador;
 import Vista.Subastar;
@@ -21,7 +22,7 @@ public class AuctionClientController {
     private int subastadorActualId;
     private ArrayList<ClientNetwork> clients;
     private ArrayList<ClientData> clientsData;
-    private Bid bidToAccept;
+    private Bid bidToAccept;//Puede cambiarse a ser una cola de ofertas.
 
     public AuctionClientController( ) {
 
@@ -91,5 +92,14 @@ public class AuctionClientController {
 
     public void addToNotifiacions(String string) {
         getCurrentClient().addToNotifications(string);
+    }
+
+
+    public void acceptActualBid() throws IOException, ClassNotFoundException {
+        getCurrentClient().request(new AprovedBid(bidToAccept,subastadorActualId,true));
+    }
+
+    public void rejectActualBid() throws IOException, ClassNotFoundException {
+        getCurrentClient().request(new AprovedBid(bidToAccept,subastadorActualId,false));
     }
 }

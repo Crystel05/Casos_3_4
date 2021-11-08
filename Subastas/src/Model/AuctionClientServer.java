@@ -3,7 +3,8 @@ package Model;
 import Model.Data.AuctionData;
 import Model.Data.ClientData;
 import Network.BaseServerClasses.BasicServerClient;
-import Responses.AprobacionOfertaResponse;
+import Network.ObserverPattern.IObservable;
+import Responses.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class AuctionClientServer extends BasicServerClient {
     String nickName;
     ArrayList<SubastaServer> subastasHechas;
     ArrayList<SubastaServer> subastasSuscritas;
+    SubastaServer.NotifyMode notifyMode;
 
     public AuctionClientServer(int objectId, String nickName){
         super(objectId);
@@ -34,7 +36,7 @@ public class AuctionClientServer extends BasicServerClient {
 
     private void recibirOferta(Bid bid) throws IOException {
         //El nombre de los metodos de sacar el id esta mal en la libreria.
-        getResponseSender().sendResponse(new AprobacionOfertaResponse(bid));
+        getResponseSender().sendResponse(new BidToAprove(bid));
     }
 
     private int getId() {
@@ -55,21 +57,43 @@ public class AuctionClientServer extends BasicServerClient {
 
     }
 
-    public void unirseASubasta(int idSubasta){
-
+    public void unirseASubasta(SubastaServer subastaServer) throws IOException {
+        subastasSuscritas.add(subastaServer);
+        subastaServer.agregarOferente(this);
     }
 
-    public void agregarSubasta(SubastaServer subasta){
+    public void agregarSubasta(SubastaServer subasta) throws IOException {
         subasta.setOwner(this);
         subastasHechas.add(subasta);
+        getResponseSender().sendResponse(new SubastaExitosaResponse());
     }
 
-    public void felicitacionGanador(){
-
+    public void aceptarOferta(SubastaServer subasta, AuctionClientServer oferenteServer, double monto) throws IOException {
+         subasta.incrementarPrecio(monto);
+         oferenteServer.getResponseSender().sendResponse(new BidResponse(true,subasta.getData()));
     }
-    
-    public void aceptarOferta(){
 
+    public void rechazarOferta(SubastaServer subasta, AuctionClientServer oferenteServer, double monto) throws IOException {
+        oferenteServer.getResponseSender().sendResponse(new BidResponse(false,subasta.getData()));
+    }
+
+    public void setNotifyMode(SubastaServer.NotifyMode notifyMode) {
+        this.notifyMode = notifyMode;
+    }
+
+    @Override
+    public void update(IObservable observable) throws IOException {
+        SubastaServer subasta = (SubastaServer) observable;
+        switch (notifyMode){
+            case AUCTION_BID:
+                getResponseSender().sendResponse(new UpdateBidders(subasta.getData()));
+                break;
+            case AUCTION_CANCELATION:
+                getResponseSender().sendResponse(new CancelledAuctionResponse(subasta.getData()));
+                break;
+            default:
+                System.out.println("Error");
+        }
     }
 }
 
