@@ -40,6 +40,7 @@ public class Subastar implements Initializable, DragWindow {
     private String subastadorNombre;
     private String subastaNombre;
     private String ruta = "";
+    private int subastaActualPantalla;
 
     @FXML
     private TextArea ofertasAcepSub;
@@ -116,9 +117,14 @@ public class Subastar implements Initializable, DragWindow {
 
     @FXML
     public void atras(MouseEvent event) {
-        panelVer.setVisible(false);
-        panelCrear.setVisible(false);
-        panelOpciones.setVisible(true);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                panelVer.setVisible(false);
+                panelCrear.setVisible(false);
+                panelOpciones.setVisible(true);
+            }
+        });
     }
 
     @FXML
@@ -136,6 +142,7 @@ public class Subastar implements Initializable, DragWindow {
         Product product;
         Date inicio = ParseFecha(txtFechaInicio.getText());
         Date fin = ParseFecha(txtFechaFinal.getText());
+        //double precio = txtPrecio.getText();
         if (!(inicio==null && fin==null)){
             if(this.ruta.equals("")){//Producto sin imagen
                 product = new Product(txtAuctionName.getText(),txtDescripcion.getText());
@@ -168,49 +175,45 @@ public class Subastar implements Initializable, DragWindow {
     }
 
     @FXML
-    public void verSubastas(ActionEvent event) {
-        subastadorNombre = subastadores.getSelectionModel().getSelectedItem();
-        if (subastadorNombre != null) {
+    public void verSubastas(ActionEvent event) throws IOException, ClassNotFoundException {
+        controlador.getClientes();
+        System.out.println(controlador.getCurrentClient());
+        controlador.setSubastaActual(subastaActualPantalla);
+
             panelOpciones.setVisible(false);
             panelVer.setVisible(true);
             panelCrear.setVisible(false);
             subastaNombre = subastas.getSelectionModel().getSelectedItem();
-            //lenar combobos
-            ObservableList<String> subastasNoms = FXCollections.observableArrayList();
-            subastasNoms.add("Gato");
-            subastasNoms.add("Todoroki POP");
-            subastas.setItems(subastasNoms);
-        }
+            controlador.updateSubastaActual();
+        //Traer los subastadores. Y con el actual entonces mostrar la subasta actual.(Falta el update)
+        //Se tiene que llevar un indice para saber cual de la lista del cliente actual(Subastador) es la que se muestra en pantalla
+        //Puedo cambiar a otras subastas.
+        //En la pantalla principal puedo cambiar a otros clientes.
     }
 
     @FXML
     public void cargarDetalles(MouseEvent event) throws FileNotFoundException {
-        subastadorNombre = subastas.getSelectionModel().getSelectedItem();
-        if (nombreSubasta != null) {
-            //cargar detalles
-            //Auction subasta = new Auction(10, new Product());
-            //llenarDatos(subasta);
-            System.out.println("aqui");
-        }
+        controlador.setSubastadorActualId(subastas.getSelectionModel().getSelectedIndex());
     }
 
     @FXML
-    public void cerrarSubasta(ActionEvent event) throws IOException {
+    public void cerrarSubasta(ActionEvent event) throws IOException, ClassNotFoundException {
 //        Subasta subasta = new Subasta(10, new Producto());
 //        subasta.cerrar(); // acomodar luego por lo real
         mensaje.setText("Subasta cerrada");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLS/Felicitacion.fxml"));
-        Parent root = fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.initStyle(StageStyle.TRANSPARENT);
-        stage.setResizable(false);
-        stage.setScene(new Scene(root));
-        stage.show();
+        controlador.cerrarSubasta();
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLS/Felicitacion.fxml"));
+//        Parent root = fxmlLoader.load();
+//        Stage stage = new Stage();
+//        stage.initStyle(StageStyle.TRANSPARENT);
+//        stage.setResizable(false);
+//        stage.setScene(new Scene(root));
+//        stage.show();
     }
 
     @FXML
-    public void cancelarSubasta(ActionEvent event) {
-        mensaje.setText("Subasta cancelada");
+    public void cancelarSubasta(ActionEvent event) throws IOException, ClassNotFoundException {
+        controlador.cancelarSubasta();
     }
 
     @FXML
@@ -258,7 +261,7 @@ public class Subastar implements Initializable, DragWindow {
                 subastadores.getSelectionModel().select(controlador.getSubastadorActualId());
             }
         });
-        //loadPosts(); load lo que ocupe
+        controlador.cargarSubasta();//Que hace este cargar subasta?
     }
 
 
@@ -288,20 +291,20 @@ public class Subastar implements Initializable, DragWindow {
     }
 
 
-    /*
-    private void llenarDatos(Auction subasta) throws FileNotFoundException {
+
+    public void llenarDatos(AuctionData subasta) throws FileNotFoundException {
+        System.out.println("Llenando datos cliente");
         try {
-            nombreSubasta.setText(subasta.getProducto().getNombre());
-            descripcionSubasta.setText(subasta.getProducto().getDescripcion());
-            statusSubasta.setText(subasta.getEstado().name());
-            fechaInicio.setText(subasta.getInicio().toString());
-            fechaFin.setText(subasta.getFin().toString());
-            InputStream stream = new FileInputStream(subasta.getProducto().getImagen());
-            Image image = new Image(stream);
-            imagenSub.setImage(image);
+            nombreSubasta.setText(subasta.producto.getNombre());
+            descripcionSubasta.setText(subasta.producto.getDescripcion());
+            statusSubasta.setText(subasta.estado.name());
+            fechaInicio.setText(subasta.inicio.toString());
+            fechaFin.setText(subasta.fin.toString());
+            //InputStream stream = new FileInputStream(subasta.getProducto().getImagen());
+            //Image image = new Image(stream);
+            //imagenSub.setImage(image);
         }catch (NullPointerException ignored){}
         }
-        */
-        //lenar lo de ofertas hechas y por aceptar
+
     }
 

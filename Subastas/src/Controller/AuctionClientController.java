@@ -5,12 +5,12 @@ import Model.Data.AuctionData;
 import Model.Data.ClientData;
 import ClientTypes.ClientNetwork;
 import ProjectNetwork.AuctionClientResponseHandler;
-import Request.AprovedBid;
-import Request.AuctionRequest;
+import Request.*;
 import Vista.Comprador;
 import Vista.Subastar;
 
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -23,6 +23,7 @@ public class AuctionClientController {
     private ArrayList<ClientNetwork> clients;
     private ArrayList<ClientData> clientsData;
     private Bid bidToAccept;//Puede cambiarse a ser una cola de ofertas.
+    private AuctionData subastaActual;
 
     public AuctionClientController( ) {
 
@@ -101,5 +102,28 @@ public class AuctionClientController {
 
     public void rejectActualBid() throws IOException, ClassNotFoundException {
         getCurrentClient().request(new AprovedBid(bidToAccept,subastadorActualId,false));
+    }
+
+    public void cerrarSubasta() throws IOException, ClassNotFoundException {
+        getCurrentClient().request(new CloseAuctionRequest(subastaActual.subastaId,subastadorActualId));
+    }
+
+    public void cancelarSubasta() throws IOException, ClassNotFoundException {
+        getCurrentClient().request(new CancelAuctionRequest(subastaActual.subastaId,subastadorActualId));
+    }
+
+    public void cargarSubasta() {
+    }
+
+    public void getClientes() throws IOException, ClassNotFoundException {
+        getCurrentClient().request(new GetClientsRequest());
+    }
+
+    public void updateSubastaActual() throws FileNotFoundException {
+        subastadorPantalla.llenarDatos(subastaActual);
+    }
+
+    public void setSubastaActual(int subastaActualPantalla) {
+        this.subastaActual = clientsData.get(subastadorActualId).subastasHechas.get(0);
     }
 }
