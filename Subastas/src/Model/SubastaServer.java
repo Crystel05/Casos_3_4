@@ -4,7 +4,12 @@ import Enums.AuctionState;
 import Model.Data.AuctionData;
 import Model.Data.Product;
 import Network.BaseServerClasses.BasicServerObject;
+import Network.ObserverPattern.IObserver;
+import Request.FollowAuctionRequest;
+import Responses.CloseAuctionResponse;
+import Responses.FollowAuctionResponse;
 
+import java.io.IOException;
 import java.util.Date;
 
 public class SubastaServer extends BasicServerObject {
@@ -14,7 +19,12 @@ public class SubastaServer extends BasicServerObject {
     private Date fin;
     private AuctionState estado;
     private AuctionClientServer owner;
+    private AuctionClientServer winner;
+    private NotifyMode notifyMode;
 
+    enum NotifyMode{
+        AUCTION_CANCELATION,AUCTION_CLOSE,AUCTION_BID
+    }
 
     public Product getProducto() {
         return producto;
@@ -39,28 +49,46 @@ public class SubastaServer extends BasicServerObject {
         this.inicio = new Date();
     }
 
-    public void cerrar(){
+    public void cerrar() throws IOException {
         if(estado.equals(AuctionState.ACTIVO)){
             estado = AuctionState.TERMINADO;
             fin = new Date();
+            felicitarGanador();
         }
     }
-    public void cancelar(){
+
+    private void felicitarGanador() throws IOException {
+        winner.getResponseSender().sendResponse(new CloseAuctionResponse(this.getData()));
+    }
+
+    public void cancelar() throws IOException {
         if(!estado.equals(AuctionState.CANCELADO)){
             estado = AuctionState.CANCELADO;
             fin = new Date();
+            this.notifyMode = NotifyMode.AUCTION_CANCELATION;
         }
     }
 
-    public void incrementarPrecio(double precio){
+    public void incrementarPrecio(double precio) throws IOException {
         if(estado.equals(AuctionState.ACTIVO) && precio > producto.getPrecioFinal()){
             producto.setPrecioFinal(precio);
+            this.notifyMode = NotifyMode.AUCTION_BID;
+            updateAll();
         }
     }
 
-    public void agregarOferente(AuctionClientServer oferente)
-    {
+    @Override
+    public void updateAll() throws IOException {
+        for (IObserver subscribed:getObservadores()) {
+            AuctionClientServer oferente = (AuctionClientServer) subscribed;
+            oferente.setNotifyMode(notifyMode);
+            oferente.update(this);
+        }
+    }
+
+    public void agregarOferente(AuctionClientServer oferente) throws IOException {
         addObserver(oferente);
+        oferente.getResponseSender().sendResponse(new FollowAuctionResponse());
     }
 
     public AuctionData getData(){
@@ -74,4 +102,6 @@ public class SubastaServer extends BasicServerObject {
     public AuctionClientServer getOwner() {
         return this.owner;
     }
+
+
 }

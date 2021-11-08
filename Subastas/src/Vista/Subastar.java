@@ -214,16 +214,13 @@ public class Subastar implements Initializable, DragWindow {
     }
 
     @FXML
-    public void aceptarOferta(ActionEvent event){
-        String oferta = ofertasSubs.getSelectionModel().getSelectedItem();
-        //buscar la oferta y aceptarla
-
+    public void aceptarOferta(ActionEvent event) throws IOException, ClassNotFoundException {
+        controlador.acceptActualBid();
     }
 
     @FXML
-    public void rechazarOferta(ActionEvent event){
-        String oferta = ofertasSubs.getSelectionModel().getSelectedItem();
-        //buscar la oferta y rechazarla
+    public void rechazarOferta(ActionEvent event) throws IOException, ClassNotFoundException {
+        controlador.rejectActualBid();
     }
 
     @FXML

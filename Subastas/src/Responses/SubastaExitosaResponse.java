@@ -7,7 +7,7 @@ public class SubastaExitosaResponse extends BaseResponse {
 
     public String content = "La subasta se ha creado con exito";
 
-    SubastaExitosaResponse(){
+    public SubastaExitosaResponse(){
         this.type = AuctionResponseType.SUBASTA_EXITOSA;
     }
 }
