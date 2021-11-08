@@ -1,7 +1,7 @@
 package Network.Server;
 
-import Network.BaseServerClasses.BasicServerClient;
 import Network.BaseServerClasses.BasicServerObject;
+import Network.BaseServerClasses.BasicServerClient;
 import Network.Request.IHandleRequest;
 
 import java.io.IOException;

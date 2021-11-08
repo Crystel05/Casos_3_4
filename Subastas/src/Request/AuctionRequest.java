@@ -1,18 +1,17 @@
 package Request;
 
 import Enums.AuctionRequestType;
-import Model.AuctionData;
-import Model.SubastaServer;
+import Model.Data.AuctionData;
 import Network.Request.BaseRequest;
-import Network.Request.IRequest;
 
 public class AuctionRequest extends BaseRequest {
     public AuctionData auctionData;
-    public AuctionRequestType type;
+    public int subastadorId;
 
-    public AuctionRequest(AuctionData auctionData){
+    public AuctionRequest(AuctionData auctionData,int subastadorId){
         this.auctionData = auctionData;
         this.type = AuctionRequestType.SUBASTAR;
+        this.subastadorId = subastadorId;
     }
 
     public AuctionData getAuctionData() {

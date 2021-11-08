@@ -1,10 +1,12 @@
 package Network.Client;
 
+import Network.Request.IRequest;
 import Network.Response.IHandleResponse;
 import Network.Response.IResponse;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class ClientResponseHandler extends Thread{

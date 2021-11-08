@@ -1,7 +1,11 @@
 package Model;
 
+import Model.Data.AuctionData;
+import Model.Data.ClientData;
 import Network.BaseServerClasses.BasicServerClient;
+import Responses.AprobacionOfertaResponse;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 //TODO: Tiene que extender de Cliente de la libreria de conexion
@@ -23,14 +27,19 @@ public class AuctionClientServer extends BasicServerClient {
     }
 
 
-    /*public void ofertar(int idSubasta,double monto){
-        for (SubastaServer subasta:subastasSuscritas) {
-            if(subasta.getObjectId() == idSubasta){
-                //Tiene que llamar al server
-                subasta.incrementarPrecio(monto);
-            }
-        }
-    }*/
+    public void ofertar(Bid bid,AuctionClientServer subastador) throws IOException {
+        subastador.recibirOferta(bid);
+        //Una vez enviada la oferta es enviada al subastador (Otro cliente del servidor)
+    }
+
+    private void recibirOferta(Bid bid) throws IOException {
+        //El nombre de los metodos de sacar el id esta mal en la libreria.
+        getResponseSender().sendResponse(new AprobacionOfertaResponse(bid));
+    }
+
+    private int getId() {
+        return getObjectId();
+    }
 
     public ClientData getData() {
         ArrayList<AuctionData> subastas_hechas = new ArrayList<>();
@@ -50,24 +59,9 @@ public class AuctionClientServer extends BasicServerClient {
 
     }
 
-    public void verSubastas(){
-
-    }
-
-    public void sendRequest(){
-
-    }
-
-    public void crearSubasta(){
-
-    }
-
-    public void cerrarSubasta(){
-
-    }
-
-    public void cancelarSubasta(){
-
+    public void agregarSubasta(SubastaServer subasta){
+        subasta.setOwner(this);
+        subastasHechas.add(subasta);
     }
 
     public void felicitacionGanador(){

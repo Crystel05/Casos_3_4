@@ -1,17 +1,16 @@
 package Responses;
 
-import Enums.AuctionRequestType;
-import Enums.AutionResponseType;
+import Enums.AuctionResponseType;
 import Model.SubastaServer;
+import Network.Response.BaseResponse;
 import Network.Response.IResponse;
 
-public class AuctionResponse implements IResponse {
+public class AuctionResponse extends BaseResponse {
     public SubastaServer auctionServer;
-    public AutionResponseType type;
 
     public AuctionResponse(SubastaServer auctionServer){
         this.auctionServer = auctionServer;
-        this.type = AutionResponseType.SUBASTA_FINALIZADA;
+        this.type = AuctionResponseType.SUBASTA_FINALIZADA;
     }
 
     @Override

@@ -1,11 +1,9 @@
 package Network.BaseServerClasses;
 
-
-import Network.Server.ObserverPattern.IObservable;
-import Network.Server.ObserverPattern.IObserver;
+import Network.ObserverPattern.IObservable;
+import Network.ObserverPattern.IObserver;
 import Network.Server.ServerRequestHandler;
 import Network.Server.ServerResponseSender;
-
 
 import java.io.IOException;
 
@@ -34,7 +32,6 @@ public class BasicServerClient implements IObserver {
     public ServerResponseSender getResponseSender() {
         return responseSender;
     }
-
 
     public void setResponseSender(ServerResponseSender responseSender) {
         this.responseSender = responseSender;

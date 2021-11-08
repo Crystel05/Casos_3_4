@@ -1,8 +1,7 @@
 package Responses;
 
-import Enums.AutionResponseType;
+import Enums.AuctionResponseType;
 import Network.Response.BaseResponse;
-import Network.Response.IResponse;
 
 
 public class ConnectionResponse extends BaseResponse {
@@ -11,7 +10,7 @@ public class ConnectionResponse extends BaseResponse {
     public int clientId;
 
     public ConnectionResponse(int clientId){
-        this.type = AutionResponseType.CONEXION_EXITOSA;
+        this.type = AuctionResponseType.CONEXION_EXITOSA;
         this.clientId = clientId;
     }
 

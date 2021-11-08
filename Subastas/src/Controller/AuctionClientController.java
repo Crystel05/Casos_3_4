@@ -1,8 +1,9 @@
 package Controller;
 
-import Model.AuctionData;
-import Model.ClientData;
-import Model.ClientNetwork;
+import Model.Bid;
+import Model.Data.AuctionData;
+import Model.Data.ClientData;
+import ClientTypes.ClientNetwork;
 import ProjectNetwork.AuctionClientResponseHandler;
 import Request.AuctionRequest;
 import Vista.Comprador;
@@ -15,11 +16,12 @@ import java.util.ArrayList;
 public class AuctionClientController {
 
     private static AuctionClientController controller;
-    private Comprador comprador;
-    private Subastar subastador;
+    private Comprador compradorPantalla;
+    private Subastar subastadorPantalla;
     private int subastadorActualId;
     private ArrayList<ClientNetwork> clients;
     private ArrayList<ClientData> clientsData;
+    private Bid bidToAccept;
 
     public AuctionClientController( ) {
 
@@ -41,28 +43,28 @@ public class AuctionClientController {
     }
     public void crearSubasta(AuctionData auctionData) throws IOException, ClassNotFoundException {
         //Crea un request para crear subasta, para un subastador determinado
-        clients.get(subastadorActualId).request(new AuctionRequest(auctionData));
+        clients.get(subastadorActualId).request(new AuctionRequest(auctionData,subastadorActualId));
     }
 
     public Comprador getComprador() {
-        return comprador;
+        return compradorPantalla;
     }
 
-    public void setComprador(Comprador comprador) {
-        this.comprador = comprador;
+    public void setComprador(Comprador compradorPantalla) {
+        this.compradorPantalla = compradorPantalla;
     }
 
     public Subastar getSubastador() {
-        return subastador;
+        return subastadorPantalla;
     }
 
     public void setSubastador(Subastar subastador) {
-        this.subastador = subastador;
+        this.subastadorPantalla = subastador;
     }
 
     public void setClients(ArrayList<ClientData> clients) {
         this.clientsData = clients;
-        subastador.setClients(clients);
+        subastadorPantalla.setClients(clients);
         //clients.loadPosts();
     }
 
@@ -75,9 +77,19 @@ public class AuctionClientController {
     }
 
     public void defaultUpdate(){
-        subastador.defaultConectionUpdate();
+        subastadorPantalla.defaultConectionUpdate();
     }
 
 
+    public ClientNetwork getCurrentClient(){
+        return clients.get(getSubastadorActualId());
+    }
 
+    public void setBidToAccept(Bid bid) {
+        this.bidToAccept = bid;
+    }
+
+    public void addToNotifiacions(String string) {
+        getCurrentClient().addToNotifications(string);
+    }
 }

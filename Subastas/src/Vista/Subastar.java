@@ -1,9 +1,9 @@
 package Vista;
 
-import Model.AuctionData;
-import Model.ClientData;
+import Model.Data.AuctionData;
+import Model.Data.ClientData;
 import Model.DragWindow;
-import Model.Product;
+import Model.Data.Product;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,11 +14,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -133,25 +131,16 @@ public class Subastar implements Initializable, DragWindow {
         }
     }
 
-
-    /*
-    @FXML
-    void publicar(ActionEvent event) throws IOException, ClassNotFoundException {
-        controladorArtista.post(post.getText());
-        controladorArtista.getArtistas();
-    }
-
-     */
     @FXML
     public void agregarSubasta(ActionEvent event) throws IOException, ClassNotFoundException {
         Product product;
         Date inicio = ParseFecha(txtFechaInicio.getText());
         Date fin = ParseFecha(txtFechaFinal.getText());
         if (!(inicio==null && fin==null)){
-            if(this.ruta.equals("")){
+            if(this.ruta.equals("")){//Producto sin imagen
                 product = new Product(txtAuctionName.getText(),txtDescripcion.getText());
             }else
-            {
+            {//Producto con imagen
                 product = new Product(txtAuctionName.getText(),txtDescripcion.getText(),this.ruta);
             }
             controlador.crearSubasta(new AuctionData(product,inicio,fin));

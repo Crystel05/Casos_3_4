@@ -1,6 +1,8 @@
-package Model;
+package Model.Data;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
 
     String nombre;
     String descripcion;

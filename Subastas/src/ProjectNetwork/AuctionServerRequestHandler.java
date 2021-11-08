@@ -1,16 +1,15 @@
 package ProjectNetwork;
 
 import Enums.AuctionRequestType;
-import Enums.UserType;
 import Model.AuctionClientServer;
-import Model.AuctionData;
-import Model.ClientData;
+import Model.Data.ClientData;
 import Model.SubastaServer;
 import Network.BaseServerClasses.BasicServerClient;
 import Network.Request.IHandleRequest;
 import Network.Request.IRequest;
 import Network.Server.ServerRequestHandler;
 import Request.AuctionRequest;
+import Request.BidRequest;
 import Request.ConnectionRequest;
 import Responses.ConnectionResponse;
 import Responses.GetClientsResponse;
@@ -27,7 +26,6 @@ public class AuctionServerRequestHandler implements IHandleRequest {
         switch (type){
             case CONNECT:{
                 ConnectionRequest connection = (ConnectionRequest) request;
-                //Aqui no sabria como manjer lo del nombre
                 int clientId = requestHandler.getClientes().size();
                 requestHandler.getResponseSender().sendResponse(new ConnectionResponse(clientId));
                 requestHandler.addToClients(new AuctionClientServer(clientId,connection.getUserName()));  // Se agrega siempre a clientes
@@ -54,24 +52,18 @@ public class AuctionServerRequestHandler implements IHandleRequest {
             case SUBASTAR:{
                 System.out.println("Intenta subastar");
                 AuctionRequest auctionRequest = (AuctionRequest) request;
-                AuctionData auctionData = ((AuctionRequest) request).getAuctionData();
-                auctionData.setSubastaId(requestHandler.getObjects().size());  //Le pone un Id a la subasta
-                //SubastaServer subasta = (SubastaServer) requestHandler.getServer().getClientes(auctionData.getSubastaId(),requestHandler.getClientes());
-                //requestHandler.addToObjects();
-
-                /*
-                //Se busca el artista en el server por el id que llega en el request
-                ArtistaServer artistaServer = (ArtistaServer) requestHandler.getServer().getClient(postRequest.artistId, requestHandler.getClientes());
-                PostServer post = artistaServer.createPost(requestHandler.getObjects().size(),postRequest.content);
-                if(post != null)
-                    requestHandler.addToObjects(post);//Con este se guardan las subastas/post
-                System.out.println(postRequest.content);
-                requestHandler.getResponseSender().sendResponse(new PostCreadoResponse());
+                SubastaServer subasta = new SubastaServer(requestHandler.getObjects().size(),auctionRequest.getAuctionData().producto);
+                AuctionClientServer client = (AuctionClientServer) requestHandler.getServer().getClient(auctionRequest.subastadorId, requestHandler.getClientes());
+                client.agregarSubasta(subasta);
                 break;
-                */
             }
             case PUJAR:{
                 System.out.println("Intenta ofertar");
+                BidRequest bidRequest = (BidRequest) request;
+                AuctionClientServer oferenteServer = (AuctionClientServer) requestHandler.getServer().getClient(bidRequest.bid.getOferenteId(), requestHandler.getClientes());
+                SubastaServer subastaServer = (SubastaServer) requestHandler.getServer().getObject(bidRequest.bid.getSubastaId());
+                AuctionClientServer subastadorServer = subastaServer.getOwner();
+                oferenteServer.ofertar(bidRequest.bid,subastadorServer);
                 break;
             }
 

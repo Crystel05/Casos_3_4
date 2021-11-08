@@ -4,6 +4,7 @@ import Network.Request.IRequest;
 import Network.Response.IHandleResponse;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
@@ -17,7 +18,6 @@ public class Client {
     }
 
     public void setClientId(int clientId) {
-
         this.clientId = clientId;
     }
 

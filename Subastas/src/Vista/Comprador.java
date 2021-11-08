@@ -1,6 +1,5 @@
 package Vista;
 
-import Model.AuctionClientServer;
 import Model.DragWindow;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,19 +7,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Comprador implements Initializable, DragWindow {
+
+
 
     @FXML
     private Text finSubT;
@@ -65,7 +62,7 @@ public class Comprador implements Initializable, DragWindow {
 
     @FXML
     void enviarOferta(ActionEvent event) {
-        mensaje.setText("Oferta enviada");
+
     }
 
     @FXML

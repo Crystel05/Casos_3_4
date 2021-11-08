@@ -1,7 +1,7 @@
 package Network.BaseServerClasses;
 
-import Network.Server.ObserverPattern.IObservable;
-import Network.Server.ObserverPattern.IObserver;
+import Network.ObserverPattern.IObservable;
+import Network.ObserverPattern.IObserver;
 
 import java.io.IOException;
 import java.util.ArrayList;
