@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -12,7 +13,7 @@
             <Font name="Bodoni MT Black" size="36.0" />
          </font>
       </Text>
-      <Pane fx:id="panelOpciones" layoutY="86.0" prefHeight="443.0" prefWidth="857.0">
+      <Pane fx:id="panelOpciones" layoutY="86.0" prefHeight="443.0" prefWidth="857.0" visible="false">
          <children>
             <Button layoutX="85.0" layoutY="143.0" mnemonicParsing="false" onAction="#crearSubasta" prefHeight="79.0" prefWidth="292.0" text="CREAR SUBASTA">
                <font>
@@ -111,7 +112,7 @@
             <TextField fx:id="txtPrecioInicial" layoutX="218.0" layoutY="302.0" prefHeight="30.0" prefWidth="208.0" />
          </children>
       </Pane>
-      <Pane fx:id="panelVer" layoutY="86.0" prefHeight="443.0" prefWidth="857.0" visible="false">
+      <Pane fx:id="panelVer" layoutY="86.0" prefHeight="443.0" prefWidth="857.0">
          <children>
             <Text layoutX="358.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ver subastas">
                <font>
@@ -204,10 +205,13 @@
                      <font>
                         <Font name="Century Schoolbook" size="16.0" />
                      </font></TextArea>
-                  <ImageView fitHeight="29.0" fitWidth="39.0" layoutX="13.0" layoutY="323.0" onMouseDragged="#atras" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="42.0" fitWidth="56.0" layoutX="13.0" layoutY="310.0" onMouseDragged="#atras" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Imagenes/atrás.png" />
                      </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </ImageView>
                   <Text fx:id="mensaje" fill="RED" layoutX="422.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
                      <font>
@@ -218,7 +222,7 @@
             </Pane>
          </children>
       </Pane>
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="811.0" layoutY="10.0" onMouseClicked="#cerrar" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="801.0" layoutY="10.0" onMouseClicked="#cerrar" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/cerrar.png" />
          </image>
