@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 
-<Pane fx:id="contenedor" prefHeight="570.0" prefWidth="954.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.Comprador">
+<Pane fx:id="contenedor" prefHeight="570.0" prefWidth="954.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.Comprador">
    <children>
       <Text layoutX="374.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comprador">
          <font>
@@ -107,7 +108,7 @@
          </font>
       </Text>
       <ComboBox fx:id="subastasCB" layoutX="538.0" layoutY="114.0" onMouseClicked="#ver" prefHeight="31.0" prefWidth="195.0" />
-      <ImageView fitHeight="42.0" fitWidth="41.0" layoutX="899.0" layoutY="14.0" onMouseClicked="#cerrar" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="42.0" fitWidth="33.0" layoutX="907.0" layoutY="14.0" onMouseClicked="#cerrar" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/cerrar.png" />
          </image></ImageView>

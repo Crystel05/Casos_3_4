@@ -109,10 +109,7 @@ public class Subastar implements Initializable, DragWindow {
     @FXML
     private TextField txtFechaFinal;
 
-    @FXML
-    private TextField txtPrecioInicial;
 
-    
     @FXML
     public void cerrar(MouseEvent event) {
         System.exit(1);
