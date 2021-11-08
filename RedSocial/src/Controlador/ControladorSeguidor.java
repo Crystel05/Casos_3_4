@@ -101,7 +101,7 @@ public class ControladorSeguidor {
 
     public void setArtistas(ArrayList<ArtistData> artistas) {
         this.artistas = artistas;
-            artistaActualId = 0;
+            artistaActualId = artistaActualId;
             seguidoresPantalla.setArtistas(artistas);
     }
 

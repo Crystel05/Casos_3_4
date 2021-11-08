@@ -96,14 +96,14 @@ public class Famosos implements Initializable, DragWindow {
     @FXML
     void siguiente(MouseEvent event) throws IOException, ClassNotFoundException {
         nextPost();
-        controladorArtista.update();
+        //controladorArtista.update();
     }
 
     @FXML
     void atras(MouseEvent event) throws IOException, ClassNotFoundException {
         prevPost();
-        controladorArtista.update();
-    }
+        //controladorArtista.update(); Cuando hago un update todo se pone en 0 por ejemplo no pasa las pagina porque vuelve a poner en 0 y cuando cargo artistas por el evento no me deja cambiar de pagina de artista.
+    }//Los botones de nexxto no funcionan
 
     //Este boton es como el de conectar
     @FXML

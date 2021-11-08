@@ -88,13 +88,13 @@ public class Seguidores implements Initializable, DragWindow {
     @FXML
     void atras(MouseEvent event) throws IOException, ClassNotFoundException {
         prevPost();
-        controladorSeguidor.update();
+        //controladorSeguidor.update();
     }
 
     @FXML
     void siguiente(MouseEvent event) throws IOException, ClassNotFoundException {
         nextPost();
-        controladorSeguidor.update();
+        //controladorSeguidor.update();
     }
 
     @FXML
@@ -217,6 +217,7 @@ public class Seguidores implements Initializable, DragWindow {
     }
 
     public void nextPost(){
+        System.out.println("eNTRO A NEXT");
         postActualPantalla += 2;
         if(postActualPantalla >controladorSeguidor.getCurrentPosts().size())
             postActualPantalla = 0;
@@ -226,7 +227,7 @@ public class Seguidores implements Initializable, DragWindow {
     public void prevPost(){
         postActualPantalla -= 2;
         if(postActualPantalla <0)
-            postActualPantalla = controladorSeguidor.getCurrentPosts().size();
+            postActualPantalla = controladorSeguidor.getCurrentPosts().size()-1;
         loadPosts();
     }
 
