@@ -4,6 +4,7 @@ import Model.DragWindow;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -11,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -67,7 +69,9 @@ public class Comprador implements Initializable, DragWindow {
 
     @FXML
     void cerrar(MouseEvent event) {
-        System.exit(1);
+        Node source = (Node) event.getSource();
+        Stage stageActual = (Stage) source.getScene().getWindow();
+        stageActual.close();
     }
 
     @FXML

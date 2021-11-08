@@ -277,8 +277,14 @@ public class Subastar implements Initializable, DragWindow {
 
 
     @FXML
-    public void ofertar(ActionEvent event) {
-        System.out.println("ofertar");
+    public void ofertar(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLS/comprador.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setResizable(false);
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
 
