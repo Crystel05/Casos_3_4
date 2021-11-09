@@ -67,7 +67,11 @@ public class AuctionClientController {
     public void setClients(ArrayList<ClientData> clients) {
         this.clientsData = clients;
         subastadorPantalla.setClients(clients);
-        //clients.loadPosts();
+    }
+
+    public void setSubastas(int subastadorId){
+        System.out.println("Set subasta");
+        subastadorPantalla.setSubastas(clientsData.get(subastadorId).subastasHechas);
     }
 
     public int getSubastadorActualId() {
@@ -82,7 +86,6 @@ public class AuctionClientController {
         subastadorPantalla.defaultConectionUpdate();
     }
 
-
     public ClientNetwork getCurrentClient(){
         return clients.get(getSubastadorActualId());
     }
@@ -94,7 +97,6 @@ public class AuctionClientController {
     public void addToNotifiacions(String string) {
         getCurrentClient().addToNotifications(string);
     }
-
 
     public void acceptActualBid() throws IOException, ClassNotFoundException {
         getCurrentClient().request(new AprovedBid(bidToAccept,subastadorActualId,true));
@@ -112,8 +114,6 @@ public class AuctionClientController {
         getCurrentClient().request(new CancelAuctionRequest(subastaActual.subastaId,subastadorActualId));
     }
 
-    public void cargarSubasta() {
-    }
 
     public void getClientes() throws IOException, ClassNotFoundException {
         getCurrentClient().request(new GetClientsRequest());
@@ -124,6 +124,22 @@ public class AuctionClientController {
     }
 
     public void setSubastaActual(int subastaActualPantalla) {
-        this.subastaActual = clientsData.get(subastadorActualId).subastasHechas.get(0);
+        this.subastaActual = clientsData.get(subastadorActualId).subastasHechas.get(subastaActualPantalla);
+    }
+
+    public void ofertar(int monto,int subastador) throws IOException, ClassNotFoundException {
+        this.getCurrentClient().request(new BidRequest(new Bid(subastadorActualId,subastaActual.subastaId,monto),subastador));
+    }
+
+    public void updateCompradorPantalla() throws FileNotFoundException {
+        compradorPantalla.llenarDatos(subastaActual);
+    }
+
+
+    //Se tiene que traer todas las subastas
+    public void defaultUpdateComprador() {
+        compradorPantalla.defaultConectionUpdate();
+        compradorPantalla.setClients(clientsData);
+        compradorPantalla.setSubastas(clientsData.get(0).subastasHechas);
     }
 }

@@ -1,6 +1,11 @@
 package Vista;
 
+import Model.Data.AuctionData;
+import Model.Data.ClientData;
 import Model.DragWindow;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,12 +18,18 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import Controller.AuctionClientController;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Comprador implements Initializable, DragWindow {
 
+    AuctionClientController controlador = AuctionClientController.getInstance();
+    private int subastaActualPantalla;
 
 
     @FXML
@@ -31,7 +42,7 @@ public class Comprador implements Initializable, DragWindow {
     private Text inicioSubT;
 
     @FXML
-    private ComboBox<?> subastasCB;
+    private ComboBox<String> subastasCB;
 
     @FXML
     private Pane contenedor;
@@ -43,7 +54,7 @@ public class Comprador implements Initializable, DragWindow {
     private TextField ofertaTF;
 
     @FXML
-    private ComboBox<?> compradoresCB;
+    private ComboBox<String> compradoresCB;
 
     @FXML
     private ImageView imagenSubI;
@@ -63,8 +74,8 @@ public class Comprador implements Initializable, DragWindow {
     }
 
     @FXML
-    void enviarOferta(ActionEvent event) {
-
+    void enviarOferta(ActionEvent event) throws IOException, ClassNotFoundException {
+        controlador.ofertar(Integer.parseInt(ofertaTF.getText()),compradoresCB.getSelectionModel().getSelectedIndex());
     }
 
     @FXML
@@ -74,33 +85,78 @@ public class Comprador implements Initializable, DragWindow {
         stageActual.close();
     }
 
+    //Aca se cargan los combo de subastas
     @FXML
-    void ver (MouseEvent event){
-        if (compradoresCB.getSelectionModel().getSelectedItem() != null){
-            if (subastasCB.getSelectionModel().getSelectedItem() != null){
-                    //llenarDetalles(new Auction(10, new Product()));
-            }
-        }
+    void ver (MouseEvent event) throws FileNotFoundException {
+        controlador.setSubastaActual(subastasCB.getSelectionModel().getSelectedIndex());
+        controlador.updateCompradorPantalla();
+    }
+
+    @FXML
+    void cargarDetallesCompradores(MouseEvent event){
+        controlador.setSubastas(compradoresCB.getSelectionModel().getSelectedIndex());
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.onDraggedScene(contenedor);
+        controlador.setComprador(this);
+        this.subastasCB.getSelectionModel().select(0);
+        this.compradoresCB.getSelectionModel().select(0);
+        //controlador.defaultUpdateComprador(compradoresCB.getSelectionModel().getSelectedIndex());
+
     }
 
 
-    /*
-    private void llenarDetalles(AuctionClientServer subasta){
+    public void defaultConectionUpdate(){
+        Platform.runLater(new Runnable() {
+            @Override public void run() {
+                compradoresCB.getSelectionModel().select(controlador.getSubastadorActualId());
+                subastasCB.getSelectionModel().select(subastaActualPantalla);
+            }
+        });
+    }
+    public void setClients(ArrayList<ClientData> auctionClients) {
+        ObservableList<String> names = FXCollections.observableArrayList();
+        for (ClientData auctionClient:auctionClients) {
+            names.add(auctionClient.getNickName());
+        }
+
+        Platform.runLater(new Runnable() {
+            @Override public void run() {
+                compradoresCB.setItems(names);
+            }
+        });
+    }
+
+    public void setSubastas(ArrayList<AuctionData> subastasClienteActual){
+        ObservableList<String> names = FXCollections.observableArrayList();
+
+        for (AuctionData auctionData:subastasClienteActual){
+            names.add(String.valueOf(auctionData.producto.getNombre()));
+        }
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                subastasCB.setItems(names);
+            }
+        });
+    }
+
+    public void llenarDatos(AuctionData subasta) throws FileNotFoundException {
+        System.out.println("Llenando datos cliente");
         try {
-            nombreSubT.setText(subasta.getProducto().getNombre());
-            descSubTA.setText(subasta.getProducto().getDescripcion());
-            statusSubT.setText(subasta.getEstado().name());
-            inicioSubT.setText(subasta.getInicio().toString());
-            finSubT.setText(subasta.getFin().toString());
-            InputStream stream = new FileInputStream(subasta.getProducto().getImagen());
-            Image image = new Image(stream);
-            imagenSubI.setImage(image);
-        }catch (NullPointerException | FileNotFoundException ignored){}
+            nombreSubT.setText(subasta.producto.getNombre());
+            descSubTA.setText(subasta.producto.getDescripcion());
+            statusSubT.setText(subasta.estado.name());
+            inicioSubT.setText(subasta.inicio.toString());
+            finSubT.setText(subasta.fin.toString());
+            //InputStream stream = new FileInputStream(subasta.getProducto().getImagen());
+            //Image image = new Image(stream);
+            //imagenSub.setImage(image);
+        }catch (Exception e){
+            System.out.println("Error al llenar los datos");
+        }
     }
-     */
+
 }

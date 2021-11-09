@@ -36,9 +36,7 @@ import java.util.ResourceBundle;
 
 public class Subastar implements Initializable, DragWindow {
 
-    AuctionClientController controlador = AuctionClientController.getInstance();//TODO:Cuidado con este new
-    private String subastadorNombre;
-    private String subastaNombre;
+    AuctionClientController controlador = AuctionClientController.getInstance();
     private String ruta = "";
     private int subastaActualPantalla;
 
@@ -129,12 +127,9 @@ public class Subastar implements Initializable, DragWindow {
 
     @FXML
     public void crearSubasta(ActionEvent event) {
-        subastadorNombre = subastadores.getSelectionModel().getSelectedItem();
-        if (subastadorNombre != null) {
-            panelOpciones.setVisible(false);
-            panelVer.setVisible(false);
-            panelCrear.setVisible(true);
-        }
+        panelOpciones.setVisible(false);
+        panelVer.setVisible(false);
+        panelCrear.setVisible(true);
     }
 
     @FXML
@@ -176,15 +171,14 @@ public class Subastar implements Initializable, DragWindow {
 
     @FXML
     public void verSubastas(ActionEvent event) throws IOException, ClassNotFoundException {
+        System.out.println("Me llamo en ver Subastas");
+        controlador.setSubastas(subastadores.getSelectionModel().getSelectedIndex());
         controlador.getClientes();
-        System.out.println(controlador.getCurrentClient());
         controlador.setSubastaActual(subastaActualPantalla);
-
-            panelOpciones.setVisible(false);
-            panelVer.setVisible(true);
-            panelCrear.setVisible(false);
-            subastaNombre = subastas.getSelectionModel().getSelectedItem();
-            controlador.updateSubastaActual();
+        panelOpciones.setVisible(false);
+        panelVer.setVisible(true);
+        panelCrear.setVisible(false);
+        controlador.updateSubastaActual();
         //Traer los subastadores. Y con el actual entonces mostrar la subasta actual.(Falta el update)
         //Se tiene que llevar un indice para saber cual de la lista del cliente actual(Subastador) es la que se muestra en pantalla
         //Puedo cambiar a otras subastas.
@@ -193,22 +187,15 @@ public class Subastar implements Initializable, DragWindow {
 
     @FXML
     public void cargarDetalles(MouseEvent event) throws FileNotFoundException {
-        controlador.setSubastadorActualId(subastas.getSelectionModel().getSelectedIndex());
+        controlador.setSubastaActual(subastas.getSelectionModel().getSelectedIndex());
+        controlador.updateSubastaActual();
     }
 
     @FXML
     public void cerrarSubasta(ActionEvent event) throws IOException, ClassNotFoundException {
-//        Subasta subasta = new Subasta(10, new Producto());
-//        subasta.cerrar(); // acomodar luego por lo real
         mensaje.setText("Subasta cerrada");
         controlador.cerrarSubasta();
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLS/Felicitacion.fxml"));
-//        Parent root = fxmlLoader.load();
-//        Stage stage = new Stage();
-//        stage.initStyle(StageStyle.TRANSPARENT);
-//        stage.setResizable(false);
-//        stage.setScene(new Scene(root));
-//        stage.show();
+        //Hacer el update de la subasta
     }
 
     @FXML
@@ -240,9 +227,6 @@ public class Subastar implements Initializable, DragWindow {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.onDraggedScene(contenedor);
-        //ObservableList<String> subast = FXCollections.observableArrayList();
-        //subast.add("Luis"); subast.add("Juan");
-        //subastadores.setItems(subast);
         this.controlador.setSubastador(this);  //Le paso al controlador la referencia de esta ventana para que la modifique en dado caso
     }
 
@@ -257,11 +241,10 @@ public class Subastar implements Initializable, DragWindow {
     public void defaultConectionUpdate(){
         Platform.runLater(new Runnable() {
             @Override public void run() {
-
                 subastadores.getSelectionModel().select(controlador.getSubastadorActualId());
+                subastas.getSelectionModel().select(subastaActualPantalla);
             }
         });
-        controlador.cargarSubasta();//Que hace este cargar subasta?
     }
 
 
@@ -274,6 +257,20 @@ public class Subastar implements Initializable, DragWindow {
         Platform.runLater(new Runnable() {
             @Override public void run() {
                 subastadores.setItems(names);
+            }
+        });
+    }
+
+    public void setSubastas(ArrayList<AuctionData> subastasClienteActual){
+        ObservableList<String> names = FXCollections.observableArrayList();
+
+        for (AuctionData auctionData:subastasClienteActual){
+            names.add(String.valueOf(auctionData.producto.getNombre()));
+        }
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                subastas.setItems(names);
             }
         });
     }
@@ -303,7 +300,9 @@ public class Subastar implements Initializable, DragWindow {
             //InputStream stream = new FileInputStream(subasta.getProducto().getImagen());
             //Image image = new Image(stream);
             //imagenSub.setImage(image);
-        }catch (NullPointerException ignored){}
+        }catch (Exception e){
+            System.out.println("Error al llenar los datos");
+        }
         }
 
     }

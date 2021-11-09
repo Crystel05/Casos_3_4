@@ -53,6 +53,7 @@ public class AuctionServerRequestHandler implements IHandleRequest {
                 AuctionRequest auctionRequest = (AuctionRequest) request;
                 SubastaServer subasta = new SubastaServer(requestHandler.getObjects().size(),auctionRequest.getAuctionData().producto);
                 AuctionClientServer subastador = getClient(auctionRequest.subastadorId,requestHandler);
+                requestHandler.addToObjects(subasta);
                 subastador.agregarSubasta(subasta);
                 break;
             }
