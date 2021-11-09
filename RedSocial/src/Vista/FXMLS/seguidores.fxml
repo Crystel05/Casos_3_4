@@ -42,7 +42,7 @@
                 <Image url="@../Imágenes/siguiente.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="730.0" layoutY="376.0" onContextMenuRequested="#siguiente" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="730.0" layoutY="376.0" onContextMenuRequested="#siguiente" onMouseClicked="#siguiente" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../Imágenes/siguiente.png" />
             </image>

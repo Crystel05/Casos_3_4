@@ -6,6 +6,7 @@ import RedSocialTest.Model.Data.PostData;
 import RedSocialTest.Model.Data.SeguidorData;
 import RedSocialTest.ProjectNetwork.ArtistaResponseHandler;
 import RedSocialTest.Requests.GetArtistasRequest;
+import RedSocialTest.Requests.GetDownRequest;
 import RedSocialTest.Requests.PostRequest;
 import Vista.CrearPost;
 import Vista.Famosos;
@@ -89,5 +90,9 @@ public class ControladorArtista {
     public void update() throws IOException, ClassNotFoundException {
         //Llamado por pantalla diferente al default llamado por el cliente
         getArtistas();
+    }
+
+    public void getDown() throws IOException, ClassNotFoundException {
+        artistasClientes.get(artistaActualId).request(new GetDownRequest());
     }
 }

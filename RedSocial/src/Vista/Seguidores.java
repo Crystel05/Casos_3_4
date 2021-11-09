@@ -80,7 +80,7 @@ public class Seguidores implements Initializable, DragWindow {
     }
 
     @FXML
-    void cargarDatosFamosos(MouseEvent event) throws IOException, ClassNotFoundException {
+    void cargarDatosFamosos() throws IOException, ClassNotFoundException {
         updateCurrentArtista();
         controladorSeguidor.update();
     }
@@ -149,6 +149,15 @@ public class Seguidores implements Initializable, DragWindow {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.onDraggedScene(contenedor);
+        famosos.getSelectionModel().selectedIndexProperty().addListener((observable, oldValue, newValue)-> {//Borrar :(
+            try {
+                cargarDatosFamosos();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
         controladorSeguidor.setSeguidoresPantalla(this);
     }
 

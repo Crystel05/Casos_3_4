@@ -89,8 +89,8 @@ public class Famosos implements Initializable, DragWindow {
 
 
     @FXML
-    void buscar(MouseEvent event) { //iniciar
-
+    void buscar(MouseEvent event) throws IOException, ClassNotFoundException { //iniciar
+        conectarse();
     }
 
     @FXML
@@ -108,8 +108,8 @@ public class Famosos implements Initializable, DragWindow {
     //Este boton es como el de conectar
     @FXML
     void darseBaja(ActionEvent event) throws IOException, ClassNotFoundException {
-        conectarse();
-        //client.request(new GetDownRequest());
+
+        controladorArtista.getDown();
         //controladorArtista.update();
     }
 

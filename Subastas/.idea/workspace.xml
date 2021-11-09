@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4de2532c-8b7d-4a34-a7bb-29d411f08605" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/Requests/DislikeRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/Requests/FollowRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/Requests/GetArtistasRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/Requests/GetDownRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/Requests/LikeRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RedSocial/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RedSocial/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/Model/Artista.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/Model/Artista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/Model/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/Model/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/Model/Seguidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/Model/Seguidor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/ProjectNetwork/SocialClientResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/ProjectNetwork/SocialClientResponseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/ProjectNetwork/SocialServerRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/ProjectNetwork/SocialServerRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RedSocial/TestChat/src/RedSocialTest/Responses/TestResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RedSocial/TestChat/src/Vista/CrearPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RedSocial/TestChat/src/Vista/CrearPost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RedSocial/TestChat/src/Vista/FXMLS/seguidores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../RedSocial/TestChat/src/Vista/FXMLS/seguidores.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RedSocial/TestChat/src/Vista/Famosos.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RedSocial/TestChat/src/Vista/Famosos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RedSocial/TestChat/src/Vista/Seguidores.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RedSocial/TestChat/src/Vista/Seguidores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/FXMLS/subastar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/FXMLS/subastar.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="49936f8c-58a3-4652-bb6d-24865c75c635" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,5 +55,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

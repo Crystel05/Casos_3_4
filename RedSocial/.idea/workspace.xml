@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="99cb6e78-0426-4f08-8545-4ce516fdc616" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controlador/ControladorSeguidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlador/ControladorSeguidor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RedSocial/Vista/FXMLS/famosos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RedSocial/Vista/FXMLS/famosos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RedSocial/Vista/FXMLS/seguidores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RedSocial/Vista/FXMLS/seguidores.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controlador/ControladorArtista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlador/ControladorArtista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/FXMLS/famosos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/FXMLS/famosos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/FXMLS/seguidores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/FXMLS/seguidores.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/Famosos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Famosos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vista/Seguidores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Seguidores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Subastas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Subastas/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +62,7 @@
       <recent name="RedSocialTest.Requests" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ArtistaMain">
+  <component name="RunManager" selected="Application.SeguidoresMain">
     <configuration name="ArtistaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ArtistaMain" />
       <module name="RedSocial" />
@@ -99,9 +105,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SeguidoresMain" />
         <item itemvalue="Application.ArtistaMain" />
         <item itemvalue="Application.ServerMain" />
-        <item itemvalue="Application.SeguidoresMain" />
         <item itemvalue="Application.ClientMain" />
       </list>
     </recent_temporary>
@@ -123,6 +129,8 @@
       <workItem from="1636202375765" duration="17817000" />
       <workItem from="1636236992853" duration="5814000" />
       <workItem from="1636342595866" duration="1950000" />
+      <workItem from="1636404712863" duration="1264000" />
+      <workItem from="1636435608659" duration="405000" />
     </task>
     <servers />
   </component>
